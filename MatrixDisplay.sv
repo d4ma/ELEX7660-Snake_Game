@@ -1,15 +1,98 @@
 // MatrixDisplay.sv
 // Output signals to the Matrix display
-// Bryce Adam
-// Mar 05, 2024
+// Author: Bryce Adam
+// Created: Mar 05, 2024
+// Last Modified: Mar 09, 2024
 
 module MatrixDisplay
 (
-    input logic clk,
+    input logic clk, // clock signal (may want to add asynchronous reset)
     input logic [15:0][15:0] grid,
 
     // Signals to output to the daisy chained matrices
     output logic DIN, CS, LED_CLK
 );
+    // define constants
+    parameter on_reg = 8'b00001100;
+    parameter turn_on = 8'b00000001; // Turn on the LED display
+    parameter bright_reg = 8'b00001010;
+    parameter brightness = 8'b00001111; // Set to max brightness
+
+    int databit = 0;
+    // logic [1:0] matrix_num;
+    logic [3:0] grid_row = 0;
+    logic [3:0] grid_col = 0;
+    logic [3:0] row_addr = 0;
+
+    enum int unsigned {start, load, bright, transmit}
+        state, prev_state;
+
+    always_ff @(posedge clk) begin
+        if (state == load)
+            databit <= 0;
+        else if (databit < 16)
+            databit <= databit + 1;
+        else begin
+            databit <= 0;
+            // matrix_num <= matrix_num + 1;
+        end
+    end
+
+    always_ff @(negedge clk) begin
+        if(state == start) begin // execute the start command sequence
+            CS <= 0;
+            if(databit < 8)
+                DIN <= on_reg[7-databit]; // Send a bit of the on register
+            else if (databit < 16) begin
+                DIN <= turn_on[15-databit]; // Send a bit of the turn on command
+            end else begin
+                state <= load;
+                prev_state <= start;
+            end
+        end else if (state == load) begin // set data low and pulse 
+            DIN <= 0;
+            if (CS == 0) begin
+                CS <= 1;
+            end else begin
+                CS <= 0;
+                grid_col <= 0; // Modify if daisy chaining
+                if (prev_state == start)
+                    state <= bright;
+                else
+                    state <= transmit;
+            end
+        end else if (state == bright) begin
+            CS <= 0;
+            if(databit < 8)
+                DIN <= bright_reg[7-databit]; // Send a bit of the on register
+            else if (databit < 16) begin
+                DIN <= brightness[15-databit]; // Send a bit of the turn on command
+            end else begin
+                state <= load;
+                prev_state <= bright;
+            end
+        end else if (state == transmit) begin // Most time should be spent here
+            CS <= 0;
+            if(databit < 8)
+                DIN <= row_addr[7-databit]; // Send a bit to specify the row address
+            else if (databit < 16) begin
+                DIN <= grid[grid_row][grid_col]; // Send a bit of the turn on command
+                if (databit >= 15)
+                    state <= load;
+            end
+        end
+    end
+
+    // For now set LED_CLK equal to the input clock
+    // May need to be divided or given state dependance later
+    assign LED_CLK = (state != load) ? clk : 1'b0;
+
+    // Sets addresses to send commands to
+    always_comb begin
+        if (grid_row < 8)
+            row_addr = 8 - grid_row;
+        else
+            row_addr = 16 - grid_row;
+    end
 
 endmodule
