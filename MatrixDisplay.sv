@@ -22,7 +22,7 @@ module MatrixDisplay
     // logic [1:0] matrix_num;
     logic [3:0] grid_row = 0;
     logic [3:0] grid_col = 0;
-    logic [3:0] row_addr = 0;
+    logic [7:0] row_addr = 0;
 
     enum int unsigned {start, load, bright, transmit}
         state, prev_state;
@@ -30,7 +30,20 @@ module MatrixDisplay
     always_ff @(posedge clk) begin
         if (state == load)
             databit <= 0;
-        else if (databit < 16)
+        else if (state == transmit) begin
+            if (databit < 16) begin
+                if (databit > 7) begin
+                    databit <= databit + 1;
+                    if (grid_col < 7) // Can be removed when daisy chaining is implemented
+                        grid_col <= grid_col + 1;
+                    else
+                        grid_col <= 0;
+                end else
+                    databit <= databit + 1;
+            end else begin
+                databit <= 0;
+            end
+        end else if (databit < 16)
             databit <= databit + 1;
         else begin
             databit <= 0;
@@ -55,7 +68,6 @@ module MatrixDisplay
                 CS <= 1;
             end else begin
                 CS <= 0;
-                grid_col <= 0; // Modify if daisy chaining
                 if (prev_state == start)
                     state <= bright;
                 else
@@ -77,8 +89,12 @@ module MatrixDisplay
                 DIN <= row_addr[7-databit]; // Send a bit to specify the row address
             else if (databit < 16) begin
                 DIN <= grid[grid_row][grid_col]; // Send a bit of the turn on command
-                if (databit >= 15)
-                    state <= load;
+            end else begin
+                state <= load;
+                if (grid_row < 7)// Can be removed when daisy chaining is implemented
+                    grid_row <= grid_row + 1;
+                else
+                    grid_row <= 0;
             end
         end
     end
