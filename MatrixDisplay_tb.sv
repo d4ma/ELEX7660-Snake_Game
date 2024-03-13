@@ -1,11 +1,11 @@
 // ELEX 7660 202010 Lab Project
-// Testbench to test the MatrixDisplay module
+// Testbench to test the MatrixDisplay module in daisy chaining mode
 // Bryce Adam 2024/3/12
 
 
 module MatrixDisplay_tb();
 
-logic clk, reset;		 			 // clock
+logic clk, reset;		 	 // clock
 logic [15:0][15:0] grid;	 // input to the function
 logic [15:0] configword = 0; // capture configuration word from adcinterface
 logic [15:0] onword = 16'b00001100_00000001;
@@ -26,37 +26,41 @@ initial begin
 	
 	// loop until the startup sequence is complete
 
-	// wait for conversion start signal
-	@(posedge LED_CLK);
-		configword[15] = DIN;
+	for (int k = 0; k < 4; k++) begin
+		// wait for LED clock pulse
+		@(posedge LED_CLK);
+			configword[15] = DIN;
 
-		for (int i = 14; i>=0; i--)	begin
-			@(posedge LED_CLK);
-			// capture config word on positive edge
-			configword[i] = DIN;
-			@(negedge LED_CLK);
-		end
-	
-	// verify that correct configuration word is sent for the selected channel
-	$display ("Config work Check - %s: expected %4h, received %4h",  configword == onword ? "PASS" : "****FAIL****", onword, configword);
-
-	configword = 0;
-
-	// wait for conversion start signal
-	@(posedge LED_CLK);
-		configword[15] = DIN;
-
-		for (int i = 14; i>=0; i--)	begin
-			@(posedge LED_CLK);
-			// capture config word on positive edge
-			configword[i] = DIN;
-			@(negedge LED_CLK);
-		end
+			for (int i = 14; i>=0; i--)	begin
+				@(posedge LED_CLK);
+				// capture config word on positive edge
+				configword[i] = DIN;
+				@(negedge LED_CLK);
+			end
 		
-	// verify that correct configuration word is sent for the selected channel
-	$display ("Config work Check - %s: expected %4h, received %4h",  configword == brightword ? "PASS" : "****FAIL****", brightword, configword);
+		// verify that correct configuration word is sent for the selected channel
+		$display ("Config work Check - %s: expected %4h, received %4h",  configword == onword ? "PASS" : "****FAIL****", onword, configword);
 
-	configword = 0;
+		configword = 0;
+	end
+
+	for (int k = 0; k < 4; k++) begin
+		// wait LED clock pulse
+		@(posedge LED_CLK);
+			configword[15] = DIN;
+
+			for (int i = 14; i>=0; i--)	begin
+				@(posedge LED_CLK);
+				// capture config word on positive edge
+				configword[i] = DIN;
+				@(negedge LED_CLK);
+			end
+			
+		// verify that correct configuration word is sent for the selected channel
+		$display ("Config work Check - %s: expected %4h, received %4h",  configword == brightword ? "PASS" : "****FAIL****", brightword, configword);
+
+		configword = 0;
+	end
 
 	// Now loop through two sequences of commands to the led matrixes
 	grid[1] = 8'b01100110;
@@ -64,35 +68,39 @@ initial begin
 	grid[5] = 8'b01000010;
 	grid[6] = 8'b00111100;
 
-	for (j = 0; j<=7; j++) begin
-		@(posedge LED_CLK);
-			configword[15] <= DIN;
+	for (int k = 0; k < 4; k++) begin
+		for (j = 0; j<=7; j++) begin
+			@(posedge LED_CLK);
+				configword[15] <= DIN;
 
-			for (int i = 14; i>=0; i--)	begin
-				@(posedge LED_CLK);
-				// capture config word on positive edge
-				configword[i] = DIN;
-				@(negedge LED_CLK);
-			end
+				for (int i = 14; i>=0; i--)	begin
+					@(posedge LED_CLK);
+					// capture config word on positive edge
+					configword[i] = DIN;
+					@(negedge LED_CLK);
+				end
 
-			$display ("Config work Check - %s: expected %4h, received %4h",  configword == {row_addr, grid[j][7:0]} ? "PASS" : "****FAIL****", {row_addr, grid[j][7:0]}, configword);
-			configword = 0;
+				$display ("Config work Check - %s: expected %4h, received %4h",  configword == {row_addr, grid[j][7:0]} ? "PASS" : "****FAIL****", {row_addr, grid[j][7:0]}, configword);
+				configword = 0;
+		end
 	end
 
 	// Repeat to make sure all the commands are sent out again
-	for (j = 0; j<=7; j++) begin
-		@(posedge LED_CLK);
-			configword[15] <= DIN;
+	for (int k = 0; k < 4; k++) begin 
+		for (j = 0; j<=7; j++) begin
+			@(posedge LED_CLK);
+				configword[15] <= DIN;
 
-			for (int i = 14; i>=0; i--)	begin
-				@(posedge LED_CLK);
-				// capture config word on positive edge
-				configword[i] = DIN;
-				@(negedge LED_CLK);
-			end
+				for (int i = 14; i>=0; i--)	begin
+					@(posedge LED_CLK);
+					// capture config word on positive edge
+					configword[i] = DIN;
+					@(negedge LED_CLK);
+				end
 
-			$display ("Config work Check - %s: expected %4h, received %4h",  configword == {row_addr, grid[j][7:0]} ? "PASS" : "****FAIL****", {row_addr, grid[j][7:0]}, configword);
-			configword = 0;
+				$display ("Config work Check - %s: expected %4h, received %4h",  configword == {row_addr, grid[j][7:0]} ? "PASS" : "****FAIL****", {row_addr, grid[j][7:0]}, configword);
+				configword = 0;
+		end
 	end
 
 	repeat(2) @(posedge clk)
@@ -182,24 +190,45 @@ initial begin
 	reset = 0;
 	// Check that everything still works after reset
 
-	// wait for conversion start signal
-	@(posedge LED_CLK);
-		configword[15] = DIN;
+	// loop until the startup sequence is complete
 
-		for (int i = 14; i>=0; i--)	begin
-			@(posedge LED_CLK);
-			// capture config word on positive edge
-			configword[i] = DIN;
-			@(negedge LED_CLK);
-		end
-	
-	// verify that correct configuration word is sent for the selected channel
-	$display ("Config work Check - %s: expected %4h, received %4h",  configword == onword ? "PASS" : "****FAIL****", onword, configword);
+	for (int k = 0; k < 4; k++) begin
+		// wait for LED clock pulse
+		@(posedge LED_CLK);
+			configword[15] = DIN;
 
+			for (int i = 14; i>=0; i--)	begin
+				@(posedge LED_CLK);
+				// capture config word on positive edge
+				configword[i] = DIN;
+				@(negedge LED_CLK);
+			end
+		
+		// verify that correct configuration word is sent for the selected channel
+		$display ("Config work Check - %s: expected %4h, received %4h",  configword == onword ? "PASS" : "****FAIL****", onword, configword);
 
+		configword = 0;
+	end
+
+	for (int k = 0; k < 4; k++) begin
+		// wait LED clock pulse
+		@(posedge LED_CLK);
+			configword[15] = DIN;
+
+			for (int i = 14; i>=0; i--)	begin
+				@(posedge LED_CLK);
+				// capture config word on positive edge
+				configword[i] = DIN;
+				@(negedge LED_CLK);
+			end
+			
+		// verify that correct configuration word is sent for the selected channel
+		$display ("Config work Check - %s: expected %4h, received %4h",  configword == brightword ? "PASS" : "****FAIL****", brightword, configword);
+
+		configword = 0;
+	end
 
 	$stop;
-
 end
 
 // generate clock
