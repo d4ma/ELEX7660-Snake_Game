@@ -3,7 +3,7 @@
 // Author: Kento Sasaki 
 // Date: 2024-02-03
 
-module freqgen #(
+module ir_freqgen #(
     parameter FCLK
 )  // clock frequency, Hz
 (
