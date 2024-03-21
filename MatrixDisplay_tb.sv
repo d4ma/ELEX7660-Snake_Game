@@ -1,6 +1,6 @@
 // ELEX 7660 202010 Lab Project
 // Testbench to test the MatrixDisplay module in daisy chaining mode
-// Bryce Adam 2024/3/12
+// Bryce Adam 2024/3/19
 
 
 module MatrixDisplay_tb();
@@ -63,10 +63,11 @@ initial begin
 	end
 
 	// Now loop through two sequences of commands to the led matrixes
-	grid[1] = 8'b01100110;
-	grid[2] = 8'b01100110;
-	grid[5] = 8'b01000010;
-	grid[6] = 8'b00111100;
+	grid[0] = 16'b0000_0101_0101_1111
+	grid[1] = 16'b0110_0110_1011_0001;
+	grid[2] = 16'b0110_0110_1011_0000;
+	grid[5] = 16'b01000010;
+	grid[6] = 16'b00111100;
 
 	for (int k = 0; k < 4; k++) begin
 		for (j = 0; j<=7; j++) begin

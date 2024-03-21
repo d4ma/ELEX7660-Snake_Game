@@ -2,7 +2,7 @@
 // Output signals to the Matrix display
 // Author: Bryce Adam
 // Created: Mar 05, 2024
-// Last Modified: Mar 12, 2024
+// Last Modified: Mar 19, 2024
 
 module MatrixDisplay
 (

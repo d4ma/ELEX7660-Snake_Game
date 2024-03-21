@@ -7,6 +7,7 @@ module snakegame (
 
     logic [3:0] snakePos_x, snakePos_y, foodPos_x, foodPos_y; 
     logic [7:0] length;
+    logic [255:0][7:0] positions;
 
     always_ff @(posedge game_clk) begin
         if(~reset_n) begin
