@@ -5,7 +5,7 @@ module irReceiver_tb ();
   logic nec_clk, reset_n, ir_signal;  // clock and reset
   real burst;
   logic [31:0] iroutput;
-  logic [1:0] direction;
+  logic [31:0] word;
   localparam [31:0] CODES [4] = '{32'h20DF6A95, 32'h20DFEA15, 32'h20DF1AE5, 32'h20DF9A65};
 
   irReceiver dut_0 (.*);  // device under test
