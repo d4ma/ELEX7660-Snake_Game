@@ -26,6 +26,7 @@ module irReceiver_tb ();
     // wait for conversion start signal
     @(posedge nec_clk);
 
+    #40us;
 
     for(int i = 0; i < 4; i++) begin
         iroutput  = CODES[i];
