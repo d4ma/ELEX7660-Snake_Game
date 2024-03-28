@@ -14,7 +14,12 @@ module snakegame (
     logic [7:0] foodPos; 
     logic [7:0] length;
     logic [255:0][7:0] positions;
-    bit found;
+    logic found;
+
+    parameter [31:0] UP = 32'h20DF6A95;
+	parameter [31:0] DOWN = 32'h20DFEA15;
+	parameter [31:0] LEFT = 32'h20DF1AE5;
+	parameter [31:0] RIGHT = 32'h20DF9A65;
 
     always_ff @(posedge game_clk) begin
         if(~reset_n) begin
@@ -24,10 +29,10 @@ module snakegame (
         end
         else begin            
             case(direction)
-                32'h20DF6A95 : positions <= {positions[254:0], positions[0] - 16};
-                32'h20DFEA15 : positions <= {positions[254:0], positions[0] + 16};
-                32'h20DF1AE5 : positions <= {positions[254:0], positions[0] - 1};
-                32'h20DF9A65 : positions <= {positions[254:0], positions[0] + 1};
+                UP : positions <= {positions[254:0], positions[0] - 16};
+                DOWN : positions <= {positions[254:0], positions[0] + 16};
+                LEFT : positions <= {positions[254:0], positions[0] - 1};
+                RIGHT : positions <= {positions[254:0], positions[0] + 1};
             endcase
 
             if(foodPos == positions[0]) begin
@@ -51,8 +56,3 @@ module snakegame (
     end
 
 endmodule
-
-	// parameter [31:0] UP = 32'h20DF6A95;
-	// parameter [31:0] DOWN = 32'h20DFEA15;
-	// parameter [31:0] LEFT = 32'h20DF1AE5;
-	// parameter [31:0] RIGHT = 32'h20DF9A65;
