@@ -17,8 +17,8 @@ module irReceiver (
   state_t state = IDLE, next_state;
 
   logic prev_ir_signal;
-  logic [31:0] count;
-  logic [31:0] counter;
+  logic [31:0] bit_duration_counter;
+  logic [31:0] state_duration_counter;
 
   logic [31:0] buffer;
   logic [5:0] bit_count;
@@ -31,74 +31,68 @@ module irReceiver (
   // State register and next state logic
   always_ff @(posedge nec_clk) begin
     if (~reset_n) begin
-      state   <= IDLE;
-      counter <= 0;
-      buffer  <= 0;
+      state <= IDLE;
+      state_duration_counter <= 0;
+      buffer <= 0;
       word <= 0;
     end else begin
       case (state)
         IDLE: begin
           if (!ir_signal & prev_ir_signal) begin
-            state   <= next_state;
-            counter <= 0;
+            state <= next_state;
+            state_duration_counter <= 0;
           end
         end
         START_LOW: begin
-          if(counter < 165) begin
-            if(counter > 155 & ~prev_ir_signal & ir_signal) begin
+          if (state_duration_counter < 165) begin
+            if (state_duration_counter > 155 & ~prev_ir_signal & ir_signal) begin
               state <= next_state;
-              counter <= 0;
+              state_duration_counter <= 0;
+            end else begin
+              state_duration_counter <= state_duration_counter + 1;
             end
-            else begin
-              counter <= counter + 1;
-            end
-          end
-          else begin
+          end else begin
             state <= IDLE;
           end
         end
         START_HIGH: begin
-          if(counter < 85) begin
-            if(counter > 75 & prev_ir_signal & ~ir_signal) begin
+          if (state_duration_counter < 85) begin
+            if (state_duration_counter > 75 & prev_ir_signal & ~ir_signal) begin
               state <= next_state;
-              counter <= 0;
-              count <= 0;
+              state_duration_counter <= 0;
+              bit_duration_counter <= 0;
               bit_count <= 0;
+            end else begin
+              state_duration_counter <= state_duration_counter + 1;
             end
-            else begin
-              counter <= counter + 1;
-            end
-          end 
-          else begin
+          end else begin
             state <= IDLE;
           end
         end
         READ_BITS: begin
-          if(counter < 1280 & count < 35) begin
-            counter <= counter + 1;
+          if (state_duration_counter < 1280 & bit_duration_counter < 35) begin
+            state_duration_counter <= state_duration_counter + 1;
 
-            if(ir_signal)
-              count <= count + 1;
-            else if(prev_ir_signal) begin
-              buffer <= {buffer[30:0], count >= 20 ? 1'b1 : 1'b0};
+            if (ir_signal) bit_duration_counter <= bit_duration_counter + 1;
+            else if (prev_ir_signal) begin
+              buffer <= {buffer[30:0], bit_duration_counter >= 20 ? 1'b1 : 1'b0};
               bit_count <= bit_count + 1;
-              count <= 0;
+              bit_duration_counter <= 0;
             end
 
-            if(bit_count > 31) begin
-              word <= buffer;
+            if (bit_count > 31) begin
+              word  <= buffer;
               state <= next_state;
             end
-          end
-          else begin
+          end else begin
             state <= IDLE;
-            counter <= 0;
+            state_duration_counter <= 0;
             bit_count <= 0;
-            count <= 0;
+            bit_duration_counter <= 0;
           end
         end
         END_STATE: begin
-          if(ir_signal) state <= next_state;
+          if (ir_signal) state <= next_state;
         end
       endcase
     end
