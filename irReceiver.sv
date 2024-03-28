@@ -34,42 +34,67 @@ module irReceiver (
       state   <= IDLE;
       counter <= 0;
       buffer  <= 0;
-      word <= UP;
+      word <= 0;
     end else begin
       case (state)
         IDLE: begin
           if (!ir_signal & prev_ir_signal) begin
             state   <= next_state;
+            counter <= 0;
           end
         end
         START_LOW: begin
-          if (ir_signal & ~prev_ir_signal) begin
-            state   <= next_state;
+          if(counter < 165) begin
+            if(counter > 155 & ~prev_ir_signal & ir_signal) begin
+              state <= next_state;
+              counter <= 0;
+            end
+            else begin
+              counter <= counter + 1;
+            end
+          end
+          else begin
+            state <= IDLE;
           end
         end
         START_HIGH: begin
-          if (!ir_signal & prev_ir_signal) begin
-            state <= next_state;
-            counter <= 1;
-            count <= 0;
-            bit_count <= 0;
+          if(counter < 85) begin
+            if(counter > 75 & prev_ir_signal & ~ir_signal) begin
+              state <= next_state;
+              counter <= 0;
+              count <= 0;
+              bit_count <= 0;
+            end
+            else begin
+              counter <= counter + 1;
+            end
+          end 
+          else begin
+            state <= IDLE;
           end
         end
         READ_BITS: begin
-          if(counter >= 1) begin
-            if(bit_count > 31)begin
-              counter <= counter - 1;
-            end else begin
-              if(ir_signal) count <= count + 1;
-              else if(prev_ir_signal) begin
-                buffer[31-bit_count] <= count >= 20 ? 1'b1 : 1'b0;
-                bit_count <= bit_count + 1;
-                count <= 0;
-              end
+          if(counter < 1280 & count < 35) begin
+            counter <= counter + 1;
+
+            if(ir_signal)
+              count <= count + 1;
+            else if(prev_ir_signal) begin
+              buffer <= {buffer[30:0], count >= 20 ? 1'b1 : 1'b0};
+              bit_count <= bit_count + 1;
+              count <= 0;
             end
-          end else begin
-            state <= next_state;
-            word <= buffer;
+
+            if(bit_count > 31) begin
+              word <= buffer;
+              state <= next_state;
+            end
+          end
+          else begin
+            state <= IDLE;
+            counter <= 0;
+            bit_count <= 0;
+            count <= 0;
           end
         end
         END_STATE: begin
