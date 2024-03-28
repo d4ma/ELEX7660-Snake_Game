@@ -26,7 +26,6 @@ module irReceiver_tb ();
     // wait for conversion start signal
     @(posedge nec_clk);
 
-
     for(int i = 0; i < 4; i++) begin
         iroutput  = CODES[i];
         #5ms;
@@ -52,7 +51,7 @@ module irReceiver_tb ();
   end
 
   // generate clock
-  always #28126ns nec_clk = ~nec_clk;
+  always #28125ns nec_clk = ~nec_clk;
 
 
 endmodule
