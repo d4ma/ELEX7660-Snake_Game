@@ -9,7 +9,7 @@
 module pos2grid
 (
     input logic [255:0][7:0] pos,
-    input logic [7:0] length, foodpos,
+    input logic [7:0] length, foodPos,
     output logic [15:0][15:0] grid
 );
 
@@ -23,7 +23,7 @@ module pos2grid
             grid[pos[i]/16][15 - pos[i]%16] = 1'b1;
 
         // Place the food on the grid
-        grid[foodpos/16][15 - foodpos%16] = 1'b1;
+        grid[foodPos/16][15 - foodPos%16] = 1'b1;
     end
 
 endmodule
