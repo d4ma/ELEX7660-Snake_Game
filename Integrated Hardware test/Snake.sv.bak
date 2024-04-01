@@ -13,7 +13,7 @@ module Snake (
     input logic s1,
 	  input logic s2,
     input logic s3,
-    input logic s4
+    input logic s4,
     // input logic ir_signal
     output logic red, green, blue // RGB LED signals
 
@@ -24,10 +24,10 @@ module Snake (
   logic [15:0] clk_div_count;  // count used to divide clock
   logic [4:0] led_clk_div_count; // count used to divide clock for led matrix
   logic [24:0] game_clk_div_count; // count used to divide clock for the game
-  logic led_clk; // Slower clock given to the led matrix
   logic game_clk; // Slower clock given to the game
   logic [15:0][15:0] grid;
   logic [255:0][7:0] positions;
+  logic slow_clk; // Slower clock given to the led matrix
 
   parameter [31:0] UP = 32'h20DF6A95;
 	parameter [31:0] DOWN = 32'h20DFEA15;
@@ -36,9 +36,10 @@ module Snake (
 
   logic [31:0] word;  // count used to track encoder movement and to display
 
-  logic nec_clk;
+  // logic nec_clk;
 
   // instantiate modules to implement design
+  /*
   decode2 decode2_0 (
       .digit,
       .ct
@@ -47,11 +48,12 @@ module Snake (
       .num(disp_digit),
       .leds
   );
+  */
 
   //ir_freqgen #(50_000_000) ir_freqgen_0 (.nec_clk, .reset_n(s2), .clk(CLOCK_50));
   //irReceiver irReceiver_0 (.ir_signal, .nec_clk, .word, .reset_n(s2));
   snakegame snakegame_0 (.direction(word), .game_clk, .grid, .positions);
-  MatrixDisplay MatrixDisplay_0 (.clk(led_clk), .reset_n, .grid, .DIN(led_din), .CS(led_CS), .LED_CLK(led_clk));
+  MatrixDisplay MatrixDisplay_0 (.clk(slow_clk), .reset_n, .grid, .DIN(led_din), .CS(led_cs), .LED_CLK(led_clk));
 
   // Clock dividing logic for the matrix display
   always_ff @(posedge CLOCK_50) begin
@@ -59,20 +61,21 @@ module Snake (
     game_clk_div_count <= game_clk_div_count + 1'b1;
   end
 
-  always_ff @(negedge s1)
-    word <= UP;
-
-  always_ff @(negedge s2)
-    word <= DOWN;
-
-  always_ff @(negedge s3)
-    word <= LEFT;
-
-  always_ff @(negedge s4)
-    word <= RIGHT;
+  always_comb begin
+    if(!s1)
+      word <= UP;
+    else if(!s2)
+      word <= DOWN;
+    else if(!s3)
+      word <= LEFT;
+    else if(!s4)
+      word <= RIGHT;
+    else
+      word <= '0;
+  end
 
   // assign the top bit of clk_div_count as the led clock
-  assign led_clk = led_clk_div_count[4];
+  assign slow_clk = led_clk_div_count[4];
 
   // assign the top bit of clk_div_count as the game clock
   assign game_clk = game_clk_div_count[24];

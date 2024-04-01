@@ -1,0 +1,149 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'led_clk_div_count[4]'
+Slack : -9.492
+TNS   : -249.461
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -4.834
+TNS   : -44.314
+
+Type  : Slow 1100mV 85C Model Setup 'game_clk_div_count[24]'
+Slack : -3.248
+TNS   : -156.117
+
+Type  : Slow 1100mV 85C Model Hold 'led_clk_div_count[4]'
+Slack : 0.198
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.378
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'game_clk_div_count[24]'
+Slack : 0.471
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'game_clk_div_count[24]'
+Slack : -0.455
+TNS   : -52.997
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'led_clk_div_count[4]'
+Slack : -0.394
+TNS   : -38.693
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -15.719
+
+Type  : Slow 1100mV 0C Model Setup 'led_clk_div_count[4]'
+Slack : -9.466
+TNS   : -243.447
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -4.830
+TNS   : -46.944
+
+Type  : Slow 1100mV 0C Model Setup 'game_clk_div_count[24]'
+Slack : -3.135
+TNS   : -151.200
+
+Type  : Slow 1100mV 0C Model Hold 'led_clk_div_count[4]'
+Slack : 0.251
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.389
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'game_clk_div_count[24]'
+Slack : 0.447
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'game_clk_div_count[24]'
+Slack : -0.420
+TNS   : -51.187
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'led_clk_div_count[4]'
+Slack : -0.394
+TNS   : -37.460
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -17.251
+
+Type  : Fast 1100mV 85C Model Setup 'led_clk_div_count[4]'
+Slack : -5.662
+TNS   : -132.357
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -2.897
+TNS   : -14.765
+
+Type  : Fast 1100mV 85C Model Setup 'game_clk_div_count[24]'
+Slack : -1.910
+TNS   : -81.739
+
+Type  : Fast 1100mV 85C Model Hold 'led_clk_div_count[4]'
+Slack : 0.024
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'game_clk_div_count[24]'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.402
+TNS   : -3.861
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'game_clk_div_count[24]'
+Slack : -0.198
+TNS   : -4.269
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'led_clk_div_count[4]'
+Slack : -0.050
+TNS   : -0.910
+
+Type  : Fast 1100mV 0C Model Setup 'led_clk_div_count[4]'
+Slack : -5.064
+TNS   : -116.756
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -2.574
+TNS   : -13.187
+
+Type  : Fast 1100mV 0C Model Setup 'game_clk_div_count[24]'
+Slack : -1.638
+TNS   : -68.614
+
+Type  : Fast 1100mV 0C Model Hold 'led_clk_div_count[4]'
+Slack : 0.043
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'game_clk_div_count[24]'
+Slack : 0.166
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.177
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.398
+TNS   : -3.880
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'game_clk_div_count[24]'
+Slack : -0.116
+TNS   : -2.111
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'led_clk_div_count[4]'
+Slack : -0.024
+TNS   : -0.222
+
+------------------------------------------------------------

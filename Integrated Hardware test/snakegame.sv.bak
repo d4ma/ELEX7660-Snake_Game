@@ -45,7 +45,7 @@ module snakegame (
 
             if(foodPos == positions[0]) begin
                 length <= length + 1;
-                foodPos <= $urandom_range(255);
+                foodPos <= 25;
             end
 
         end

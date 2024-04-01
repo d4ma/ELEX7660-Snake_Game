@@ -1,0 +1,13 @@
+
+State Machine - |Snake|MatrixDisplay:MatrixDisplay_0|start_state
+Name start_state.on start_state.bright start_state.decode start_state.scan 
+start_state.scan 0 0 0 0 
+start_state.decode 0 0 1 1 
+start_state.bright 0 1 0 1 
+start_state.on 1 0 0 1 
+
+State Machine - |Snake|MatrixDisplay:MatrixDisplay_0|state
+Name state.start state.transmit state.load 
+state.start 0 0 0 
+state.load 1 0 1 
+state.transmit 1 1 0 
