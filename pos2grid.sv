@@ -13,17 +13,20 @@ module pos2grid
     output logic [15:0][15:0] grid
 );
 
-    int i = 0;
+    logic [7:0] i = 0;
 
     always_comb begin
         grid = '{default:0};
 
         // Draw the snake onto the grid
-        for (i=0; i<length; i++)
-            grid[pos[i]/16][15 - pos[i]%16] = 1'b1;
+        for (i = 0; i < 8'd8; i++) begin
+            if ((i < length) && (i !== foodPos))
+                grid[pos[i] >> 4][15 - pos[i]%16] = 1'b1;
+            else
+                grid[pos[i] >> 4][15 - pos[i]%16] = 1'b0;
+        end   
 
-        // Place the food on the grid
-        grid[foodPos/16][15 - foodPos%16] = 1'b1;
+        grid[foodPos >> 4][15 - foodPos%16] = 1'b1;
     end
 
 endmodule

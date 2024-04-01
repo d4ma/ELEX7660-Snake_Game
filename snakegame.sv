@@ -12,7 +12,6 @@ module snakegame (
 
     logic [7:0] foodPos; 
     logic [7:0] length;
-    // logic [255:0][7:0] positions;
     logic found = 0;
     logic rand_success;
 
@@ -40,12 +39,19 @@ module snakegame (
                 DOWN : positions[0] <= positions[0] + 16;
                 LEFT : positions[0] <=  positions[0] - 1;
                 RIGHT : positions[0] <= positions[0] + 1;
-                default : positions[0] <= positions[0];
+                default : positions[0] <= positions[0] + 1;
             endcase
 
             if(foodPos == positions[0]) begin
                 length <= length + 1;
-                foodPos <= $urandom_range(255);
+                if(positions[0] < 55)
+						foodPos <= 203;
+					 else if(positions[0] < 127)
+						foodPos <= 226;
+					 else if(positions[0] < 199)
+						foodPos <= 45;
+					 else
+						foodPos <= 17;
             end
 
         end
