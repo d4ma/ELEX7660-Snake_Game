@@ -9,11 +9,12 @@ module ir_freqgen #(
 (
     output logic nec_clk,  // speaker output
     input logic reset_n,
+    input logic [31:0] freq,
     clk
 );  // reset and clock
 
   logic [31:0] countup;
-  logic [31:0] freq = 17_778;
+  freq = 17_778;
 
   always @(posedge clk) begin
 

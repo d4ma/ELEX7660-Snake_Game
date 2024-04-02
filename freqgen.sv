@@ -3,11 +3,11 @@
 // Author: Kento Sasaki 
 // Date: 2024-02-03
 
-module ir_freqgen #(
+module freqgen #(
     parameter FCLK
 )  // clock frequency, Hz
 (
-    output logic nec_clk,  // speaker output
+    output logic out_clk,  // speaker output
     input logic reset_n,
     input logic [31:0] freq,
     clk
@@ -18,13 +18,13 @@ module ir_freqgen #(
   always @(posedge clk) begin
 
     if (~reset_n) begin
-      nec_clk <= 0;
+      out_clk <= 0;
       countup <= 0;
     end else begin
       countup <= countup + (freq << 1);
       if (countup >= FCLK-(freq << 1)) begin
         countup <= 0;
-        nec_clk <= ~nec_clk;
+        out_clk <= ~out_clk;
       end
     end
 
