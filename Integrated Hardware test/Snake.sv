@@ -40,8 +40,8 @@ module Snake (
   );
   */
 
-  ir_freqgen #(2) ir_freqgen_0 (.nec_clk(game_clk), .reset_n, .clk(CLOCK_50)); // Generate game clock
-  ir_freqgen #(50_000_000) ir_freqgen_1 (.nec_clk, .reset_n, .clk(CLOCK_50));  // Generate irReceiver clock
+  freqgen #(50_000_000) ir_freqgen_0 (.out_clk(game_clk), .reset_n, .clk(CLOCK_50), .freq(2)); // Generate game clock
+  freqgen #(50_000_000) ir_freqgen_1 (.out_clk(nec_clk), .reset_n, .clk(CLOCK_50), .freq(17_778));  // Generate irReceiver clock
   irReceiver irReceiver_0 (.ir_signal, .nec_clk, .word, .reset_n);
   snakegame snakegame_0 (.direction(word), .game_clk, .reset_n, .grid, .positions);
   MatrixDisplay MatrixDisplay_0 (.clk(slow_clk), .reset_n, .grid, .DIN(led_din), .CS(led_cs), .LED_CLK(led_clk));
