@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA4U23) Path("C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/output_files/") File("Snake.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA4U23) Path("C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/output_files/") File("Snake.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

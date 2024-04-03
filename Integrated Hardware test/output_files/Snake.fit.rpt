@@ -1,5 +1,5 @@
 Fitter report for Snake
-Tue Apr 02 13:47:31 2024
+Tue Apr 02 18:26:26 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -63,15 +63,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Tue Apr 02 13:47:30 2024       ;
+; Fitter Status                   ; Successful - Tue Apr 02 18:26:26 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; Snake                                       ;
 ; Top-level Entity Name           ; Snake                                       ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA4U23C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 962 / 15,880 ( 6 % )                        ;
-; Total registers                 ; 364                                         ;
+; Logic utilization (in ALMs)     ; 4,978 / 15,880 ( 31 % )                     ;
+; Total registers                 ; 466                                         ;
 ; Total pins                      ; 21 / 314 ( 7 % )                            ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 2,764,800 ( 0 % )                       ;
@@ -150,15 +150,23 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 10          ;
 ;                            ;             ;
-; Average used               ; 1.07        ;
-; Maximum used               ; 2           ;
+; Average used               ; 1.15        ;
+; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   6.8%      ;
+;     Processor 2            ;   2.6%      ;
+;     Processor 3            ;   2.1%      ;
+;     Processor 4            ;   1.8%      ;
+;     Processor 5            ;   1.5%      ;
+;     Processor 6            ;   1.5%      ;
+;     Processor 7            ;   1.4%      ;
+;     Processor 8            ;   1.4%      ;
+;     Processor 9            ;   1.3%      ;
+;     Processor 10           ;   1.3%      ;
 +----------------------------+-------------+
 
 
@@ -168,54 +176,52 @@ refer to the applicable agreement for further details.
 ; Node                                             ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                                           ; Destination Port ; Destination Port Name ;
 +--------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------------------+------------------+-----------------------+
 ; CLOCK_50~inputCLKENA0                            ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                            ;                  ;                       ;
+; reset_n~inputCLKENA0                             ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                            ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|CS                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|CS~DUPLICATE                 ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[0]         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[0]~DUPLICATE         ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[1]         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[1]~DUPLICATE         ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[2]         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[2]~DUPLICATE         ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[3]         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[3]~DUPLICATE         ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[5]         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[5]~DUPLICATE         ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[6]         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[6]~DUPLICATE         ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[13]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[13]~DUPLICATE        ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[17]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[17]~DUPLICATE        ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[18]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[18]~DUPLICATE        ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[19]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[19]~DUPLICATE        ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[20]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[20]~DUPLICATE        ;                  ;                       ;
+; MatrixDisplay:MatrixDisplay_0|databit[12]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[12]~DUPLICATE        ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[21]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[21]~DUPLICATE        ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[22]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[22]~DUPLICATE        ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[23]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[23]~DUPLICATE        ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[24]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[24]~DUPLICATE        ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[25]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[25]~DUPLICATE        ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[27]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[27]~DUPLICATE        ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|databit[28]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[28]~DUPLICATE        ;                  ;                       ;
+; MatrixDisplay:MatrixDisplay_0|databit[29]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[29]~DUPLICATE        ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[30]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[30]~DUPLICATE        ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|databit[31]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|databit[31]~DUPLICATE        ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|grid_row[1]        ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|grid_row[1]~DUPLICATE        ;                  ;                       ;
-; MatrixDisplay:MatrixDisplay_0|start_state.bright ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|start_state.bright~DUPLICATE ;                  ;                       ;
+; MatrixDisplay:MatrixDisplay_0|start_state.decode ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|start_state.decode~DUPLICATE ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|start_state.scan   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|start_state.scan~DUPLICATE   ;                  ;                       ;
 ; MatrixDisplay:MatrixDisplay_0|state.transmit     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MatrixDisplay:MatrixDisplay_0|state.transmit~DUPLICATE     ;                  ;                       ;
-; led_clk_div_count[2]                             ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; led_clk_div_count[2]~DUPLICATE                             ;                  ;                       ;
-; snakegame:snakegame_0|foodPos[0]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|foodPos[0]~DUPLICATE                 ;                  ;                       ;
-; snakegame:snakegame_0|foodPos[2]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|foodPos[2]~DUPLICATE                 ;                  ;                       ;
+; led_clk_div_count[0]                             ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; led_clk_div_count[0]~DUPLICATE                             ;                  ;                       ;
 ; snakegame:snakegame_0|foodPos[3]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|foodPos[3]~DUPLICATE                 ;                  ;                       ;
-; snakegame:snakegame_0|foodPos[4]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|foodPos[4]~DUPLICATE                 ;                  ;                       ;
-; snakegame:snakegame_0|foodPos[5]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|foodPos[5]~DUPLICATE                 ;                  ;                       ;
-; snakegame:snakegame_0|foodPos[6]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|foodPos[6]~DUPLICATE                 ;                  ;                       ;
-; snakegame:snakegame_0|length[0]                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|length[0]~DUPLICATE                  ;                  ;                       ;
-; snakegame:snakegame_0|length[1]                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|length[1]~DUPLICATE                  ;                  ;                       ;
+; snakegame:snakegame_0|foodPos[7]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|foodPos[7]~DUPLICATE                 ;                  ;                       ;
 ; snakegame:snakegame_0|length[2]                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|length[2]~DUPLICATE                  ;                  ;                       ;
-; snakegame:snakegame_0|length[3]                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|length[3]~DUPLICATE                  ;                  ;                       ;
-; snakegame:snakegame_0|length[4]                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|length[4]~DUPLICATE                  ;                  ;                       ;
-; snakegame:snakegame_0|length[5]                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|length[5]~DUPLICATE                  ;                  ;                       ;
-; snakegame:snakegame_0|length[6]                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|length[6]~DUPLICATE                  ;                  ;                       ;
+; snakegame:snakegame_0|length[7]                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|length[7]~DUPLICATE                  ;                  ;                       ;
 ; snakegame:snakegame_0|positions[1][1]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[1][1]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[1][3]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[1][3]~DUPLICATE            ;                  ;                       ;
 ; snakegame:snakegame_0|positions[1][4]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[1][4]~DUPLICATE            ;                  ;                       ;
 ; snakegame:snakegame_0|positions[1][5]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[1][5]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[1][6]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[1][6]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[1][7]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[1][7]~DUPLICATE            ;                  ;                       ;
 ; snakegame:snakegame_0|positions[2][0]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[2][0]~DUPLICATE            ;                  ;                       ;
-; snakegame:snakegame_0|positions[2][1]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[2][1]~DUPLICATE            ;                  ;                       ;
-; snakegame:snakegame_0|positions[2][5]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[2][5]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[2][3]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[2][3]~DUPLICATE            ;                  ;                       ;
 ; snakegame:snakegame_0|positions[2][6]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[2][6]~DUPLICATE            ;                  ;                       ;
-; snakegame:snakegame_0|positions[2][7]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[2][7]~DUPLICATE            ;                  ;                       ;
-; snakegame:snakegame_0|positions[3][6]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[3][6]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[3][4]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[3][4]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[6][0]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[6][0]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[6][1]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[6][1]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[6][2]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[6][2]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[6][6]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[6][6]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[7][7]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[7][7]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[9][3]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[9][3]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[9][6]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[9][6]~DUPLICATE            ;                  ;                       ;
+; snakegame:snakegame_0|positions[10][6]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[10][6]~DUPLICATE           ;                  ;                       ;
+; snakegame:snakegame_0|positions[11][0]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[11][0]~DUPLICATE           ;                  ;                       ;
+; snakegame:snakegame_0|positions[11][5]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[11][5]~DUPLICATE           ;                  ;                       ;
+; snakegame:snakegame_0|positions[12][6]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[12][6]~DUPLICATE           ;                  ;                       ;
+; snakegame:snakegame_0|positions[15][3]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[15][3]~DUPLICATE           ;                  ;                       ;
+; snakegame:snakegame_0|positions[15][5]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; snakegame:snakegame_0|positions[15][5]~DUPLICATE           ;                  ;                       ;
 +--------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------------------+------------------+-----------------------+
 
 
@@ -467,8 +473,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+---------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                     ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 1876 ) ; 0.00 % ( 0 / 1876 )        ; 0.00 % ( 0 / 1876 )      ;
-;     -- Achieved     ; 0.00 % ( 0 / 1876 ) ; 0.00 % ( 0 / 1876 )        ; 0.00 % ( 0 / 1876 )      ;
+;     -- Requested    ; 0.00 % ( 0 / 8439 ) ; 0.00 % ( 0 / 8439 )        ; 0.00 % ( 0 / 8439 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 8439 ) ; 0.00 % ( 0 / 8439 )        ; 0.00 % ( 0 / 8439 )      ;
 ;                     ;                     ;                            ;                          ;
 ; Routing (by net)    ;                     ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -491,7 +497,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 1876 )   ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 8439 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -499,7 +505,7 @@ refer to the applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.pin.
+The pin-out file can be found in C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.pin.
 
 
 +---------------------------------------------------------------------------------------------+
@@ -507,41 +513,41 @@ The pin-out file can be found in C:/Users/user/OneDrive/School/6th term/ELEX-766
 +-------------------------------------------------------------+-----------------------+-------+
 ; Resource                                                    ; Usage                 ; %     ;
 +-------------------------------------------------------------+-----------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 962 / 15,880          ; 6 %   ;
-; ALMs needed [=A-B+C]                                        ; 962                   ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 1,027 / 15,880        ; 6 %   ;
-;         [a] ALMs used for LUT logic and registers           ; 112                   ;       ;
-;         [b] ALMs used for LUT logic                         ; 870                   ;       ;
-;         [c] ALMs used for registers                         ; 45                    ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 4,978 / 15,880        ; 31 %  ;
+; ALMs needed [=A-B+C]                                        ; 4,978                 ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 5,078 / 15,880        ; 32 %  ;
+;         [a] ALMs used for LUT logic and registers           ; 155                   ;       ;
+;         [b] ALMs used for LUT logic                         ; 4,867                 ;       ;
+;         [c] ALMs used for registers                         ; 56                    ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 66 / 15,880           ; < 1 % ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 1 / 15,880            ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 120 / 15,880          ; < 1 % ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 20 / 15,880           ; < 1 % ;
 ;         [a] Due to location constrained logic               ; 0                     ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ;       ;
-;         [c] Due to LAB input limits                         ; 1                     ;       ;
+;         [c] Due to LAB input limits                         ; 20                    ;       ;
 ;         [d] Due to virtual I/Os                             ; 0                     ;       ;
 ;                                                             ;                       ;       ;
 ; Difficulty packing design                                   ; Low                   ;       ;
 ;                                                             ;                       ;       ;
-; Total LABs:  partially or completely used                   ; 143 / 1,588           ; 9 %   ;
-;     -- Logic LABs                                           ; 143                   ;       ;
+; Total LABs:  partially or completely used                   ; 620 / 1,588           ; 39 %  ;
+;     -- Logic LABs                                           ; 620                   ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ;       ;
 ;                                                             ;                       ;       ;
-; Combinational ALUT usage for logic                          ; 1,517                 ;       ;
+; Combinational ALUT usage for logic                          ; 7,974                 ;       ;
 ;     -- 7 input functions                                    ; 2                     ;       ;
-;     -- 6 input functions                                    ; 653                   ;       ;
-;     -- 5 input functions                                    ; 34                    ;       ;
-;     -- 4 input functions                                    ; 325                   ;       ;
-;     -- <=3 input functions                                  ; 503                   ;       ;
-; Combinational ALUT usage for route-throughs                 ; 29                    ;       ;
+;     -- 6 input functions                                    ; 1,939                 ;       ;
+;     -- 5 input functions                                    ; 556                   ;       ;
+;     -- 4 input functions                                    ; 1,082                 ;       ;
+;     -- <=3 input functions                                  ; 4,395                 ;       ;
+; Combinational ALUT usage for route-throughs                 ; 41                    ;       ;
 ;                                                             ;                       ;       ;
-; Dedicated logic registers                                   ; 364                   ;       ;
+; Dedicated logic registers                                   ; 466                   ;       ;
 ;     -- By type:                                             ;                       ;       ;
-;         -- Primary logic registers                          ; 314 / 31,760          ; < 1 % ;
-;         -- Secondary logic registers                        ; 50 / 31,760           ; < 1 % ;
+;         -- Primary logic registers                          ; 421 / 31,760          ; 1 %   ;
+;         -- Secondary logic registers                        ; 45 / 31,760           ; < 1 % ;
 ;     -- By function:                                         ;                       ;       ;
-;         -- Design implementation registers                  ; 316                   ;       ;
-;         -- Routing optimization registers                   ; 48                    ;       ;
+;         -- Design implementation registers                  ; 421                   ;       ;
+;         -- Routing optimization registers                   ; 45                    ;       ;
 ;                                                             ;                       ;       ;
 ; Virtual pins                                                ; 0                     ;       ;
 ; I/O pins                                                    ; 21 / 314              ; 7 %   ;
@@ -583,8 +589,8 @@ The pin-out file can be found in C:/Users/user/OneDrive/School/6th term/ELEX-766
 ; Total DSP Blocks                                            ; 0 / 84                ; 0 %   ;
 ;                                                             ;                       ;       ;
 ; Fractional PLLs                                             ; 0 / 5                 ; 0 %   ;
-; Global signals                                              ; 1                     ;       ;
-;     -- Global clocks                                        ; 1 / 16                ; 6 %   ;
+; Global signals                                              ; 2                     ;       ;
+;     -- Global clocks                                        ; 2 / 16                ; 13 %  ;
 ;     -- Quadrant clocks                                      ; 0 / 72                ; 0 %   ;
 ;     -- Horizontal periphery clocks                          ; 0 / 12                ; 0 %   ;
 ; SERDES Transmitters                                         ; 0 / 76                ; 0 %   ;
@@ -596,12 +602,12 @@ The pin-out file can be found in C:/Users/user/OneDrive/School/6th term/ELEX-766
 ; Oscillator blocks                                           ; 0 / 1                 ; 0 %   ;
 ; Impedance control blocks                                    ; 0 / 3                 ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2                 ; 0 %   ;
-; Average interconnect usage (total/H/V)                      ; 2.2% / 2.2% / 2.1%    ;       ;
-; Peak interconnect usage (total/H/V)                         ; 21.4% / 22.5% / 18.3% ;       ;
-; Maximum fan-out                                             ; 259                   ;       ;
-; Highest non-global fan-out                                  ; 259                   ;       ;
-; Total fan-out                                               ; 7768                  ;       ;
-; Average fan-out                                             ; 3.98                  ;       ;
+; Average interconnect usage (total/H/V)                      ; 13.2% / 13.6% / 12.1% ;       ;
+; Peak interconnect usage (total/H/V)                         ; 42.9% / 45.7% / 35.3% ;       ;
+; Maximum fan-out                                             ; 256                   ;       ;
+; Highest non-global fan-out                                  ; 256                   ;       ;
+; Total fan-out                                               ; 29735                 ;       ;
+; Average fan-out                                             ; 3.49                  ;       ;
 +-------------------------------------------------------------+-----------------------+-------+
 
 
@@ -610,44 +616,44 @@ The pin-out file can be found in C:/Users/user/OneDrive/School/6th term/ELEX-766
 +-------------------------------------------------------------+-----------------------+--------------------------------+
 ; Statistic                                                   ; Top                   ; hard_block:auto_generated_inst ;
 +-------------------------------------------------------------+-----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 962 / 15880 ( 6 % )   ; 0 / 15880 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 962                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 1027 / 15880 ( 6 % )  ; 0 / 15880 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 112                   ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 870                   ; 0                              ;
-;         [c] ALMs used for registers                         ; 45                    ; 0                              ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 4978 / 15880 ( 31 % ) ; 0 / 15880 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 4978                  ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 5078 / 15880 ( 32 % ) ; 0 / 15880 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 155                   ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 4867                  ; 0                              ;
+;         [c] ALMs used for registers                         ; 56                    ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 66 / 15880 ( < 1 % )  ; 0 / 15880 ( 0 % )              ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 1 / 15880 ( < 1 % )   ; 0 / 15880 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 120 / 15880 ( < 1 % ) ; 0 / 15880 ( 0 % )              ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 20 / 15880 ( < 1 % )  ; 0 / 15880 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
-;         [c] Due to LAB input limits                         ; 1                     ; 0                              ;
+;         [c] Due to LAB input limits                         ; 20                    ; 0                              ;
 ;         [d] Due to virtual I/Os                             ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Difficulty packing design                                   ; Low                   ; Low                            ;
 ;                                                             ;                       ;                                ;
-; Total LABs:  partially or completely used                   ; 143 / 1588 ( 9 % )    ; 0 / 1588 ( 0 % )               ;
-;     -- Logic LABs                                           ; 143                   ; 0                              ;
+; Total LABs:  partially or completely used                   ; 620 / 1588 ( 39 % )   ; 0 / 1588 ( 0 % )               ;
+;     -- Logic LABs                                           ; 620                   ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
-; Combinational ALUT usage for logic                          ; 1517                  ; 0                              ;
+; Combinational ALUT usage for logic                          ; 7974                  ; 0                              ;
 ;     -- 7 input functions                                    ; 2                     ; 0                              ;
-;     -- 6 input functions                                    ; 653                   ; 0                              ;
-;     -- 5 input functions                                    ; 34                    ; 0                              ;
-;     -- 4 input functions                                    ; 325                   ; 0                              ;
-;     -- <=3 input functions                                  ; 503                   ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 29                    ; 0                              ;
+;     -- 6 input functions                                    ; 1939                  ; 0                              ;
+;     -- 5 input functions                                    ; 556                   ; 0                              ;
+;     -- 4 input functions                                    ; 1082                  ; 0                              ;
+;     -- <=3 input functions                                  ; 4395                  ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 41                    ; 0                              ;
 ; Memory ALUT usage                                           ; 0                     ; 0                              ;
 ;     -- 64-address deep                                      ; 0                     ; 0                              ;
 ;     -- 32-address deep                                      ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Dedicated logic registers                                   ; 0                     ; 0                              ;
 ;     -- By type:                                             ;                       ;                                ;
-;         -- Primary logic registers                          ; 314 / 31760 ( < 1 % ) ; 0 / 31760 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 50 / 31760 ( < 1 % )  ; 0 / 31760 ( 0 % )              ;
+;         -- Primary logic registers                          ; 421 / 31760 ( 1 % )   ; 0 / 31760 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 45 / 31760 ( < 1 % )  ; 0 / 31760 ( 0 % )              ;
 ;     -- By function:                                         ;                       ;                                ;
-;         -- Design implementation registers                  ; 316                   ; 0                              ;
-;         -- Routing optimization registers                   ; 48                    ; 0                              ;
+;         -- Design implementation registers                  ; 421                   ; 0                              ;
+;         -- Routing optimization registers                   ; 45                    ; 0                              ;
 ;                                                             ;                       ;                                ;
 ;                                                             ;                       ;                                ;
 ; Virtual pins                                                ; 0                     ; 0                              ;
@@ -655,7 +661,7 @@ The pin-out file can be found in C:/Users/user/OneDrive/School/6th term/ELEX-766
 ; I/O registers                                               ; 0                     ; 0                              ;
 ; Total block memory bits                                     ; 0                     ; 0                              ;
 ; Total block memory implementation bits                      ; 0                     ; 0                              ;
-; Clock enable block                                          ; 1 / 110 ( < 1 % )     ; 0 / 110 ( 0 % )                ;
+; Clock enable block                                          ; 2 / 110 ( 1 % )       ; 0 / 110 ( 0 % )                ;
 ;                                                             ;                       ;                                ;
 ; Connections                                                 ;                       ;                                ;
 ;     -- Input Connections                                    ; 0                     ; 0                              ;
@@ -664,8 +670,8 @@ The pin-out file can be found in C:/Users/user/OneDrive/School/6th term/ELEX-766
 ;     -- Registered Output Connections                        ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Internal Connections                                        ;                       ;                                ;
-;     -- Total Connections                                    ; 7768                  ; 0                              ;
-;     -- Registered Connections                               ; 1854                  ; 0                              ;
+;     -- Total Connections                                    ; 29735                 ; 0                              ;
+;     -- Registered Connections                               ; 3653                  ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; External Connections                                        ;                       ;                                ;
 ;     -- Top                                                  ; 0                     ; 0                              ;
@@ -699,7 +705,7 @@ The pin-out file can be found in C:/Users/user/OneDrive/School/6th term/ELEX-766
 +-----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 ; CLOCK_50  ; V11   ; 3B       ; 15           ; 0            ; 0            ; 82                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; ir_signal ; V12   ; 3B       ; 21           ; 0            ; 0            ; 12                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; reset_n   ; AH19  ; 4A       ; 51           ; 0            ; 51           ; 218                   ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
+; reset_n   ; AH19  ; 4A       ; 51           ; 0            ; 51           ; 320                   ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
 +-----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 
 
@@ -1463,15 +1469,15 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node         ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Entity Name   ; Library Name ;
 +------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------+---------------+--------------+
-; |Snake                             ; 962.0 (14.4)         ; 1026.5 (16.0)                    ; 65.0 (1.6)                                        ; 0.5 (0.0)                        ; 0.0 (0.0)            ; 1517 (31)           ; 364 (21)                  ; 0 (0)         ; 0                 ; 0     ; 0          ; 21   ; 0            ; |Snake                               ; Snake         ; work         ;
-;    |MatrixDisplay:MatrixDisplay_0| ; 127.0 (127.0)        ; 130.0 (130.0)                    ; 3.3 (3.3)                                         ; 0.4 (0.4)                        ; 0.0 (0.0)            ; 159 (159)           ; 73 (73)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|MatrixDisplay:MatrixDisplay_0 ; MatrixDisplay ; work         ;
-;    |decode2:decode2_0|             ; 1.3 (1.3)            ; 1.5 (1.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|decode2:decode2_0             ; decode2       ; work         ;
+; |Snake                             ; 4978.0 (14.7)        ; 5077.5 (16.0)                    ; 119.5 (1.3)                                       ; 20.0 (0.0)                       ; 0.0 (0.0)            ; 7974 (31)           ; 466 (21)                  ; 0 (0)         ; 0                 ; 0     ; 0          ; 21   ; 0            ; |Snake                               ; Snake         ; work         ;
+;    |MatrixDisplay:MatrixDisplay_0| ; 134.8 (134.8)        ; 133.5 (133.5)                    ; 2.2 (2.2)                                         ; 3.5 (3.5)                        ; 0.0 (0.0)            ; 161 (161)           ; 65 (65)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|MatrixDisplay:MatrixDisplay_0 ; MatrixDisplay ; work         ;
+;    |decode2:decode2_0|             ; 2.0 (2.0)            ; 2.0 (2.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 4 (4)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|decode2:decode2_0             ; decode2       ; work         ;
 ;    |decode7:decode7_0|             ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|decode7:decode7_0             ; decode7       ; work         ;
-;    |freqgen:ir_freqgen_0|          ; 21.8 (21.8)          ; 22.3 (22.3)                      ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 37 (37)             ; 30 (30)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|freqgen:ir_freqgen_0          ; freqgen       ; work         ;
-;    |freqgen:ir_freqgen_1|          ; 21.2 (21.2)          ; 23.0 (23.0)                      ; 1.8 (1.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 38 (38)             ; 31 (31)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|freqgen:ir_freqgen_1          ; freqgen       ; work         ;
-;    |irReceiver:irReceiver_0|       ; 72.0 (72.0)          ; 98.7 (98.7)                      ; 26.7 (26.7)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 119 (119)           ; 140 (140)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|irReceiver:irReceiver_0       ; irReceiver    ; work         ;
-;    |pos2grid:pos2grid_0|           ; 657.0 (657.0)        ; 683.4 (683.4)                    ; 26.6 (26.6)                                       ; 0.2 (0.2)                        ; 0.0 (0.0)            ; 1061 (1061)         ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|pos2grid:pos2grid_0           ; pos2grid      ; work         ;
-;    |snakegame:snakegame_0|         ; 43.8 (43.8)          ; 48.0 (48.0)                      ; 4.3 (4.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 62 (62)             ; 69 (69)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|snakegame:snakegame_0         ; snakegame     ; work         ;
+;    |freqgen:ir_freqgen_0|          ; 20.7 (20.7)          ; 22.0 (22.0)                      ; 1.3 (1.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 37 (37)             ; 30 (30)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|freqgen:ir_freqgen_0          ; freqgen       ; work         ;
+;    |freqgen:ir_freqgen_1|          ; 22.3 (22.3)          ; 23.0 (23.0)                      ; 0.7 (0.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 38 (38)             ; 31 (31)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|freqgen:ir_freqgen_1          ; freqgen       ; work         ;
+;    |irReceiver:irReceiver_0|       ; 72.0 (72.0)          ; 102.7 (102.7)                    ; 30.7 (30.7)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 119 (119)           ; 140 (140)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|irReceiver:irReceiver_0       ; irReceiver    ; work         ;
+;    |pos2grid:pos2grid_0|           ; 4630.7 (4630.7)      ; 4683.0 (4683.0)                  ; 68.8 (68.8)                                       ; 16.5 (16.5)                      ; 0.0 (0.0)            ; 7507 (7507)         ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|pos2grid:pos2grid_0           ; pos2grid      ; work         ;
+;    |snakegame:snakegame_0|         ; 77.3 (77.3)          ; 91.8 (91.8)                      ; 14.5 (14.5)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 70 (70)             ; 179 (179)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Snake|snakegame:snakegame_0         ; snakegame     ; work         ;
 +------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1505,278 +1511,147 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                                  ;
-+-------------------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                               ; Pad To Core Index ; Setting ;
-+-------------------------------------------------------------------+-------------------+---------+
-; reset_n                                                           ;                   ;         ;
-;      - snakegame:snakegame_0|length[1]                            ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|DIN                          ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[21]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[13]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[12]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[11]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[10]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[9]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[25]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[26]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[27]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[8]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[3]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[28]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[29]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[30]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[31]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[1]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[2]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[24]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[14]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[15]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[7]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[16]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[6]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[5]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[4]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[17]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[18]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[19]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[20]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[22]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[23]                  ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[2]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[3]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[9]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[8]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[7]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[6]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[31]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[30]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[29]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[28]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[27]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[26]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[5]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[25]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[10]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[23]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[22]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[21]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[20]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[19]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[18]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[17]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[16]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[15]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[14]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[13]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[12]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[11]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[4]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[1]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[0]                            ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[24]                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[29]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[28]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[27]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[26]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[25]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[24]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[23]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[22]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[20]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[19]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[18]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[17]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[16]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[15]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[14]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[13]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[12]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[11]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[10]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[9]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[8]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[7]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[6]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[1]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[4]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[3]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[2]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[0]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[5]                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[21]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[31]                         ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[30]                         ; 1                 ; 0       ;
-;      - freqgen:ir_freqgen_1|out_clk                               ; 1                 ; 0       ;
-;      - freqgen:ir_freqgen_0|out_clk                               ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[0]                            ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|CS                           ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|state.load                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|reset_counter[1]             ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|reset_counter[0]             ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|LED_CLK~0                    ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[3]                            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[0][4]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[4]                           ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[0][0]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[0]                           ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[0][1]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[6]                           ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[0][6]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[0][2]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[2]                           ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[0][3]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[3]                           ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[0][5]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[5]                           ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[0][7]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[7]                           ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[2]                            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[4]                            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[5]                            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[6]                            ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|state.start                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|state.transmit               ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[0]                   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|start_state.scan             ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|start_state.bright           ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|start_state.decode           ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|start_state.on               ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|grid_row[1]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|grid_row[2]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|grid_row[0]                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|matrix_num[1]                ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[3][7]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[3][6]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[3][5]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[3][4]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[3][0]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[3][3]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[3][2]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[3][1]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[7]                            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][7]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][6]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][5]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][4]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][0]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][3]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][2]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][1]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][0]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][3]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][2]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][1]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][7]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][6]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][5]                      ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][4]                      ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|matrix_num[0]                ; 1                 ; 0       ;
-;      - freqgen:ir_freqgen_0|countup[3]~0                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|word[2]~0                          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[29]~0                       ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|bit_count[5]~1                     ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|state~18                           ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|bit_duration_counter[1]~2          ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|state_duration_counter[20]~3       ; 1                 ; 0       ;
-;      - irReceiver:irReceiver_0|state_duration_counter[20]~5       ; 1                 ; 0       ;
-;      - freqgen:ir_freqgen_1|countup[29]~0                         ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[2]~DUPLICATE         ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[31]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[20]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[22]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[23]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[6]~DUPLICATE         ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[5]~DUPLICATE         ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[17]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[18]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[19]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[30]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[24]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[21]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[13]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[25]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[27]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[28]~DUPLICATE        ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[3]~DUPLICATE         ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[1]~DUPLICATE         ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[0]~DUPLICATE                  ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[1]~DUPLICATE                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|CS~DUPLICATE                 ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[3]~DUPLICATE                  ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[4]~DUPLICATE                 ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[0]~DUPLICATE                 ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[6]~DUPLICATE                 ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[2]~DUPLICATE                 ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[3]~DUPLICATE                 ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|foodPos[5]~DUPLICATE                 ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[2]~DUPLICATE                  ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[4]~DUPLICATE                  ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[5]~DUPLICATE                  ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|length[6]~DUPLICATE                  ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|state.transmit~DUPLICATE     ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|databit[0]~DUPLICATE         ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|start_state.scan~DUPLICATE   ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|start_state.bright~DUPLICATE ; 1                 ; 0       ;
-;      - MatrixDisplay:MatrixDisplay_0|grid_row[1]~DUPLICATE        ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[3][6]~DUPLICATE            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][7]~DUPLICATE            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][6]~DUPLICATE            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][5]~DUPLICATE            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][0]~DUPLICATE            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[2][1]~DUPLICATE            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][1]~DUPLICATE            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][5]~DUPLICATE            ; 1                 ; 0       ;
-;      - snakegame:snakegame_0|positions[1][4]~DUPLICATE            ; 1                 ; 0       ;
-; CLOCK_50                                                          ;                   ;         ;
-;      - led_clk_div_count[4]                                       ; 0                 ; 0       ;
-;      - freqgen:ir_freqgen_1|out_clk                               ; 0                 ; 0       ;
-;      - freqgen:ir_freqgen_0|out_clk                               ; 0                 ; 0       ;
-; ir_signal                                                         ;                   ;         ;
-;      - irReceiver:irReceiver_0|state_duration_counter[20]~6       ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|prev_ir_signal                     ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|buffer[29]~0                       ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|bit_duration_counter[1]~0          ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|bit_count[5]~1                     ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|state~16                           ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|state_duration_counter[20]~0       ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|state~17                           ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|bit_duration_counter[2]~1          ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|bit_duration_counter[1]~2          ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|state_duration_counter[20]~4       ; 0                 ; 0       ;
-;      - irReceiver:irReceiver_0|state~25                           ; 0                 ; 0       ;
-+-------------------------------------------------------------------+-------------------+---------+
++------------------------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                                           ;
++------------------------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                                        ; Pad To Core Index ; Setting ;
++------------------------------------------------------------+-------------------+---------+
+; reset_n                                                    ;                   ;         ;
+;      - irReceiver:irReceiver_0|word[12]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[31]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[30]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[29]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[28]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[27]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[26]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[25]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[24]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[23]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[22]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[21]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[20]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[19]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[18]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[17]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[16]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[15]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[14]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[13]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[7]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[11]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[10]                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[9]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[8]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[6]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[5]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[4]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[3]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[2]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[1]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[0]                     ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[2]                   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[1]                   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[11]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[30]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[29]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[28]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[27]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[26]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[25]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[24]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[23]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[22]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[21]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[20]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[19]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[31]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[17]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[16]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[15]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[14]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[13]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[12]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[10]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[18]                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[9]                   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[8]                   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[7]                   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[6]                   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[5]                   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[4]                   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[3]                   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[0]                   ; 1                 ; 0       ;
+;      - freqgen:ir_freqgen_1|out_clk                        ; 1                 ; 0       ;
+;      - freqgen:ir_freqgen_0|out_clk                        ; 1                 ; 0       ;
+;      - MatrixDisplay:MatrixDisplay_0|LED_CLK~0             ; 1                 ; 0       ;
+;      - snakegame:snakegame_0|foodPos_next[5]               ; 1                 ; 0       ;
+;      - snakegame:snakegame_0|foodPos_next[0]               ; 1                 ; 0       ;
+;      - snakegame:snakegame_0|foodPos_next[1]               ; 1                 ; 0       ;
+;      - snakegame:snakegame_0|foodPos_next[2]               ; 1                 ; 0       ;
+;      - snakegame:snakegame_0|foodPos_next[3]               ; 1                 ; 0       ;
+;      - snakegame:snakegame_0|foodPos_next[4]               ; 1                 ; 0       ;
+;      - snakegame:snakegame_0|foodPos_next[6]               ; 1                 ; 0       ;
+;      - snakegame:snakegame_0|foodPos_next[7]               ; 1                 ; 0       ;
+;      - freqgen:ir_freqgen_0|countup[25]~0                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|word[12]~0                  ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[2]~0                 ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|bit_count[5]~1              ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|state~18                    ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|bit_duration_counter[1]~2   ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|state_duration_counter[1]~3 ; 1                 ; 0       ;
+;      - irReceiver:irReceiver_0|state_duration_counter[1]~5 ; 1                 ; 0       ;
+;      - freqgen:ir_freqgen_1|countup[17]~0                  ; 1                 ; 0       ;
+;      - reset_n~inputCLKENA0                                ; 1                 ; 0       ;
+; CLOCK_50                                                   ;                   ;         ;
+;      - led_clk_div_count[4]                                ; 0                 ; 0       ;
+;      - freqgen:ir_freqgen_1|out_clk                        ; 0                 ; 0       ;
+;      - freqgen:ir_freqgen_0|out_clk                        ; 0                 ; 0       ;
+; ir_signal                                                  ;                   ;         ;
+;      - irReceiver:irReceiver_0|state_duration_counter[1]~6 ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|prev_ir_signal              ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|buffer[2]~0                 ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|bit_duration_counter[1]~0   ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|bit_count[5]~1              ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|state~16                    ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|state_duration_counter[1]~0 ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|state~17                    ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|bit_duration_counter[21]~1  ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|bit_duration_counter[1]~2   ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|state_duration_counter[1]~4 ; 0                 ; 0       ;
+;      - irReceiver:irReceiver_0|state~25                    ; 0                 ; 0       ;
++------------------------------------------------------------+-------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                 ;
-+------------------------------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; Name                                                 ; Location            ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+------------------------------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50                                             ; PIN_V11             ; 4       ; Clock                     ; no     ; --                   ; --               ; --                        ;
-; CLOCK_50                                             ; PIN_V11             ; 79      ; Clock                     ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-; MatrixDisplay:MatrixDisplay_0|databit[21]~1          ; LABCELL_X51_Y4_N18  ; 50      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; MatrixDisplay:MatrixDisplay_0|grid_row[0]~1          ; LABCELL_X51_Y4_N12  ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MatrixDisplay:MatrixDisplay_0|matrix_num[1]~1        ; LABCELL_X51_Y4_N57  ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; MatrixDisplay:MatrixDisplay_0|start_state~46         ; LABCELL_X51_Y4_N54  ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; freqgen:ir_freqgen_0|countup[3]~0                    ; LABCELL_X41_Y2_N15  ; 29      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; freqgen:ir_freqgen_0|out_clk                         ; FF_X43_Y4_N23       ; 70      ; Clock                     ; no     ; --                   ; --               ; --                        ;
-; freqgen:ir_freqgen_1|countup[29]~0                   ; MLABCELL_X42_Y4_N36 ; 30      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; freqgen:ir_freqgen_1|out_clk                         ; FF_X40_Y4_N5        ; 141     ; Clock                     ; no     ; --                   ; --               ; --                        ;
-; irReceiver:irReceiver_0|bit_count[0]~0               ; MLABCELL_X37_Y3_N39 ; 7       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; irReceiver:irReceiver_0|bit_count[5]~1               ; LABCELL_X38_Y3_N21  ; 6       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; irReceiver:irReceiver_0|bit_duration_counter[1]~2    ; LABCELL_X38_Y3_N0   ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; irReceiver:irReceiver_0|bit_duration_counter[2]~1    ; MLABCELL_X37_Y3_N51 ; 32      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; irReceiver:irReceiver_0|buffer[29]~0                 ; LABCELL_X40_Y2_N45  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; irReceiver:irReceiver_0|state_duration_counter[20]~5 ; MLABCELL_X37_Y3_N21 ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; irReceiver:irReceiver_0|state_duration_counter[20]~6 ; LABCELL_X36_Y3_N54  ; 32      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; irReceiver:irReceiver_0|word[2]~0                    ; MLABCELL_X37_Y3_N6  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; led_clk_div_count[4]                                 ; FF_X54_Y4_N17       ; 75      ; Clock                     ; no     ; --                   ; --               ; --                        ;
-; reset_n                                              ; PIN_AH19            ; 218     ; Async. clear, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; snakegame:snakegame_0|Equal4~0                       ; LABCELL_X46_Y2_N24  ; 28      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; snakegame:snakegame_0|Selector2~0                    ; LABCELL_X46_Y2_N9   ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-+------------------------------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                ;
++-----------------------------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; Name                                                ; Location            ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50                                            ; PIN_V11             ; 4       ; Clock                     ; no     ; --                   ; --               ; --                        ;
+; CLOCK_50                                            ; PIN_V11             ; 79      ; Clock                     ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; MatrixDisplay:MatrixDisplay_0|databit[19]~1         ; LABCELL_X35_Y1_N45  ; 42      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; MatrixDisplay:MatrixDisplay_0|grid_row[3]~1         ; MLABCELL_X37_Y1_N15 ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MatrixDisplay:MatrixDisplay_0|matrix_num[1]~1       ; LABCELL_X36_Y1_N18  ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; MatrixDisplay:MatrixDisplay_0|start_state~46        ; MLABCELL_X37_Y1_N3  ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; freqgen:ir_freqgen_0|countup[25]~0                  ; LABCELL_X18_Y6_N48  ; 29      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; freqgen:ir_freqgen_0|out_clk                        ; FF_X18_Y6_N8        ; 180     ; Clock                     ; no     ; --                   ; --               ; --                        ;
+; freqgen:ir_freqgen_1|countup[17]~0                  ; LABCELL_X18_Y2_N54  ; 30      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; freqgen:ir_freqgen_1|out_clk                        ; FF_X11_Y3_N14       ; 141     ; Clock                     ; no     ; --                   ; --               ; --                        ;
+; irReceiver:irReceiver_0|bit_count[5]~0              ; MLABCELL_X3_Y3_N39  ; 7       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; irReceiver:irReceiver_0|bit_count[5]~1              ; MLABCELL_X3_Y3_N30  ; 6       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; irReceiver:irReceiver_0|bit_duration_counter[1]~2   ; MLABCELL_X3_Y1_N48  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; irReceiver:irReceiver_0|bit_duration_counter[21]~1  ; LABCELL_X2_Y2_N9    ; 32      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; irReceiver:irReceiver_0|buffer[2]~0                 ; MLABCELL_X6_Y3_N42  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; irReceiver:irReceiver_0|state_duration_counter[1]~5 ; LABCELL_X2_Y3_N48   ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; irReceiver:irReceiver_0|state_duration_counter[1]~6 ; LABCELL_X2_Y2_N24   ; 32      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; irReceiver:irReceiver_0|word[12]~0                  ; MLABCELL_X3_Y3_N42  ; 32      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; led_clk_div_count[4]                                ; FF_X36_Y2_N44       ; 67      ; Clock                     ; no     ; --                   ; --               ; --                        ;
+; reset_n                                             ; PIN_AH19            ; 85      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
+; reset_n                                             ; PIN_AH19            ; 236     ; Async. clear              ; yes    ; Global Clock         ; GCLK0            ; --                        ;
+; snakegame:snakegame_0|Equal4~3                      ; LABCELL_X23_Y8_N0   ; 20      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; snakegame:snakegame_0|WideNor0                      ; LABCELL_X7_Y6_N27   ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; snakegame:snakegame_0|WideOr0                       ; MLABCELL_X8_Y6_N54  ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
++-----------------------------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -1785,86 +1660,87 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name     ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------+----------+---------+----------------------+------------------+---------------------------+
 ; CLOCK_50 ; PIN_V11  ; 79      ; Global Clock         ; GCLK6            ; --                        ;
+; reset_n  ; PIN_AH19 ; 236     ; Global Clock         ; GCLK0            ; --                        ;
 +----------+----------+---------+----------------------+------------------+---------------------------+
 
 
-+-----------------------------------------------------------------------+
-; Routing Usage Summary                                                 ;
-+---------------------------------------------+-------------------------+
-; Routing Resource Type                       ; Usage                   ;
-+---------------------------------------------+-------------------------+
-; Block interconnects                         ; 3,394 / 130,276 ( 3 % ) ;
-; C12 interconnects                           ; 69 / 6,848 ( 1 % )      ;
-; C2 interconnects                            ; 1,142 / 51,436 ( 2 % )  ;
-; C4 interconnects                            ; 536 / 25,120 ( 2 % )    ;
-; DQS bus muxes                               ; 0 / 19 ( 0 % )          ;
-; DQS-18 I/O buses                            ; 0 / 19 ( 0 % )          ;
-; DQS-9 I/O buses                             ; 0 / 19 ( 0 % )          ;
-; Direct links                                ; 202 / 130,276 ( < 1 % ) ;
-; Global clocks                               ; 1 / 16 ( 6 % )          ;
-; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )           ;
-; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )           ;
-; HPS_INTERFACE_BOOT_FROM_FPGA_INPUTs         ; 0 / 9 ( 0 % )           ;
-; HPS_INTERFACE_CLOCKS_RESETS_INPUTs          ; 0 / 7 ( 0 % )           ;
-; HPS_INTERFACE_CLOCKS_RESETS_OUTPUTs         ; 0 / 6 ( 0 % )           ;
-; HPS_INTERFACE_CROSS_TRIGGER_INPUTs          ; 0 / 18 ( 0 % )          ;
-; HPS_INTERFACE_CROSS_TRIGGER_OUTPUTs         ; 0 / 24 ( 0 % )          ;
-; HPS_INTERFACE_DBG_APB_INPUTs                ; 0 / 37 ( 0 % )          ;
-; HPS_INTERFACE_DBG_APB_OUTPUTs               ; 0 / 55 ( 0 % )          ;
-; HPS_INTERFACE_DMA_INPUTs                    ; 0 / 16 ( 0 % )          ;
-; HPS_INTERFACE_DMA_OUTPUTs                   ; 0 / 8 ( 0 % )           ;
-; HPS_INTERFACE_FPGA2HPS_INPUTs               ; 0 / 287 ( 0 % )         ;
-; HPS_INTERFACE_FPGA2HPS_OUTPUTs              ; 0 / 154 ( 0 % )         ;
-; HPS_INTERFACE_FPGA2SDRAM_INPUTs             ; 0 / 852 ( 0 % )         ;
-; HPS_INTERFACE_FPGA2SDRAM_OUTPUTs            ; 0 / 408 ( 0 % )         ;
-; HPS_INTERFACE_HPS2FPGA_INPUTs               ; 0 / 165 ( 0 % )         ;
-; HPS_INTERFACE_HPS2FPGA_LIGHT_WEIGHT_INPUTs  ; 0 / 67 ( 0 % )          ;
-; HPS_INTERFACE_HPS2FPGA_LIGHT_WEIGHT_OUTPUTs ; 0 / 156 ( 0 % )         ;
-; HPS_INTERFACE_HPS2FPGA_OUTPUTs              ; 0 / 282 ( 0 % )         ;
-; HPS_INTERFACE_INTERRUPTS_INPUTs             ; 0 / 64 ( 0 % )          ;
-; HPS_INTERFACE_INTERRUPTS_OUTPUTs            ; 0 / 42 ( 0 % )          ;
-; HPS_INTERFACE_JTAG_OUTPUTs                  ; 0 / 5 ( 0 % )           ;
-; HPS_INTERFACE_LOAN_IO_INPUTs                ; 0 / 142 ( 0 % )         ;
-; HPS_INTERFACE_LOAN_IO_OUTPUTs               ; 0 / 85 ( 0 % )          ;
-; HPS_INTERFACE_MPU_EVENT_STANDBY_INPUTs      ; 0 / 1 ( 0 % )           ;
-; HPS_INTERFACE_MPU_EVENT_STANDBY_OUTPUTs     ; 0 / 5 ( 0 % )           ;
-; HPS_INTERFACE_MPU_GENERAL_PURPOSE_INPUTs    ; 0 / 32 ( 0 % )          ;
-; HPS_INTERFACE_MPU_GENERAL_PURPOSE_OUTPUTs   ; 0 / 32 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_CAN_INPUTs         ; 0 / 2 ( 0 % )           ;
-; HPS_INTERFACE_PERIPHERAL_CAN_OUTPUTs        ; 0 / 2 ( 0 % )           ;
-; HPS_INTERFACE_PERIPHERAL_EMAC_INPUTs        ; 0 / 32 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_EMAC_OUTPUTs       ; 0 / 34 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_I2C_INPUTs         ; 0 / 8 ( 0 % )           ;
-; HPS_INTERFACE_PERIPHERAL_I2C_OUTPUTs        ; 0 / 8 ( 0 % )           ;
-; HPS_INTERFACE_PERIPHERAL_NAND_INPUTs        ; 0 / 12 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_NAND_OUTPUTs       ; 0 / 18 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_QSPI_INPUTs        ; 0 / 4 ( 0 % )           ;
-; HPS_INTERFACE_PERIPHERAL_QSPI_OUTPUTs       ; 0 / 13 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_SDMMC_INPUTs       ; 0 / 13 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_SDMMC_OUTPUTs      ; 0 / 22 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_SPI_MASTER_INPUTs  ; 0 / 4 ( 0 % )           ;
-; HPS_INTERFACE_PERIPHERAL_SPI_MASTER_OUTPUTs ; 0 / 14 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_SPI_SLAVE_INPUTs   ; 0 / 6 ( 0 % )           ;
-; HPS_INTERFACE_PERIPHERAL_SPI_SLAVE_OUTPUTs  ; 0 / 4 ( 0 % )           ;
-; HPS_INTERFACE_PERIPHERAL_UART_INPUTs        ; 0 / 10 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_UART_OUTPUTs       ; 0 / 10 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_USB_INPUTs         ; 0 / 22 ( 0 % )          ;
-; HPS_INTERFACE_PERIPHERAL_USB_OUTPUTs        ; 0 / 34 ( 0 % )          ;
-; HPS_INTERFACE_STM_EVENT_INPUTs              ; 0 / 28 ( 0 % )          ;
-; HPS_INTERFACE_TEST_INPUTs                   ; 0 / 610 ( 0 % )         ;
-; HPS_INTERFACE_TEST_OUTPUTs                  ; 0 / 513 ( 0 % )         ;
-; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )           ;
-; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )          ;
-; Horizontal periphery clocks                 ; 0 / 12 ( 0 % )          ;
-; Local interconnects                         ; 871 / 31,760 ( 3 % )    ;
-; Quadrant clocks                             ; 0 / 72 ( 0 % )          ;
-; R14 interconnects                           ; 92 / 6,046 ( 2 % )      ;
-; R14/C12 interconnect drivers                ; 145 / 8,584 ( 2 % )     ;
-; R3 interconnects                            ; 1,465 / 56,712 ( 3 % )  ;
-; R6 interconnects                            ; 1,921 / 131,000 ( 1 % ) ;
-; Spine clocks                                ; 1 / 150 ( < 1 % )       ;
-; Wire stub REs                               ; 0 / 6,650 ( 0 % )       ;
-+---------------------------------------------+-------------------------+
++-------------------------------------------------------------------------+
+; Routing Usage Summary                                                   ;
++---------------------------------------------+---------------------------+
+; Routing Resource Type                       ; Usage                     ;
++---------------------------------------------+---------------------------+
+; Block interconnects                         ; 16,012 / 130,276 ( 12 % ) ;
+; C12 interconnects                           ; 624 / 6,848 ( 9 % )       ;
+; C2 interconnects                            ; 5,874 / 51,436 ( 11 % )   ;
+; C4 interconnects                            ; 2,872 / 25,120 ( 11 % )   ;
+; DQS bus muxes                               ; 0 / 19 ( 0 % )            ;
+; DQS-18 I/O buses                            ; 0 / 19 ( 0 % )            ;
+; DQS-9 I/O buses                             ; 0 / 19 ( 0 % )            ;
+; Direct links                                ; 908 / 130,276 ( < 1 % )   ;
+; Global clocks                               ; 2 / 16 ( 13 % )           ;
+; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )             ;
+; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )             ;
+; HPS_INTERFACE_BOOT_FROM_FPGA_INPUTs         ; 0 / 9 ( 0 % )             ;
+; HPS_INTERFACE_CLOCKS_RESETS_INPUTs          ; 0 / 7 ( 0 % )             ;
+; HPS_INTERFACE_CLOCKS_RESETS_OUTPUTs         ; 0 / 6 ( 0 % )             ;
+; HPS_INTERFACE_CROSS_TRIGGER_INPUTs          ; 0 / 18 ( 0 % )            ;
+; HPS_INTERFACE_CROSS_TRIGGER_OUTPUTs         ; 0 / 24 ( 0 % )            ;
+; HPS_INTERFACE_DBG_APB_INPUTs                ; 0 / 37 ( 0 % )            ;
+; HPS_INTERFACE_DBG_APB_OUTPUTs               ; 0 / 55 ( 0 % )            ;
+; HPS_INTERFACE_DMA_INPUTs                    ; 0 / 16 ( 0 % )            ;
+; HPS_INTERFACE_DMA_OUTPUTs                   ; 0 / 8 ( 0 % )             ;
+; HPS_INTERFACE_FPGA2HPS_INPUTs               ; 0 / 287 ( 0 % )           ;
+; HPS_INTERFACE_FPGA2HPS_OUTPUTs              ; 0 / 154 ( 0 % )           ;
+; HPS_INTERFACE_FPGA2SDRAM_INPUTs             ; 0 / 852 ( 0 % )           ;
+; HPS_INTERFACE_FPGA2SDRAM_OUTPUTs            ; 0 / 408 ( 0 % )           ;
+; HPS_INTERFACE_HPS2FPGA_INPUTs               ; 0 / 165 ( 0 % )           ;
+; HPS_INTERFACE_HPS2FPGA_LIGHT_WEIGHT_INPUTs  ; 0 / 67 ( 0 % )            ;
+; HPS_INTERFACE_HPS2FPGA_LIGHT_WEIGHT_OUTPUTs ; 0 / 156 ( 0 % )           ;
+; HPS_INTERFACE_HPS2FPGA_OUTPUTs              ; 0 / 282 ( 0 % )           ;
+; HPS_INTERFACE_INTERRUPTS_INPUTs             ; 0 / 64 ( 0 % )            ;
+; HPS_INTERFACE_INTERRUPTS_OUTPUTs            ; 0 / 42 ( 0 % )            ;
+; HPS_INTERFACE_JTAG_OUTPUTs                  ; 0 / 5 ( 0 % )             ;
+; HPS_INTERFACE_LOAN_IO_INPUTs                ; 0 / 142 ( 0 % )           ;
+; HPS_INTERFACE_LOAN_IO_OUTPUTs               ; 0 / 85 ( 0 % )            ;
+; HPS_INTERFACE_MPU_EVENT_STANDBY_INPUTs      ; 0 / 1 ( 0 % )             ;
+; HPS_INTERFACE_MPU_EVENT_STANDBY_OUTPUTs     ; 0 / 5 ( 0 % )             ;
+; HPS_INTERFACE_MPU_GENERAL_PURPOSE_INPUTs    ; 0 / 32 ( 0 % )            ;
+; HPS_INTERFACE_MPU_GENERAL_PURPOSE_OUTPUTs   ; 0 / 32 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_CAN_INPUTs         ; 0 / 2 ( 0 % )             ;
+; HPS_INTERFACE_PERIPHERAL_CAN_OUTPUTs        ; 0 / 2 ( 0 % )             ;
+; HPS_INTERFACE_PERIPHERAL_EMAC_INPUTs        ; 0 / 32 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_EMAC_OUTPUTs       ; 0 / 34 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_I2C_INPUTs         ; 0 / 8 ( 0 % )             ;
+; HPS_INTERFACE_PERIPHERAL_I2C_OUTPUTs        ; 0 / 8 ( 0 % )             ;
+; HPS_INTERFACE_PERIPHERAL_NAND_INPUTs        ; 0 / 12 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_NAND_OUTPUTs       ; 0 / 18 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_QSPI_INPUTs        ; 0 / 4 ( 0 % )             ;
+; HPS_INTERFACE_PERIPHERAL_QSPI_OUTPUTs       ; 0 / 13 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_SDMMC_INPUTs       ; 0 / 13 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_SDMMC_OUTPUTs      ; 0 / 22 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_SPI_MASTER_INPUTs  ; 0 / 4 ( 0 % )             ;
+; HPS_INTERFACE_PERIPHERAL_SPI_MASTER_OUTPUTs ; 0 / 14 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_SPI_SLAVE_INPUTs   ; 0 / 6 ( 0 % )             ;
+; HPS_INTERFACE_PERIPHERAL_SPI_SLAVE_OUTPUTs  ; 0 / 4 ( 0 % )             ;
+; HPS_INTERFACE_PERIPHERAL_UART_INPUTs        ; 0 / 10 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_UART_OUTPUTs       ; 0 / 10 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_USB_INPUTs         ; 0 / 22 ( 0 % )            ;
+; HPS_INTERFACE_PERIPHERAL_USB_OUTPUTs        ; 0 / 34 ( 0 % )            ;
+; HPS_INTERFACE_STM_EVENT_INPUTs              ; 0 / 28 ( 0 % )            ;
+; HPS_INTERFACE_TEST_INPUTs                   ; 0 / 610 ( 0 % )           ;
+; HPS_INTERFACE_TEST_OUTPUTs                  ; 0 / 513 ( 0 % )           ;
+; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )             ;
+; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )            ;
+; Horizontal periphery clocks                 ; 0 / 12 ( 0 % )            ;
+; Local interconnects                         ; 3,972 / 31,760 ( 13 % )   ;
+; Quadrant clocks                             ; 0 / 72 ( 0 % )            ;
+; R14 interconnects                           ; 1,087 / 6,046 ( 18 % )    ;
+; R14/C12 interconnect drivers                ; 1,625 / 8,584 ( 19 % )    ;
+; R3 interconnects                            ; 7,529 / 56,712 ( 13 % )   ;
+; R6 interconnects                            ; 12,667 / 131,000 ( 10 % ) ;
+; Spine clocks                                ; 6 / 150 ( 4 % )           ;
+; Wire stub REs                               ; 0 / 6,650 ( 0 % )         ;
++---------------------------------------------+---------------------------+
 
 
 +------------------------------------------+
@@ -1998,11 +1874,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------+------------------------------+-------------------+
 ; Source Clock(s)              ; Destination Clock(s)         ; Delay Added in ns ;
 +------------------------------+------------------------------+-------------------+
-; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_1|out_clk ; 54.0              ;
-; led_clk_div_count[4]         ; led_clk_div_count[4]         ; 40.9              ;
-; freqgen:ir_freqgen_0|out_clk ; freqgen:ir_freqgen_0|out_clk ; 24.5              ;
-; CLOCK_50                     ; CLOCK_50                     ; 14.5              ;
-; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_0|out_clk ; 6.5               ;
+; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_1|out_clk ; 49.3              ;
+; freqgen:ir_freqgen_0|out_clk ; freqgen:ir_freqgen_0|out_clk ; 42.8              ;
+; led_clk_div_count[4]         ; led_clk_div_count[4]         ; 35.8              ;
+; CLOCK_50                     ; CLOCK_50                     ; 12.4              ;
+; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_0|out_clk ; 9.9               ;
+; CLOCK_50                     ; freqgen:ir_freqgen_1|out_clk ; 3.5               ;
+; CLOCK_50                     ; freqgen:ir_freqgen_0|out_clk ; 3.5               ;
 +------------------------------+------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
@@ -2013,106 +1891,106 @@ This will disable optimization of problematic paths and expose them for further 
 +--------------------------------------------------+--------------------------------------------------+-------------------+
 ; Source Register                                  ; Destination Register                             ; Delay Added in ns ;
 +--------------------------------------------------+--------------------------------------------------+-------------------+
-; freqgen:ir_freqgen_0|out_clk                     ; freqgen:ir_freqgen_0|out_clk                     ; 4.417             ;
-; led_clk_div_count[4]                             ; led_clk_div_count[4]                             ; 4.356             ;
-; freqgen:ir_freqgen_1|out_clk                     ; freqgen:ir_freqgen_1|out_clk                     ; 4.143             ;
-; led_clk_div_count[3]                             ; led_clk_div_count[4]                             ; 2.178             ;
-; led_clk_div_count[2]                             ; led_clk_div_count[4]                             ; 2.178             ;
-; led_clk_div_count[1]                             ; led_clk_div_count[4]                             ; 2.178             ;
-; led_clk_div_count[0]                             ; led_clk_div_count[4]                             ; 2.178             ;
-; freqgen:ir_freqgen_0|countup[31]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[30]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[28]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[27]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[26]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[25]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[24]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[22]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[21]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[20]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[19]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[18]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[17]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[16]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[15]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[14]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[13]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[12]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[11]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[10]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[9]                  ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[8]                  ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[7]                  ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[6]                  ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[5]                  ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[4]                  ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[3]                  ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[23]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_0|countup[29]                 ; freqgen:ir_freqgen_0|out_clk                     ; 2.044             ;
-; freqgen:ir_freqgen_1|countup[31]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[29]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[30]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[27]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[26]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[25]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[24]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[22]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[21]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[20]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[19]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[18]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[17]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[16]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[15]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[14]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[13]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[12]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[11]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[10]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[9]                  ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[8]                  ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[7]                  ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[6]                  ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[5]                  ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[4]                  ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[3]                  ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[2]                  ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[23]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; freqgen:ir_freqgen_1|countup[28]                 ; freqgen:ir_freqgen_1|out_clk                     ; 2.002             ;
-; MatrixDisplay:MatrixDisplay_0|state.start        ; MatrixDisplay:MatrixDisplay_0|DIN                ; 1.212             ;
-; MatrixDisplay:MatrixDisplay_0|start_state.scan   ; MatrixDisplay:MatrixDisplay_0|start_state.decode ; 1.113             ;
-; MatrixDisplay:MatrixDisplay_0|start_state.decode ; MatrixDisplay:MatrixDisplay_0|start_state.bright ; 0.994             ;
-; MatrixDisplay:MatrixDisplay_0|state.load         ; MatrixDisplay:MatrixDisplay_0|DIN                ; 0.961             ;
-; snakegame:snakegame_0|positions[0][5]            ; snakegame:snakegame_0|positions[0][6]            ; 0.946             ;
-; snakegame:snakegame_0|positions[0][4]            ; snakegame:snakegame_0|positions[0][6]            ; 0.909             ;
-; MatrixDisplay:MatrixDisplay_0|state.transmit     ; MatrixDisplay:MatrixDisplay_0|grid_row[2]        ; 0.861             ;
-; irReceiver:irReceiver_0|word[20]                 ; snakegame:snakegame_0|positions[0][5]            ; 0.852             ;
-; MatrixDisplay:MatrixDisplay_0|grid_row[1]        ; MatrixDisplay:MatrixDisplay_0|DIN                ; 0.847             ;
-; irReceiver:irReceiver_0|buffer[27]               ; irReceiver:irReceiver_0|word[27]                 ; 0.841             ;
-; irReceiver:irReceiver_0|word[9]                  ; snakegame:snakegame_0|positions[0][5]            ; 0.840             ;
-; MatrixDisplay:MatrixDisplay_0|matrix_num[0]      ; MatrixDisplay:MatrixDisplay_0|matrix_num[1]      ; 0.839             ;
-; irReceiver:irReceiver_0|buffer[26]               ; irReceiver:irReceiver_0|word[26]                 ; 0.827             ;
-; irReceiver:irReceiver_0|word[8]                  ; snakegame:snakegame_0|positions[0][5]            ; 0.817             ;
-; irReceiver:irReceiver_0|word[2]                  ; snakegame:snakegame_0|positions[0][5]            ; 0.807             ;
-; irReceiver:irReceiver_0|buffer[14]               ; irReceiver:irReceiver_0|word[14]                 ; 0.797             ;
-; irReceiver:irReceiver_0|buffer[4]                ; irReceiver:irReceiver_0|word[4]                  ; 0.797             ;
-; irReceiver:irReceiver_0|buffer[12]               ; irReceiver:irReceiver_0|word[12]                 ; 0.797             ;
-; irReceiver:irReceiver_0|word[3]                  ; snakegame:snakegame_0|positions[0][5]            ; 0.789             ;
-; irReceiver:irReceiver_0|buffer[13]               ; irReceiver:irReceiver_0|word[13]                 ; 0.785             ;
-; irReceiver:irReceiver_0|buffer[5]                ; irReceiver:irReceiver_0|word[5]                  ; 0.785             ;
-; irReceiver:irReceiver_0|buffer[6]                ; irReceiver:irReceiver_0|word[6]                  ; 0.785             ;
-; irReceiver:irReceiver_0|buffer[8]                ; irReceiver:irReceiver_0|buffer[9]                ; 0.782             ;
-; irReceiver:irReceiver_0|buffer[11]               ; irReceiver:irReceiver_0|buffer[12]               ; 0.782             ;
-; irReceiver:irReceiver_0|buffer[10]               ; irReceiver:irReceiver_0|buffer[11]               ; 0.778             ;
-; MatrixDisplay:MatrixDisplay_0|databit[19]        ; MatrixDisplay:MatrixDisplay_0|databit[27]        ; 0.772             ;
-; irReceiver:irReceiver_0|buffer[15]               ; irReceiver:irReceiver_0|buffer[16]               ; 0.769             ;
-; irReceiver:irReceiver_0|buffer[9]                ; irReceiver:irReceiver_0|buffer[10]               ; 0.763             ;
-; irReceiver:irReceiver_0|word[1]                  ; snakegame:snakegame_0|positions[0][5]            ; 0.756             ;
-; MatrixDisplay:MatrixDisplay_0|reset_counter[1]   ; MatrixDisplay:MatrixDisplay_0|databit[0]         ; 0.755             ;
-; irReceiver:irReceiver_0|word[31]                 ; snakegame:snakegame_0|positions[0][5]            ; 0.751             ;
-; irReceiver:irReceiver_0|word[17]                 ; snakegame:snakegame_0|positions[0][5]            ; 0.744             ;
-; MatrixDisplay:MatrixDisplay_0|grid_row[2]        ; MatrixDisplay:MatrixDisplay_0|DIN                ; 0.736             ;
-; MatrixDisplay:MatrixDisplay_0|reset_counter[0]   ; MatrixDisplay:MatrixDisplay_0|databit[0]         ; 0.735             ;
+; led_clk_div_count[4]                             ; led_clk_div_count[4]                             ; 3.832             ;
+; freqgen:ir_freqgen_0|out_clk                     ; freqgen:ir_freqgen_0|out_clk                     ; 3.831             ;
+; freqgen:ir_freqgen_1|out_clk                     ; freqgen:ir_freqgen_1|out_clk                     ; 2.741             ;
+; led_clk_div_count[3]                             ; led_clk_div_count[4]                             ; 1.916             ;
+; led_clk_div_count[2]                             ; led_clk_div_count[4]                             ; 1.916             ;
+; led_clk_div_count[1]                             ; led_clk_div_count[4]                             ; 1.916             ;
+; led_clk_div_count[0]                             ; led_clk_div_count[4]                             ; 1.916             ;
+; freqgen:ir_freqgen_0|countup[30]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[29]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[31]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[27]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[26]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[25]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[24]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[22]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[21]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[20]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[19]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[18]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[17]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[16]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[15]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[14]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[13]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[12]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[11]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[10]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[9]                  ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[8]                  ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[7]                  ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[6]                  ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[5]                  ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[4]                  ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[3]                  ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[23]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_0|countup[28]                 ; freqgen:ir_freqgen_0|out_clk                     ; 1.767             ;
+; freqgen:ir_freqgen_1|countup[30]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[29]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[28]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[31]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[26]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[25]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[24]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[22]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[21]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[20]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[19]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[18]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[17]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[16]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[15]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[14]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[13]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[12]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[11]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[10]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[9]                  ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[8]                  ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[7]                  ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[6]                  ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[5]                  ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[4]                  ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[3]                  ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[2]                  ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[23]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; freqgen:ir_freqgen_1|countup[27]                 ; freqgen:ir_freqgen_1|out_clk                     ; 1.370             ;
+; MatrixDisplay:MatrixDisplay_0|start_state.scan   ; MatrixDisplay:MatrixDisplay_0|start_state.decode ; 1.258             ;
+; snakegame:snakegame_0|positions[0][5]            ; snakegame:snakegame_0|positions[0][6]            ; 1.097             ;
+; snakegame:snakegame_0|positions[0][4]            ; snakegame:snakegame_0|positions[0][6]            ; 1.040             ;
+; MatrixDisplay:MatrixDisplay_0|matrix_num[1]      ; MatrixDisplay:MatrixDisplay_0|DIN                ; 1.009             ;
+; MatrixDisplay:MatrixDisplay_0|start_state.decode ; MatrixDisplay:MatrixDisplay_0|start_state.bright ; 1.006             ;
+; irReceiver:irReceiver_0|word[17]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.929             ;
+; irReceiver:irReceiver_0|word[16]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.928             ;
+; irReceiver:irReceiver_0|word[31]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.920             ;
+; irReceiver:irReceiver_0|word[30]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.920             ;
+; irReceiver:irReceiver_0|word[29]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.920             ;
+; irReceiver:irReceiver_0|word[28]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.920             ;
+; irReceiver:irReceiver_0|word[27]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.920             ;
+; irReceiver:irReceiver_0|word[26]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.920             ;
+; MatrixDisplay:MatrixDisplay_0|grid_row[1]        ; MatrixDisplay:MatrixDisplay_0|DIN                ; 0.915             ;
+; irReceiver:irReceiver_0|word[19]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.912             ;
+; irReceiver:irReceiver_0|word[18]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.912             ;
+; irReceiver:irReceiver_0|word[11]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.912             ;
+; irReceiver:irReceiver_0|word[10]                 ; snakegame:snakegame_0|positions[0][6]            ; 0.912             ;
+; irReceiver:irReceiver_0|buffer[26]               ; irReceiver:irReceiver_0|buffer[27]               ; 0.908             ;
+; irReceiver:irReceiver_0|buffer[27]               ; irReceiver:irReceiver_0|buffer[28]               ; 0.869             ;
+; irReceiver:irReceiver_0|buffer[18]               ; irReceiver:irReceiver_0|buffer[19]               ; 0.869             ;
+; irReceiver:irReceiver_0|buffer[3]                ; irReceiver:irReceiver_0|buffer[4]                ; 0.862             ;
+; MatrixDisplay:MatrixDisplay_0|databit[19]        ; MatrixDisplay:MatrixDisplay_0|databit[21]        ; 0.861             ;
+; irReceiver:irReceiver_0|buffer[23]               ; irReceiver:irReceiver_0|buffer[24]               ; 0.856             ;
+; irReceiver:irReceiver_0|buffer[6]                ; irReceiver:irReceiver_0|buffer[7]                ; 0.856             ;
+; MatrixDisplay:MatrixDisplay_0|state.load         ; MatrixDisplay:MatrixDisplay_0|state.transmit     ; 0.849             ;
+; irReceiver:irReceiver_0|buffer[16]               ; irReceiver:irReceiver_0|buffer[17]               ; 0.847             ;
+; irReceiver:irReceiver_0|buffer[9]                ; irReceiver:irReceiver_0|buffer[10]               ; 0.838             ;
+; irReceiver:irReceiver_0|buffer[22]               ; irReceiver:irReceiver_0|word[22]                 ; 0.837             ;
+; irReceiver:irReceiver_0|buffer[21]               ; irReceiver:irReceiver_0|word[21]                 ; 0.837             ;
+; irReceiver:irReceiver_0|buffer[28]               ; irReceiver:irReceiver_0|buffer[29]               ; 0.812             ;
+; irReceiver:irReceiver_0|word[7]                  ; snakegame:snakegame_0|positions[0][5]            ; 0.811             ;
+; irReceiver:irReceiver_0|word[2]                  ; snakegame:snakegame_0|positions[0][6]            ; 0.810             ;
+; irReceiver:irReceiver_0|word[15]                 ; snakegame:snakegame_0|positions[0][5]            ; 0.809             ;
 +--------------------------------------------------+--------------------------------------------------+-------------------+
 Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
 
@@ -2121,7 +1999,7 @@ Note: This table only shows the top 100 path(s) that have the largest delay adde
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (119006): Selected device 5CSEMA4U23C6 for design "Snake"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -2129,8 +2007,13 @@ Info (171003): Fitter is performing an Auto Fit compilation, which may decrease 
 Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (184020): Starting Fitter periphery placement operations
-Info (11191): Automatically promoted 1 clock (1 global)
+Info (11191): Automatically promoted 2 clocks (2 global)
     Info (11162): CLOCK_50~inputCLKENA0 with 78 fanout uses global clock CLKCTRL_G6
+    Info (11162): reset_n~inputCLKENA0 with 192 fanout uses global clock CLKCTRL_G9
+        Info (12525): This signal is driven by core routing -- it may be moved during placement to reduce routing delays
+Warning (16406): 1 global input pin(s) will use non-dedicated clock routing
+    Warning (16407): Source REFCLK I/O is not placed onto a dedicated REFCLK input pin for global clock driver reset_n~inputCLKENA0, placed at CLKCTRL_G9
+        Info (179012): Refclk input I/O pad reset_n is placed onto PIN_AH19
 Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
 Info (176233): Starting register packing
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'Snake.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
@@ -2266,37 +2149,37 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "s3" is assigned to location or region, but does not exist in design
     Warning (15706): Node "s4" is assigned to location or region, but does not exist in design
     Warning (15706): Node "spkr" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:09
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:07
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:37
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:01:29
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:06
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:08
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 1% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 17% of the available device resources in the region that extends from location X46_Y0 to location X56_Y11
+Info (170195): Router estimated average interconnect usage is 11% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 37% of the available device resources in the region that extends from location X34_Y0 to location X45_Y11
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:22
-Info (11888): Total time spent on timing analysis during the Fitter is 8.98 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:01:30
+Info (11888): Total time spent on timing analysis during the Fitter is 8.79 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:12
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:13
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
-Info (144001): Generated suppressed messages file C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 131 warnings
-    Info: Peak virtual memory: 6007 megabytes
-    Info: Processing ended: Tue Apr 02 13:47:33 2024
-    Info: Elapsed time: 00:02:36
-    Info: Total CPU time (on all processors): 00:05:30
+Info (144001): Generated suppressed messages file C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.fit.smsg
+Info: Quartus Prime Fitter was successful. 0 errors, 133 warnings
+    Info: Peak virtual memory: 6910 megabytes
+    Info: Processing ended: Tue Apr 02 18:26:28 2024
+    Info: Elapsed time: 00:05:16
+    Info: Total CPU time (on all processors): 00:04:48
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.fit.smsg.
+The suppressed messages can be found in C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.fit.smsg.
 
 

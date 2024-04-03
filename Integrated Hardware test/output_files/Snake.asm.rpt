@@ -1,5 +1,5 @@
 Assembler report for Snake
-Tue Apr 02 13:47:44 2024
+Tue Apr 02 18:26:35 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.sof
+  5. Assembler Device Options: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.sof
   6. Assembler Messages
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Apr 02 13:47:44 2024 ;
+; Assembler Status      ; Successful - Tue Apr 02 18:26:35 2024 ;
 ; Revision Name         ; Snake                                 ;
 ; Top-level Entity Name ; Snake                                 ;
 ; Family                ; Cyclone V                             ;
@@ -52,23 +52,23 @@ refer to the applicable agreement for further details.
 +--------+---------+---------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                                                            ;
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; File Name                                                                                                                            ;
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.sof ;
-+--------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                                                      ;
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                                                      ;
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.sof ;
++------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.sof ;
-+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                                                       ;
-+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00671F89                                                                                                                                    ;
-; Checksum       ; 0x00671F89                                                                                                                                    ;
-+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.sof ;
++----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                                                 ;
++----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x0102757E                                                                                                                                              ;
+; Checksum       ; 0x0102757E                                                                                                                                              ;
++----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -77,14 +77,14 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Apr 02 13:47:34 2024
+    Info: Processing started: Tue Apr 02 18:26:29 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Snake -c Snake
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4838 megabytes
-    Info: Processing ended: Tue Apr 02 13:47:44 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Peak virtual memory: 4879 megabytes
+    Info: Processing ended: Tue Apr 02 18:26:35 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:03
 
 
