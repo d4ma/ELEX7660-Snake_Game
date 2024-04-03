@@ -308,6 +308,7 @@ set_location_assignment PIN_AG21 -to led_din
 set_location_assignment PIN_AD23 -to led_cs
 set_location_assignment PIN_AA18 -to led_clk
 set_location_assignment PIN_V12 -to ir_signal
+set_global_assignment -name SYSTEMVERILOG_FILE soundgen.sv
 set_global_assignment -name SYSTEMVERILOG_FILE decode7.sv
 set_global_assignment -name SYSTEMVERILOG_FILE decode2.sv
 set_global_assignment -name SYSTEMVERILOG_FILE freqgen.sv
