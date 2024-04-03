@@ -3,3 +3,5 @@ irReceiver.cr.mti
 irReceiver.mpf
 work/
 irReceiver_test/
+Integrated Hardware test/db/
+Integrated Hardware test/incremental_db/

@@ -11,3 +11,11 @@ Name state.start state.transmit state.load
 state.start 0 0 0 
 state.load 1 0 1 
 state.transmit 1 1 0 
+
+State Machine - |Snake|irReceiver:irReceiver_0|state
+Name state.READ_BITS state.START_HIGH state.START_LOW state.IDLE state.END_STATE 
+state.IDLE 0 0 0 0 0 
+state.START_LOW 0 0 1 1 0 
+state.START_HIGH 0 1 0 1 0 
+state.READ_BITS 1 0 0 1 0 
+state.END_STATE 0 0 0 1 1 

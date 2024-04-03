@@ -203,12 +203,12 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AE15      :        :                   :      
 GND                          : AE16      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE17      :        :                   :         : 4A        :                
 GND                          : AE18      : gnd    :                   :         :           :                
-s2                           : AE19      : input  : 2.5 V             :         : 4A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AE19      :        :                   :         : 4A        :                
 leds[4]                      : AE20      : output : 2.5 V             :         : 4A        : Y              
 VCCIO4A                      : AE21      : power  :                   : 2.5V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE22      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE23      :        :                   :         : 4A        :                
-s4                           : AE24      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AE24      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE25      :        :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE26      :        :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE27      :        :                   :         : 6B        :                
@@ -234,7 +234,7 @@ ct[1]                        : AF18      : output : 2.5 V             :         
 VCCIO4A                      : AF19      : power  :                   : 2.5V    : 4A        :                
 leds[0]                      : AF20      : output : 2.5 V             :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF21      :        :                   :         : 4A        :                
-s3                           : AF22      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AF22      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF23      :        :                   :         : 4A        :                
 GND                          : AF24      : gnd    :                   :         :           :                
 ct[0]                        : AF25      : output : 2.5 V             :         : 4A        : Y              
@@ -290,7 +290,7 @@ reset_n                      : AH19      : input  : 3.3-V LVTTL       :         
 GND                          : AH20      : gnd    :                   :         :           :                
 ct[2]                        : AH21      : output : 2.5 V             :         : 4A        : Y              
 leds[3]                      : AH22      : output : 2.5 V             :         : 4A        : Y              
-s1                           : AH23      : input  : 2.5 V             :         : 4A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AH23      :        :                   :         : 4A        :                
 leds[5]                      : AH24      : output : 2.5 V             :         : 4A        : Y              
 VCCIO4A                      : AH25      : power  :                   : 2.5V    : 4A        :                
 blue                         : AH26      : output : 2.5 V             :         : 4A        : Y              
@@ -686,7 +686,7 @@ GND                          : V8        : gnd    :                   :         
 GND                          : V9        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V10       :        :                   :         : 3A        :                
 CLOCK_50                     : V11       : input  : 2.5 V             :         : 3B        : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : V12       :        :                   :         : 3B        :                
+ir_signal                    : V12       : input  : 2.5 V             :         : 3B        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : V13       :        :                   :         : 4A        :                
 GND                          : V14       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V15       :        :                   :         : 5A        :                

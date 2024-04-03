@@ -18,6 +18,7 @@ set_location_assignment PIN_AG28 -to enc2_b
 set_location_assignment PIN_AC22 -to enc1_a
 set_location_assignment PIN_AE23 -to enc1_b
 set_location_assignment PIN_AF11 -to point
+set_location_assignment PIN_V12 -to ir_signal
 
 #LEDS format is (dp)(G)(F)(E)(D)(C)(B)(A)
 

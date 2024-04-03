@@ -19,7 +19,7 @@ module pos2grid
         grid = '{default:0};
 
         // Draw the snake onto the grid
-        for (i = 0; i < 8'd8; i++) begin
+        for (i = 0; i < 8'd4; i++) begin
             if ((i < length) && (i !== foodPos))
                 grid[pos[i] >> 4][15 - pos[i]%16] = 1'b1;
             else
