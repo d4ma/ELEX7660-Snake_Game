@@ -18,7 +18,8 @@ module snakegame (
 	parameter [31:0] LEFT = 32'h20DF1AE5;
 	parameter [31:0] RIGHT = 32'h20DF9A65;
 
-
+    logic [7:0] i = 0;
+    logic body_collision = 0;
     logic [7:0] foodPos_next = 0;
 
     always_ff @(posedge game_clk, negedge reset_n) begin
@@ -26,7 +27,9 @@ module snakegame (
             positions <= '{default:0};
             positions[0] <= 8'd58;
             foodPos <= 144;
-            length = 1;
+            length <= 1;
+				    game_over <= 0;
+				    food_eaten <= 0;
         end
         else begin
             // Shift all positions down the array
@@ -35,28 +38,28 @@ module snakegame (
 
             case(direction)
                 UP : begin
-                  if (positions[0] >= 0 & positions[0] <= 15) begin
+                  if ((positions[0] >= 0 & positions[0] <= 15) || body_collision) begin
                     game_over <= 1;
                   end else begin
                     positions[0] <= positions[0] - 16;
                   end
                 end 
                 DOWN : begin
-                  if (positions[0] >= 240 & positions[0] <= 255) begin
+                  if ((positions[0] >= 240 & positions[0] <= 255) || body_collision) begin
                     game_over <= 1;
                   end else begin
                     positions[0] <= positions[0] + 16;
                   end
                 end
                 LEFT : begin
-                  if (positions[0] % 16 == 0) begin
+                  if ((positions[0] % 16 == 0) || body_collision) begin
                     game_over <= 1;
                   end else begin
                     positions[0] <=  positions[0] - 1;
                   end
                 end 
                 RIGHT : begin
-                  if ((positions[0]+1) % 16 == 0) begin
+                  if (((positions[0]+1) % 16 == 0) || body_collision) begin
                     game_over <= 1;
                   end else begin
                     positions[0] <= positions[0] + 1;
@@ -75,6 +78,16 @@ module snakegame (
             else begin
                 food_eaten <= 0;
             end
+        end
+    end
+
+    // Check for body collisions
+    always_comb begin
+        body_collision = 1'b0;
+
+        for (i = 1; i < 8'd255; i++) begin
+          if((positions[0] == positions[i]) && (i < length))
+            body_collision = 1'b1;
         end
     end
 

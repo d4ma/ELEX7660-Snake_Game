@@ -49,6 +49,11 @@ module Snake (
   logic game_clk; // Slower clock given to the game
   logic nec_clk; // Clock given to the ir_reciever
 
+  parameter [31:0] UP = 32'h20DF6A95;
+	parameter [31:0] DOWN = 32'h20DFEA15;
+	parameter [31:0] LEFT = 32'h20DF1AE5;
+	parameter [31:0] RIGHT = 32'h20DF9A65;
+
   logic [15:0][15:0] START_GRID =  {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
                                     16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
                                     16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
@@ -99,7 +104,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   freqgen #(50_000_000) ir_freqgen_1 (.out_clk(nec_clk), .reset_n, .clk(CLOCK_50), .freq(17_778));  // Generate irReceiver clock
   irReceiver irReceiver_0 (.ir_signal, .nec_clk, .word, .reset_n);
   snakegame snakegame_0 (.direction(word), .game_clk, .reset_n, .positions, .length, .foodPos, .food_eaten, .game_over);
-  MatrixDisplay MatrixDisplay_0 (.clk(slow_clk), .reset_n, .grid, .DIN(led_din), .CS(led_cs), .LED_CLK(led_clk));
+  MatrixDisplay MatrixDisplay_0 (.clk(slow_clk), .reset_n, .grid(disp_grid), .DIN(led_din), .CS(led_cs), .LED_CLK(led_clk));
   pos2grid pos2grid_0 (.pos(positions), .length, .foodPos, .grid_row, .grid_col);
   soundgen soundgen_0 (.spkr, .clk(CLOCK_50), .reset_n, .food_eaten, .game_over);
 
@@ -124,7 +129,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   always_ff @(posedge CLOCK_50) begin
     case (state)
       START_SCREEN : begin
-        if(word == 32'h20DF0000) begin
+        if(word == DOWN) begin
           state <= next_state;
         end
         else begin
@@ -140,7 +145,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
         end
       end
       END_SCREEN : begin
-        if(word == 32'h20DF0000) begin
+        if(word == UP) begin
           state <= next_state;
         end
         else begin
