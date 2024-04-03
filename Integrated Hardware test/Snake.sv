@@ -95,7 +95,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   freqgen #(50_000_000) ir_freqgen_0 (.out_clk(game_clk), .reset_n, .clk(CLOCK_50), .freq(4)); // Generate game clock
   freqgen #(50_000_000) ir_freqgen_1 (.out_clk(nec_clk), .reset_n, .clk(CLOCK_50), .freq(17_778));  // Generate irReceiver clock
   irReceiver irReceiver_0 (.ir_signal, .nec_clk, .word, .reset_n);
-  snakegame snakegame_0 (.direction(word), .game_clk, .reset_n, .positions, .length, .foodPos);
+  snakegame snakegame_0 (.direction(word), .game_clk, .reset_n, .positions, .length, .foodPos, .food_eaten, .game_over);
   MatrixDisplay MatrixDisplay_0 (.clk(slow_clk), .reset_n, .grid, .DIN(led_din), .CS(led_cs), .LED_CLK(led_clk));
   pos2grid pos2grid_0 (.pos(positions), .length, .foodPos, .grid_row, .grid_col);
 
@@ -113,7 +113,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   assign digit = clk_div_count[15:14];
 
   always_ff @(posedge CLOCK_50) begin
-      disp_grid[grid_row] <= grid_col;
+      grid[grid_row] <= grid_col;
       grid_row <= grid_row + 1;
   end
 
