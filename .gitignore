@@ -5,3 +5,10 @@ work/
 irReceiver_test/
 Integrated Hardware test/db/
 Integrated Hardware test/incremental_db/
+Integrated Hardware test/output_files/
+Integrated Hardware test/c5_pin_model_dump.txt
+Integrated Hardware test/pos2grid.sv.bak
+Integrated Hardware test/Snake.qsf
+Integrated Hardware test/Snake.qsf.bak
+Integrated Hardware test/Snake.sv.bak
+Integrated Hardware test/snakegame.sv.bak
