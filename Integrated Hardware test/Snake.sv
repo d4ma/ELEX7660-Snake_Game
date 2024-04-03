@@ -15,6 +15,14 @@ module Snake (
 
 );  // digit cathodes
 
+  // Define states
+  typedef enum logic [1:0] {
+    START_SCREEN,
+    GAME_SCREEN,
+    END_SCREEN
+  } state_t;
+  state_t state = START_SCREEN, next_state;
+
   logic [1:0] digit;  // select digit to display
   logic [3:0] disp_digit;  // current digit of count to display
   logic [15:0] clk_div_count;  // count used to divide clock
@@ -27,6 +35,9 @@ module Snake (
   logic [7:0] length;
   logic [7:0] score;
   logic [7:0] foodPos;
+
+  logic game_over;
+  logic food_eaten;
   
   logic [15:0] grid_row;
   logic [15:0] grid_col;
@@ -34,6 +45,41 @@ module Snake (
   logic slow_clk; // Slower clock given to the led matrix
   logic game_clk; // Slower clock given to the game
   logic nec_clk; // Clock given to the ir_reciever
+
+  logic [15:0][15:0] START_GRID =  {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b1_1_0_1_0_0_1_0_0_0_1_0_1_0_1_0,
+                                    16'b1_0_0_1_1_0_1_0_1_0_1_0_1_1_0_0,
+                                    16'b0_1_0_1_0_1_1_0_1_0_1_0_1_0_1_0,
+                                    16'b1_1_0_1_0_0_1_0_1_0_1_0_1_0_1_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0};
+
+logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_1_1_1_0_1_0_0_1_0_1_1_1_0_0_0,
+                                    16'b0_1_0_0_0_1_1_0_1_0_1_0_0_1_0_0,
+                                    16'b0_1_1_1_0_1_0_1_1_0_1_0_0_1_0_0,
+                                    16'b0_1_0_0_0_1_0_0_1_0_1_0_0_1_0_0,
+                                    16'b0_1_1_1_0_1_0_0_1_0_1_1_1_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0};
+
 
   // instantiate modules to implement design
   decode2 decode2_0 (
@@ -67,8 +113,38 @@ module Snake (
   assign digit = clk_div_count[15:14];
 
   always_ff @(posedge CLOCK_50) begin
-      grid[grid_row] <= grid_col;
+      disp_grid[grid_row] <= grid_col;
       grid_row <= grid_row + 1;
+  end
+
+  always_ff @(posedge CLOCK_50) begin
+    case (state)
+      START_SCREEN : begin
+        if(word == 32'h20DF####) begin
+          state <= next_state;
+        end
+        else begin
+          disp_grid <= START_GRID;
+        end
+      end
+      GAME_SCREEN : begin
+        if(game_over) begin
+          state <= next_state;
+        end
+        else begin
+          disp_grid <= grid;
+        end
+      end
+      END_SCREEN : begin
+        if(word == 32'h20DF####) begin
+          state <= next_state;
+        end
+        else begin
+          disp_grid <= END_GRID;
+        end
+      end
+
+    endcase
   end
 
   // Select digit to display (disp_digit)
@@ -87,6 +163,14 @@ module Snake (
   assign score = length * 5;
 
   assign {red, green, blue} = '0;
+
+  always_comb begin
+    case (state)
+      START_SCREEN: next_state = GAME_SCREEN;
+      GAME_SCREEN: next_state = END_SCREEN;
+      END_SCREEN: next_state = START_SCREEN;
+    endcase
+  end
   
 endmodule
 
