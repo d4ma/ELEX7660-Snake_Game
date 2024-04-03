@@ -27,6 +27,9 @@ module Snake (
   logic [7:0] length;
   logic [7:0] score;
   logic [7:0] foodPos;
+  
+  logic [15:0] grid_row;
+  logic [15:0] grid_col;
 
   logic slow_clk; // Slower clock given to the led matrix
   logic game_clk; // Slower clock given to the game
@@ -48,7 +51,7 @@ module Snake (
   irReceiver irReceiver_0 (.ir_signal, .nec_clk, .word, .reset_n);
   snakegame snakegame_0 (.direction(word), .game_clk, .reset_n, .positions, .length, .foodPos);
   MatrixDisplay MatrixDisplay_0 (.clk(slow_clk), .reset_n, .grid, .DIN(led_din), .CS(led_cs), .LED_CLK(led_clk));
-  pos2grid pos2grid_0 (.pos(positions), .length, .foodPos, .grid);
+  pos2grid pos2grid_0 (.pos(positions), .length, .foodPos, .grid_row, .grid_col);
 
   // Clock dividing logic for the matrix display
   always_ff @(posedge CLOCK_50)
@@ -63,6 +66,10 @@ module Snake (
   // assign the top two bits of count to select digit to display
   assign digit = clk_div_count[15:14];
 
+  always_ff @(posedge CLOCK_50) begin
+      grid[grid_row] <= grid_col;
+      grid_row <= grid_row + 1;
+  end
 
   // Select digit to display (disp_digit)
   // Left most digit 0 display channel number and right three digits (3,2,1) display the ADC conversion result

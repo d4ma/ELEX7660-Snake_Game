@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Snake
-Tue Apr 02 18:21:11 2024
+Tue Apr 02 19:29:15 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -56,13 +56,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Apr 02 18:21:11 2024       ;
+; Analysis & Synthesis Status     ; Successful - Tue Apr 02 19:29:15 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; Snake                                       ;
 ; Top-level Entity Name           ; Snake                                       ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 421                                         ;
+; Total registers                 ; 2593                                        ;
 ; Total pins                      ; 21                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -177,9 +177,13 @@ refer to the applicable agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processors 5-10        ;   0.0%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-10        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -204,25 +208,25 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimate of Logic utilization (ALMs needed) ; 4968          ;
+; Estimate of Logic utilization (ALMs needed) ; 4200          ;
 ;                                             ;               ;
-; Combinational ALUT usage for logic          ; 7973          ;
-;     -- 7 input functions                    ; 2             ;
-;     -- 6 input functions                    ; 1939          ;
-;     -- 5 input functions                    ; 556           ;
-;     -- 4 input functions                    ; 1082          ;
-;     -- <=3 input functions                  ; 4394          ;
+; Combinational ALUT usage for logic          ; 6254          ;
+;     -- 7 input functions                    ; 1             ;
+;     -- 6 input functions                    ; 1884          ;
+;     -- 5 input functions                    ; 1084          ;
+;     -- 4 input functions                    ; 372           ;
+;     -- <=3 input functions                  ; 2913          ;
 ;                                             ;               ;
-; Dedicated logic registers                   ; 421           ;
+; Dedicated logic registers                   ; 2593          ;
 ;                                             ;               ;
 ; I/O pins                                    ; 21            ;
 ;                                             ;               ;
 ; Total DSP Blocks                            ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; reset_n~input ;
-; Maximum fan-out                             ; 276           ;
-; Total fan-out                               ; 29541         ;
-; Average fan-out                             ; 3.50          ;
+; Maximum fan-out                             ; 2192          ;
+; Total fan-out                               ; 33258         ;
+; Average fan-out                             ; 3.74          ;
 +---------------------------------------------+---------------+
 
 
@@ -231,15 +235,15 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Entity Name   ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+---------------+--------------+
-; |Snake                             ; 7973 (30)           ; 421 (20)                  ; 0                 ; 0          ; 21   ; 0            ; |Snake                               ; Snake         ; work         ;
-;    |MatrixDisplay:MatrixDisplay_0| ; 161 (161)           ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |Snake|MatrixDisplay:MatrixDisplay_0 ; MatrixDisplay ; work         ;
+; |Snake                             ; 6254 (52)           ; 2593 (276)                ; 0                 ; 0          ; 21   ; 0            ; |Snake                               ; Snake         ; work         ;
+;    |MatrixDisplay:MatrixDisplay_0| ; 159 (159)           ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |Snake|MatrixDisplay:MatrixDisplay_0 ; MatrixDisplay ; work         ;
 ;    |decode2:decode2_0|             ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Snake|decode2:decode2_0             ; decode2       ; work         ;
 ;    |decode7:decode7_0|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Snake|decode7:decode7_0             ; decode7       ; work         ;
 ;    |freqgen:ir_freqgen_0|          ; 37 (37)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |Snake|freqgen:ir_freqgen_0          ; freqgen       ; work         ;
-;    |freqgen:ir_freqgen_1|          ; 38 (38)             ; 31 (31)                   ; 0                 ; 0          ; 0    ; 0            ; |Snake|freqgen:ir_freqgen_1          ; freqgen       ; work         ;
+;    |freqgen:ir_freqgen_1|          ; 42 (42)             ; 31 (31)                   ; 0                 ; 0          ; 0    ; 0            ; |Snake|freqgen:ir_freqgen_1          ; freqgen       ; work         ;
 ;    |irReceiver:irReceiver_0|       ; 119 (119)           ; 140 (140)                 ; 0                 ; 0          ; 0    ; 0            ; |Snake|irReceiver:irReceiver_0       ; irReceiver    ; work         ;
-;    |pos2grid:pos2grid_0|           ; 7507 (7507)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Snake|pos2grid:pos2grid_0           ; pos2grid      ; work         ;
-;    |snakegame:snakegame_0|         ; 70 (70)             ; 152 (152)                 ; 0                 ; 0          ; 0    ; 0            ; |Snake|snakegame:snakegame_0         ; snakegame     ; work         ;
+;    |pos2grid:pos2grid_0|           ; 5764 (5764)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Snake|pos2grid:pos2grid_0           ; pos2grid      ; work         ;
+;    |snakegame:snakegame_0|         ; 70 (70)             ; 2068 (2068)               ; 0                 ; 0          ; 0    ; 0            ; |Snake|snakegame:snakegame_0         ; snakegame     ; work         ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -288,6 +292,22 @@ Encoding Type:  One-Hot
 +----------------------------------------------+---------------------------------------------+
 ; Register name                                ; Reason for Removal                          ;
 +----------------------------------------------+---------------------------------------------+
+; grid_row[15]                                 ; Merged with clk_div_count[15]               ;
+; grid_row[14]                                 ; Merged with clk_div_count[14]               ;
+; grid_row[13]                                 ; Merged with clk_div_count[13]               ;
+; grid_row[12]                                 ; Merged with clk_div_count[12]               ;
+; grid_row[11]                                 ; Merged with clk_div_count[11]               ;
+; grid_row[10]                                 ; Merged with clk_div_count[10]               ;
+; grid_row[9]                                  ; Merged with clk_div_count[9]                ;
+; grid_row[8]                                  ; Merged with clk_div_count[8]                ;
+; grid_row[7]                                  ; Merged with clk_div_count[7]                ;
+; grid_row[6]                                  ; Merged with clk_div_count[6]                ;
+; grid_row[5]                                  ; Merged with clk_div_count[5]                ;
+; grid_row[4]                                  ; Merged with clk_div_count[4]                ;
+; grid_row[3]                                  ; Merged with clk_div_count[3]                ;
+; grid_row[2]                                  ; Merged with clk_div_count[2]                ;
+; grid_row[1]                                  ; Merged with clk_div_count[1]                ;
+; grid_row[0]                                  ; Merged with clk_div_count[0]                ;
 ; freqgen:ir_freqgen_1|countup[1]              ; Merged with freqgen:ir_freqgen_1|countup[0] ;
 ; freqgen:ir_freqgen_0|countup[1,2]            ; Merged with freqgen:ir_freqgen_0|countup[0] ;
 ; clk_div_count[0]                             ; Merged with led_clk_div_count[0]            ;
@@ -359,7 +379,7 @@ Encoding Type:  One-Hot
 ; irReceiver:irReceiver_0|state~8              ; Lost fanout                                 ;
 ; irReceiver:irReceiver_0|state~10             ; Lost fanout                                 ;
 ; MatrixDisplay:MatrixDisplay_0|grid_row[3]    ; Stuck at GND due to stuck port data_in      ;
-; Total Number of Removed Registers = 72       ;                                             ;
+; Total Number of Removed Registers = 88       ;                                             ;
 +----------------------------------------------+---------------------------------------------+
 
 
@@ -368,12 +388,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 421   ;
+; Total registers                              ; 2593  ;
 ; Number of registers using Synchronous Clear  ; 226   ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 192   ;
+; Number of registers using Asynchronous Clear ; 2108  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 171   ;
+; Number of registers using Clock Enable       ; 427   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -383,42 +403,42 @@ Encoding Type:  One-Hot
 +------------------------------------------------+---------+
 ; Inverted Register                              ; Fan out ;
 +------------------------------------------------+---------+
-; snakegame:snakegame_0|length[0]                ; 11      ;
-; MatrixDisplay:MatrixDisplay_0|CS               ; 7       ;
-; MatrixDisplay:MatrixDisplay_0|reset_counter[1] ; 19      ;
-; MatrixDisplay:MatrixDisplay_0|reset_counter[0] ; 19      ;
-; snakegame:snakegame_0|positions[0][5]          ; 23      ;
-; snakegame:snakegame_0|positions[0][1]          ; 20      ;
-; snakegame:snakegame_0|positions[0][3]          ; 20      ;
-; snakegame:snakegame_0|positions[0][4]          ; 24      ;
-; snakegame:snakegame_0|foodPos[4]               ; 17      ;
-; snakegame:snakegame_0|foodPos[7]               ; 17      ;
+; snakegame:snakegame_0|length[0]                ; 35      ;
+; MatrixDisplay:MatrixDisplay_0|CS               ; 6       ;
+; MatrixDisplay:MatrixDisplay_0|reset_counter[1] ; 9       ;
+; MatrixDisplay:MatrixDisplay_0|reset_counter[0] ; 9       ;
+; snakegame:snakegame_0|positions[0][5]          ; 8       ;
+; snakegame:snakegame_0|positions[0][1]          ; 8       ;
+; snakegame:snakegame_0|positions[0][3]          ; 6       ;
+; snakegame:snakegame_0|positions[0][4]          ; 9       ;
+; snakegame:snakegame_0|foodPos[4]               ; 1       ;
+; snakegame:snakegame_0|foodPos[7]               ; 1       ;
 ; Total number of inverted registers = 10        ;         ;
 +------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Snake|irReceiver:irReceiver_0|word[12]                  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Snake|irReceiver:irReceiver_0|buffer[2]                 ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |Snake|freqgen:ir_freqgen_1|countup[17]                  ;
-; 3:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |Snake|freqgen:ir_freqgen_0|countup[25]                  ;
-; 4:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |Snake|MatrixDisplay:MatrixDisplay_0|databit[19]         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Snake|MatrixDisplay:MatrixDisplay_0|matrix_num[1]       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Snake|snakegame:snakegame_0|positions[0][0]             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Snake|MatrixDisplay:MatrixDisplay_0|grid_row[3]         ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Snake|snakegame:snakegame_0|positions[0][7]             ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |Snake|irReceiver:irReceiver_0|bit_count[5]              ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |Snake|irReceiver:irReceiver_0|bit_duration_counter[21]  ;
-; 12:1               ; 32 bits   ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |Snake|irReceiver:irReceiver_0|state_duration_counter[1] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Snake|snakegame:snakegame_0|positions[0][1]             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Snake|Mux2                                              ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |Snake|MatrixDisplay:MatrixDisplay_0|start_state         ;
-; 14:1               ; 5 bits    ; 45 LEs        ; 10 LEs               ; 35 LEs                 ; No         ; |Snake|irReceiver:irReceiver_0|state                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Snake|irReceiver:irReceiver_0|word[3]                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Snake|irReceiver:irReceiver_0|buffer[16]                 ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |Snake|freqgen:ir_freqgen_1|countup[27]                   ;
+; 3:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |Snake|freqgen:ir_freqgen_0|countup[28]                   ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |Snake|MatrixDisplay:MatrixDisplay_0|databit[26]          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Snake|MatrixDisplay:MatrixDisplay_0|matrix_num[0]        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Snake|snakegame:snakegame_0|positions[0][2]              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Snake|MatrixDisplay:MatrixDisplay_0|grid_row[0]          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Snake|snakegame:snakegame_0|positions[0][6]              ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |Snake|irReceiver:irReceiver_0|bit_count[0]               ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |Snake|irReceiver:irReceiver_0|bit_duration_counter[31]   ;
+; 12:1               ; 32 bits   ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |Snake|irReceiver:irReceiver_0|state_duration_counter[31] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Snake|snakegame:snakegame_0|positions[0][1]              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Snake|Mux2                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |Snake|MatrixDisplay:MatrixDisplay_0|start_state          ;
+; 14:1               ; 5 bits    ; 45 LEs        ; 10 LEs               ; 35 LEs                 ; No         ; |Snake|irReceiver:irReceiver_0|state                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -519,32 +539,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 421                         ;
-;     CLR               ; 132                         ;
+; arriav_ff             ; 2593                        ;
+;     CLR               ; 2048                        ;
 ;     CLR SCLR          ; 31                          ;
-;     ENA               ; 8                           ;
+;     ENA               ; 264                         ;
 ;     ENA CLR           ; 29                          ;
 ;     ENA SCLR          ; 134                         ;
 ;     SCLR              ; 61                          ;
 ;     plain             ; 26                          ;
-; arriav_lcell_comb     ; 7984                        ;
+; arriav_lcell_comb     ; 6266                        ;
 ;     arith             ; 213                         ;
 ;         1 data inputs ; 204                         ;
 ;         2 data inputs ; 9                           ;
-;     extend            ; 2                           ;
-;         7 data inputs ; 2                           ;
-;     normal            ; 7769                        ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 6052                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 19                          ;
-;         2 data inputs ; 3629                        ;
-;         3 data inputs ; 543                         ;
-;         4 data inputs ; 1082                        ;
-;         5 data inputs ; 556                         ;
-;         6 data inputs ; 1939                        ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 1448                        ;
+;         3 data inputs ; 1243                        ;
+;         4 data inputs ; 372                         ;
+;         5 data inputs ; 1084                        ;
+;         6 data inputs ; 1884                        ;
 ; boundary_port         ; 21                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.00                       ;
-; Average LUT depth     ; 9.76                        ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 6.86                        ;
 +-----------------------+-----------------------------+
 
 
@@ -553,7 +573,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:18     ;
+; Top            ; 00:00:13     ;
 +----------------+--------------+
 
 
@@ -563,7 +583,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Apr 02 18:20:41 2024
+    Info: Processing started: Tue Apr 02 19:28:51 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Snake -c Snake
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
@@ -584,13 +604,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file matrixd
 Info (12021): Found 1 design units, including 1 entities, in source file snake.sv
     Info (12023): Found entity 1: Snake File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 6
 Info (12127): Elaborating entity "Snake" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at Snake.sv(80): truncated value with size 32 to match size of target (8) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 80
-Info (12128): Elaborating entity "decode2" for hierarchy "decode2:decode2_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 39
-Info (12128): Elaborating entity "decode7" for hierarchy "decode7:decode7_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 43
-Info (12128): Elaborating entity "freqgen" for hierarchy "freqgen:ir_freqgen_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 46
-Info (12128): Elaborating entity "irReceiver" for hierarchy "irReceiver:irReceiver_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 48
+Warning (10230): Verilog HDL assignment warning at Snake.sv(71): truncated value with size 32 to match size of target (16) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 71
+Warning (10230): Verilog HDL assignment warning at Snake.sv(87): truncated value with size 32 to match size of target (8) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 87
+Info (12128): Elaborating entity "decode2" for hierarchy "decode2:decode2_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 42
+Info (12128): Elaborating entity "decode7" for hierarchy "decode7:decode7_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 46
+Info (12128): Elaborating entity "freqgen" for hierarchy "freqgen:ir_freqgen_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 49
+Info (12128): Elaborating entity "irReceiver" for hierarchy "irReceiver:irReceiver_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 51
 Warning (10230): Verilog HDL assignment warning at irReceiver.sv(79): truncated value with size 32 to match size of target (6) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/irReceiver.sv Line: 79
-Info (12128): Elaborating entity "snakegame" for hierarchy "snakegame:snakegame_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 49
+Info (12128): Elaborating entity "snakegame" for hierarchy "snakegame:snakegame_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 52
 Warning (10230): Verilog HDL assignment warning at snakegame.sv(35): truncated value with size 32 to match size of target (8) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 35
 Warning (10230): Verilog HDL assignment warning at snakegame.sv(36): truncated value with size 32 to match size of target (8) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 36
 Warning (10230): Verilog HDL assignment warning at snakegame.sv(37): truncated value with size 32 to match size of target (8) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 37
@@ -598,7 +619,7 @@ Warning (10230): Verilog HDL assignment warning at snakegame.sv(38): truncated v
 Warning (10762): Verilog HDL Case Statement warning at snakegame.sv(34): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 34
 Warning (10230): Verilog HDL assignment warning at snakegame.sv(42): truncated value with size 32 to match size of target (8) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 42
 Warning (10230): Verilog HDL assignment warning at snakegame.sv(46): truncated value with size 32 to match size of target (8) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 46
-Info (12128): Elaborating entity "MatrixDisplay" for hierarchy "MatrixDisplay:MatrixDisplay_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 50
+Info (12128): Elaborating entity "MatrixDisplay" for hierarchy "MatrixDisplay:MatrixDisplay_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 53
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(47): truncated value with size 32 to match size of target (2) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 47
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(90): truncated value with size 32 to match size of target (2) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 90
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(94): truncated value with size 32 to match size of target (2) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 94
@@ -611,7 +632,7 @@ Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(156): trunca
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(157): truncated value with size 32 to match size of target (4) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 157
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(158): truncated value with size 32 to match size of target (4) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 158
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(159): truncated value with size 32 to match size of target (4) File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 159
-Info (12128): Elaborating entity "pos2grid" for hierarchy "pos2grid:pos2grid_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 51
+Info (12128): Elaborating entity "pos2grid" for hierarchy "pos2grid:pos2grid_0" File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 54
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "leds[7]" is stuck at GND File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 10
     Warning (13410): Pin "red" is stuck at GND File: C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 14
@@ -625,15 +646,15 @@ Info (17049): 65 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 8180 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 8633 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 18 output pins
-    Info (21061): Implemented 8159 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
-    Info: Peak virtual memory: 4930 megabytes
-    Info: Processing ended: Tue Apr 02 18:21:11 2024
-    Info: Elapsed time: 00:00:30
-    Info: Total CPU time (on all processors): 00:00:18
+    Info (21061): Implemented 8612 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
+    Info: Peak virtual memory: 4931 megabytes
+    Info: Processing ended: Tue Apr 02 19:29:15 2024
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:06
 
 
 +------------------------------------------+

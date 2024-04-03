@@ -2,196 +2,196 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'led_clk_div_count[4]'
-Slack : -11.568
-TNS   : -209.457
-
 Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -5.002
-TNS   : -213.654
+Slack : -10.473
+TNS   : -2715.807
 
-Type  : Slow 1100mV 85C Model Setup 'freqgen:ir_freqgen_1|out_clk'
-Slack : -4.656
-TNS   : -584.540
+Type  : Slow 1100mV 85C Model Setup 'led_clk_div_count[4]'
+Slack : -5.956
+TNS   : -276.300
 
 Type  : Slow 1100mV 85C Model Setup 'freqgen:ir_freqgen_0|out_clk'
-Slack : -3.624
-TNS   : -384.611
+Slack : -5.000
+TNS   : -5011.004
 
-Type  : Slow 1100mV 85C Model Hold 'led_clk_div_count[4]'
-Slack : 0.128
-TNS   : 0.000
+Type  : Slow 1100mV 85C Model Setup 'freqgen:ir_freqgen_1|out_clk'
+Slack : -4.398
+TNS   : -553.300
 
-Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 0.392
+Type  : Slow 1100mV 85C Model Hold 'freqgen:ir_freqgen_0|out_clk'
+Slack : 0.236
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'freqgen:ir_freqgen_1|out_clk'
-Slack : 0.436
+Slack : 0.305
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Hold 'freqgen:ir_freqgen_0|out_clk'
-Slack : 0.575
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.366
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.534
-TNS   : -42.729
+Type  : Slow 1100mV 85C Model Hold 'led_clk_div_count[4]'
+Slack : 0.484
+TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'freqgen:ir_freqgen_0|out_clk'
-Slack : -0.529
-TNS   : -135.859
+Slack : -0.565
+TNS   : -1898.273
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'led_clk_div_count[4]'
+Slack : -0.416
+TNS   : -52.246
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -179.252
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'freqgen:ir_freqgen_1|out_clk'
 Slack : -0.394
-TNS   : -81.820
-
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'led_clk_div_count[4]'
-Slack : -0.394
-TNS   : -35.897
-
-Type  : Slow 1100mV 0C Model Setup 'led_clk_div_count[4]'
-Slack : -11.295
-TNS   : -207.810
+TNS   : -93.866
 
 Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -5.069
-TNS   : -210.517
+Slack : -10.326
+TNS   : -2659.661
 
-Type  : Slow 1100mV 0C Model Setup 'freqgen:ir_freqgen_1|out_clk'
-Slack : -4.585
-TNS   : -559.526
+Type  : Slow 1100mV 0C Model Setup 'led_clk_div_count[4]'
+Slack : -6.117
+TNS   : -271.442
 
 Type  : Slow 1100mV 0C Model Setup 'freqgen:ir_freqgen_0|out_clk'
-Slack : -3.573
-TNS   : -370.967
+Slack : -4.738
+TNS   : -4834.701
 
-Type  : Slow 1100mV 0C Model Hold 'led_clk_div_count[4]'
-Slack : 0.180
-TNS   : 0.000
+Type  : Slow 1100mV 0C Model Setup 'freqgen:ir_freqgen_1|out_clk'
+Slack : -4.284
+TNS   : -537.463
 
 Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
-Slack : 0.389
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Hold 'freqgen:ir_freqgen_1|out_clk'
-Slack : 0.450
+Slack : 0.132
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'freqgen:ir_freqgen_0|out_clk'
-Slack : 0.568
+Slack : 0.268
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.514
-TNS   : -45.949
+Type  : Slow 1100mV 0C Model Hold 'freqgen:ir_freqgen_1|out_clk'
+Slack : 0.302
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'led_clk_div_count[4]'
+Slack : 0.513
+TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'freqgen:ir_freqgen_0|out_clk'
-Slack : -0.507
-TNS   : -132.641
+Slack : -0.499
+TNS   : -1826.146
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -195.845
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'freqgen:ir_freqgen_1|out_clk'
 Slack : -0.394
-TNS   : -81.986
+TNS   : -91.707
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'led_clk_div_count[4]'
 Slack : -0.394
-TNS   : -35.405
-
-Type  : Fast 1100mV 85C Model Setup 'led_clk_div_count[4]'
-Slack : -7.139
-TNS   : -102.003
+TNS   : -49.780
 
 Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -2.883
-TNS   : -99.344
+Slack : -6.259
+TNS   : -1576.740
 
-Type  : Fast 1100mV 85C Model Setup 'freqgen:ir_freqgen_1|out_clk'
-Slack : -2.508
-TNS   : -299.517
+Type  : Fast 1100mV 85C Model Setup 'led_clk_div_count[4]'
+Slack : -3.198
+TNS   : -144.093
 
 Type  : Fast 1100mV 85C Model Setup 'freqgen:ir_freqgen_0|out_clk'
-Slack : -2.257
-TNS   : -210.141
+Slack : -3.035
+TNS   : -2776.029
+
+Type  : Fast 1100mV 85C Model Setup 'freqgen:ir_freqgen_1|out_clk'
+Slack : -2.309
+TNS   : -281.050
 
 Type  : Fast 1100mV 85C Model Hold 'freqgen:ir_freqgen_0|out_clk'
-Slack : 0.021
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Hold 'led_clk_div_count[4]'
-Slack : 0.050
-TNS   : 0.000
+Slack : -0.132
+TNS   : -0.700
 
 Type  : Fast 1100mV 85C Model Hold 'freqgen:ir_freqgen_1|out_clk'
-Slack : 0.166
+Slack : 0.111
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 0.188
+Slack : 0.161
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'led_clk_div_count[4]'
+Slack : 0.210
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.551
-TNS   : -10.418
+Slack : -0.438
+TNS   : -34.393
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'freqgen:ir_freqgen_0|out_clk'
 Slack : -0.301
-TNS   : -22.982
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'freqgen:ir_freqgen_1|out_clk'
-Slack : -0.039
-TNS   : -1.061
+TNS   : -239.604
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'led_clk_div_count[4]'
-Slack : 0.018
-TNS   : 0.000
+Slack : -0.146
+TNS   : -6.210
 
-Type  : Fast 1100mV 0C Model Setup 'led_clk_div_count[4]'
-Slack : -6.406
-TNS   : -91.435
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'freqgen:ir_freqgen_1|out_clk'
+Slack : -0.133
+TNS   : -7.376
 
 Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -2.566
-TNS   : -85.231
+Slack : -5.577
+TNS   : -1381.981
 
-Type  : Fast 1100mV 0C Model Setup 'freqgen:ir_freqgen_1|out_clk'
-Slack : -2.189
-TNS   : -260.854
+Type  : Fast 1100mV 0C Model Setup 'led_clk_div_count[4]'
+Slack : -3.031
+TNS   : -127.790
 
 Type  : Fast 1100mV 0C Model Setup 'freqgen:ir_freqgen_0|out_clk'
-Slack : -1.909
-TNS   : -177.145
+Slack : -2.573
+TNS   : -2316.009
+
+Type  : Fast 1100mV 0C Model Setup 'freqgen:ir_freqgen_1|out_clk'
+Slack : -2.026
+TNS   : -246.409
 
 Type  : Fast 1100mV 0C Model Hold 'freqgen:ir_freqgen_0|out_clk'
-Slack : -0.020
-TNS   : -0.020
-
-Type  : Fast 1100mV 0C Model Hold 'led_clk_div_count[4]'
-Slack : 0.059
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Hold 'freqgen:ir_freqgen_1|out_clk'
-Slack : 0.150
-TNS   : 0.000
+Slack : -0.094
+TNS   : -0.601
 
 Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.075
+TNS   : -0.166
+
+Type  : Fast 1100mV 0C Model Hold 'freqgen:ir_freqgen_1|out_clk'
+Slack : 0.094
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'led_clk_div_count[4]'
 Slack : 0.182
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.497
-TNS   : -10.147
+Slack : -0.417
+TNS   : -33.812
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'freqgen:ir_freqgen_0|out_clk'
-Slack : -0.213
-TNS   : -13.476
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'freqgen:ir_freqgen_1|out_clk'
-Slack : 0.005
-TNS   : 0.000
+Slack : -0.187
+TNS   : -112.408
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'led_clk_div_count[4]'
-Slack : 0.036
-TNS   : 0.000
+Slack : -0.100
+TNS   : -2.557
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'freqgen:ir_freqgen_1|out_clk'
+Slack : -0.067
+TNS   : -2.706
 
 ------------------------------------------------------------

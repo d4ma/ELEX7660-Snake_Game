@@ -1,5 +1,5 @@
 Timing Analyzer report for Snake
-Tue Apr 02 18:26:49 2024
+Tue Apr 02 19:35:24 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -99,20 +99,20 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 10          ;
 ;                            ;             ;
-; Average used               ; 3.91        ;
+; Average used               ; 1.35        ;
 ; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  35.2%      ;
-;     Processor 3            ;  34.1%      ;
-;     Processor 4            ;  33.5%      ;
-;     Processor 5            ;  32.1%      ;
-;     Processor 6            ;  31.5%      ;
-;     Processor 7            ;  31.3%      ;
-;     Processor 8            ;  31.2%      ;
-;     Processor 9            ;  31.1%      ;
-;     Processor 10           ;  31.0%      ;
+;     Processor 2            ;   4.2%      ;
+;     Processor 3            ;   4.1%      ;
+;     Processor 4            ;   4.1%      ;
+;     Processor 5            ;   3.8%      ;
+;     Processor 6            ;   3.8%      ;
+;     Processor 7            ;   3.8%      ;
+;     Processor 8            ;   3.8%      ;
+;     Processor 9            ;   3.8%      ;
+;     Processor 10           ;   3.8%      ;
 +----------------------------+-------------+
 
 
@@ -133,10 +133,10 @@ refer to the applicable agreement for further details.
 +------------+-----------------+------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                   ; Note ;
 +------------+-----------------+------------------------------+------+
-; 89.24 MHz  ; 89.24 MHz       ; led_clk_div_count[4]         ;      ;
-; 166.61 MHz ; 166.61 MHz      ; CLOCK_50                     ;      ;
-; 176.8 MHz  ; 176.8 MHz       ; freqgen:ir_freqgen_1|out_clk ;      ;
-; 216.26 MHz ; 216.26 MHz      ; freqgen:ir_freqgen_0|out_clk ;      ;
+; 87.16 MHz  ; 87.16 MHz       ; CLOCK_50                     ;      ;
+; 89.4 MHz   ; 89.4 MHz        ; led_clk_div_count[4]         ;      ;
+; 166.67 MHz ; 166.67 MHz      ; freqgen:ir_freqgen_0|out_clk ;      ;
+; 185.25 MHz ; 185.25 MHz      ; freqgen:ir_freqgen_1|out_clk ;      ;
 +------------+-----------------+------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -152,10 +152,10 @@ HTML report is unavailable in plain text report export.
 +------------------------------+---------+---------------+
 ; Clock                        ; Slack   ; End Point TNS ;
 +------------------------------+---------+---------------+
-; led_clk_div_count[4]         ; -11.568 ; -209.457      ;
-; CLOCK_50                     ; -5.002  ; -213.654      ;
-; freqgen:ir_freqgen_1|out_clk ; -4.656  ; -584.540      ;
-; freqgen:ir_freqgen_0|out_clk ; -3.624  ; -384.611      ;
+; CLOCK_50                     ; -10.473 ; -2715.807     ;
+; led_clk_div_count[4]         ; -5.956  ; -276.300      ;
+; freqgen:ir_freqgen_0|out_clk ; -5.000  ; -5011.004     ;
+; freqgen:ir_freqgen_1|out_clk ; -4.398  ; -553.300      ;
 +------------------------------+---------+---------------+
 
 
@@ -164,10 +164,10 @@ HTML report is unavailable in plain text report export.
 +------------------------------+-------+---------------+
 ; Clock                        ; Slack ; End Point TNS ;
 +------------------------------+-------+---------------+
-; led_clk_div_count[4]         ; 0.128 ; 0.000         ;
-; CLOCK_50                     ; 0.392 ; 0.000         ;
-; freqgen:ir_freqgen_1|out_clk ; 0.436 ; 0.000         ;
-; freqgen:ir_freqgen_0|out_clk ; 0.575 ; 0.000         ;
+; freqgen:ir_freqgen_0|out_clk ; 0.236 ; 0.000         ;
+; freqgen:ir_freqgen_1|out_clk ; 0.305 ; 0.000         ;
+; CLOCK_50                     ; 0.366 ; 0.000         ;
+; led_clk_div_count[4]         ; 0.484 ; 0.000         ;
 +------------------------------+-------+---------------+
 
 
@@ -188,10 +188,10 @@ No paths to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; CLOCK_50                     ; -0.534 ; -42.729       ;
-; freqgen:ir_freqgen_0|out_clk ; -0.529 ; -135.859      ;
-; freqgen:ir_freqgen_1|out_clk ; -0.394 ; -81.820       ;
-; led_clk_div_count[4]         ; -0.394 ; -35.897       ;
+; freqgen:ir_freqgen_0|out_clk ; -0.565 ; -1898.273     ;
+; led_clk_div_count[4]         ; -0.416 ; -52.246       ;
+; CLOCK_50                     ; -0.394 ; -179.252      ;
+; freqgen:ir_freqgen_1|out_clk ; -0.394 ; -93.866       ;
 +------------------------------+--------+---------------+
 
 
@@ -206,10 +206,10 @@ No synchronizer chains to report.
 +------------+-----------------+------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                   ; Note ;
 +------------+-----------------+------------------------------+------+
-; 90.6 MHz   ; 90.6 MHz        ; led_clk_div_count[4]         ;      ;
-; 164.77 MHz ; 164.77 MHz      ; CLOCK_50                     ;      ;
-; 179.05 MHz ; 179.05 MHz      ; freqgen:ir_freqgen_1|out_clk ;      ;
-; 225.78 MHz ; 225.78 MHz      ; freqgen:ir_freqgen_0|out_clk ;      ;
+; 88.29 MHz  ; 88.29 MHz       ; CLOCK_50                     ;      ;
+; 90.37 MHz  ; 90.37 MHz       ; led_clk_div_count[4]         ;      ;
+; 174.28 MHz ; 174.28 MHz      ; freqgen:ir_freqgen_0|out_clk ;      ;
+; 189.25 MHz ; 189.25 MHz      ; freqgen:ir_freqgen_1|out_clk ;      ;
 +------------+-----------------+------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -219,10 +219,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------+---------+---------------+
 ; Clock                        ; Slack   ; End Point TNS ;
 +------------------------------+---------+---------------+
-; led_clk_div_count[4]         ; -11.295 ; -207.810      ;
-; CLOCK_50                     ; -5.069  ; -210.517      ;
-; freqgen:ir_freqgen_1|out_clk ; -4.585  ; -559.526      ;
-; freqgen:ir_freqgen_0|out_clk ; -3.573  ; -370.967      ;
+; CLOCK_50                     ; -10.326 ; -2659.661     ;
+; led_clk_div_count[4]         ; -6.117  ; -271.442      ;
+; freqgen:ir_freqgen_0|out_clk ; -4.738  ; -4834.701     ;
+; freqgen:ir_freqgen_1|out_clk ; -4.284  ; -537.463      ;
 +------------------------------+---------+---------------+
 
 
@@ -231,10 +231,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------+-------+---------------+
 ; Clock                        ; Slack ; End Point TNS ;
 +------------------------------+-------+---------------+
-; led_clk_div_count[4]         ; 0.180 ; 0.000         ;
-; CLOCK_50                     ; 0.389 ; 0.000         ;
-; freqgen:ir_freqgen_1|out_clk ; 0.450 ; 0.000         ;
-; freqgen:ir_freqgen_0|out_clk ; 0.568 ; 0.000         ;
+; CLOCK_50                     ; 0.132 ; 0.000         ;
+; freqgen:ir_freqgen_0|out_clk ; 0.268 ; 0.000         ;
+; freqgen:ir_freqgen_1|out_clk ; 0.302 ; 0.000         ;
+; led_clk_div_count[4]         ; 0.513 ; 0.000         ;
 +------------------------------+-------+---------------+
 
 
@@ -255,10 +255,10 @@ No paths to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; CLOCK_50                     ; -0.514 ; -45.949       ;
-; freqgen:ir_freqgen_0|out_clk ; -0.507 ; -132.641      ;
-; freqgen:ir_freqgen_1|out_clk ; -0.394 ; -81.986       ;
-; led_clk_div_count[4]         ; -0.394 ; -35.405       ;
+; freqgen:ir_freqgen_0|out_clk ; -0.499 ; -1826.146     ;
+; CLOCK_50                     ; -0.394 ; -195.845      ;
+; freqgen:ir_freqgen_1|out_clk ; -0.394 ; -91.707       ;
+; led_clk_div_count[4]         ; -0.394 ; -49.780       ;
 +------------------------------+--------+---------------+
 
 
@@ -273,23 +273,23 @@ No synchronizer chains to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; led_clk_div_count[4]         ; -7.139 ; -102.003      ;
-; CLOCK_50                     ; -2.883 ; -99.344       ;
-; freqgen:ir_freqgen_1|out_clk ; -2.508 ; -299.517      ;
-; freqgen:ir_freqgen_0|out_clk ; -2.257 ; -210.141      ;
+; CLOCK_50                     ; -6.259 ; -1576.740     ;
+; led_clk_div_count[4]         ; -3.198 ; -144.093      ;
+; freqgen:ir_freqgen_0|out_clk ; -3.035 ; -2776.029     ;
+; freqgen:ir_freqgen_1|out_clk ; -2.309 ; -281.050      ;
 +------------------------------+--------+---------------+
 
 
-+------------------------------------------------------+
-; Fast 1100mV 85C Model Hold Summary                   ;
-+------------------------------+-------+---------------+
-; Clock                        ; Slack ; End Point TNS ;
-+------------------------------+-------+---------------+
-; freqgen:ir_freqgen_0|out_clk ; 0.021 ; 0.000         ;
-; led_clk_div_count[4]         ; 0.050 ; 0.000         ;
-; freqgen:ir_freqgen_1|out_clk ; 0.166 ; 0.000         ;
-; CLOCK_50                     ; 0.188 ; 0.000         ;
-+------------------------------+-------+---------------+
++-------------------------------------------------------+
+; Fast 1100mV 85C Model Hold Summary                    ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; freqgen:ir_freqgen_0|out_clk ; -0.132 ; -0.700        ;
+; freqgen:ir_freqgen_1|out_clk ; 0.111  ; 0.000         ;
+; CLOCK_50                     ; 0.161  ; 0.000         ;
+; led_clk_div_count[4]         ; 0.210  ; 0.000         ;
++------------------------------+--------+---------------+
 
 
 ------------------------------------------
@@ -309,10 +309,10 @@ No paths to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; CLOCK_50                     ; -0.551 ; -10.418       ;
-; freqgen:ir_freqgen_0|out_clk ; -0.301 ; -22.982       ;
-; freqgen:ir_freqgen_1|out_clk ; -0.039 ; -1.061        ;
-; led_clk_div_count[4]         ; 0.018  ; 0.000         ;
+; CLOCK_50                     ; -0.438 ; -34.393       ;
+; freqgen:ir_freqgen_0|out_clk ; -0.301 ; -239.604      ;
+; led_clk_div_count[4]         ; -0.146 ; -6.210        ;
+; freqgen:ir_freqgen_1|out_clk ; -0.133 ; -7.376        ;
 +------------------------------+--------+---------------+
 
 
@@ -327,10 +327,10 @@ No synchronizer chains to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; led_clk_div_count[4]         ; -6.406 ; -91.435       ;
-; CLOCK_50                     ; -2.566 ; -85.231       ;
-; freqgen:ir_freqgen_1|out_clk ; -2.189 ; -260.854      ;
-; freqgen:ir_freqgen_0|out_clk ; -1.909 ; -177.145      ;
+; CLOCK_50                     ; -5.577 ; -1381.981     ;
+; led_clk_div_count[4]         ; -3.031 ; -127.790      ;
+; freqgen:ir_freqgen_0|out_clk ; -2.573 ; -2316.009     ;
+; freqgen:ir_freqgen_1|out_clk ; -2.026 ; -246.409      ;
 +------------------------------+--------+---------------+
 
 
@@ -339,10 +339,10 @@ No synchronizer chains to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; freqgen:ir_freqgen_0|out_clk ; -0.020 ; -0.020        ;
-; led_clk_div_count[4]         ; 0.059  ; 0.000         ;
-; freqgen:ir_freqgen_1|out_clk ; 0.150  ; 0.000         ;
-; CLOCK_50                     ; 0.182  ; 0.000         ;
+; freqgen:ir_freqgen_0|out_clk ; -0.094 ; -0.601        ;
+; CLOCK_50                     ; -0.075 ; -0.166        ;
+; freqgen:ir_freqgen_1|out_clk ; 0.094  ; 0.000         ;
+; led_clk_div_count[4]         ; 0.182  ; 0.000         ;
 +------------------------------+--------+---------------+
 
 
@@ -363,10 +363,10 @@ No paths to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; CLOCK_50                     ; -0.497 ; -10.147       ;
-; freqgen:ir_freqgen_0|out_clk ; -0.213 ; -13.476       ;
-; freqgen:ir_freqgen_1|out_clk ; 0.005  ; 0.000         ;
-; led_clk_div_count[4]         ; 0.036  ; 0.000         ;
+; CLOCK_50                     ; -0.417 ; -33.812       ;
+; freqgen:ir_freqgen_0|out_clk ; -0.187 ; -112.408      ;
+; led_clk_div_count[4]         ; -0.100 ; -2.557        ;
+; freqgen:ir_freqgen_1|out_clk ; -0.067 ; -2.706        ;
 +------------------------------+--------+---------------+
 
 
@@ -381,16 +381,16 @@ No synchronizer chains to report.
 +-------------------------------+-----------+--------+----------+---------+---------------------+
 ; Clock                         ; Setup     ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
 +-------------------------------+-----------+--------+----------+---------+---------------------+
-; Worst-case Slack              ; -11.568   ; -0.020 ; N/A      ; N/A     ; -0.551              ;
-;  CLOCK_50                     ; -5.069    ; 0.182  ; N/A      ; N/A     ; -0.551              ;
-;  freqgen:ir_freqgen_0|out_clk ; -3.624    ; -0.020 ; N/A      ; N/A     ; -0.529              ;
-;  freqgen:ir_freqgen_1|out_clk ; -4.656    ; 0.150  ; N/A      ; N/A     ; -0.394              ;
-;  led_clk_div_count[4]         ; -11.568   ; 0.050  ; N/A      ; N/A     ; -0.394              ;
-; Design-wide TNS               ; -1392.262 ; -0.02  ; 0.0      ; 0.0     ; -296.305            ;
-;  CLOCK_50                     ; -213.654  ; 0.000  ; N/A      ; N/A     ; -45.949             ;
-;  freqgen:ir_freqgen_0|out_clk ; -384.611  ; -0.020 ; N/A      ; N/A     ; -135.859            ;
-;  freqgen:ir_freqgen_1|out_clk ; -584.540  ; 0.000  ; N/A      ; N/A     ; -81.986             ;
-;  led_clk_div_count[4]         ; -209.457  ; 0.000  ; N/A      ; N/A     ; -35.897             ;
+; Worst-case Slack              ; -10.473   ; -0.132 ; N/A      ; N/A     ; -0.565              ;
+;  CLOCK_50                     ; -10.473   ; -0.075 ; N/A      ; N/A     ; -0.438              ;
+;  freqgen:ir_freqgen_0|out_clk ; -5.000    ; -0.132 ; N/A      ; N/A     ; -0.565              ;
+;  freqgen:ir_freqgen_1|out_clk ; -4.398    ; 0.094  ; N/A      ; N/A     ; -0.394              ;
+;  led_clk_div_count[4]         ; -6.117    ; 0.182  ; N/A      ; N/A     ; -0.416              ;
+; Design-wide TNS               ; -8556.411 ; -0.767 ; 0.0      ; 0.0     ; -2223.637           ;
+;  CLOCK_50                     ; -2715.807 ; -0.166 ; N/A      ; N/A     ; -195.845            ;
+;  freqgen:ir_freqgen_0|out_clk ; -5011.004 ; -0.700 ; N/A      ; N/A     ; -1898.273           ;
+;  freqgen:ir_freqgen_1|out_clk ; -553.300  ; 0.000  ; N/A      ; N/A     ; -93.866             ;
+;  led_clk_div_count[4]         ; -276.300  ; 0.000  ; N/A      ; N/A     ; -52.246             ;
 +-------------------------------+-----------+--------+----------+---------+---------------------+
 
 
@@ -540,15 +540,15 @@ No synchronizer chains to report.
 +------------------------------+------------------------------+----------+----------+----------+----------+
 ; From Clock                   ; To Clock                     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------------------------+------------------------------+----------+----------+----------+----------+
-; CLOCK_50                     ; CLOCK_50                     ; 2850     ; 0        ; 0        ; 0        ;
-; freqgen:ir_freqgen_0|out_clk ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0        ;
+; CLOCK_50                     ; CLOCK_50                     ; 1055601  ; 0        ; 0        ; 0        ;
+; freqgen:ir_freqgen_0|out_clk ; CLOCK_50                     ; 989697   ; 1        ; 0        ; 0        ;
 ; freqgen:ir_freqgen_1|out_clk ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0        ;
 ; led_clk_div_count[4]         ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0        ;
-; freqgen:ir_freqgen_0|out_clk ; freqgen:ir_freqgen_0|out_clk ; 638      ; 0        ; 0        ; 0        ;
+; freqgen:ir_freqgen_0|out_clk ; freqgen:ir_freqgen_0|out_clk ; 3150     ; 0        ; 0        ; 0        ;
 ; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_0|out_clk ; 1074     ; 0        ; 0        ; 0        ;
-; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_1|out_clk ; 17833    ; 0        ; 0        ; 0        ;
-; freqgen:ir_freqgen_0|out_clk ; led_clk_div_count[4]         ; 0        ; 0        ; 145664   ; 0        ;
-; led_clk_div_count[4]         ; led_clk_div_count[4]         ; 2089     ; 44       ; 520      ; 194      ;
+; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_1|out_clk ; 17831    ; 0        ; 0        ; 0        ;
+; CLOCK_50                     ; led_clk_div_count[4]         ; 0        ; 0        ; 256      ; 0        ;
+; led_clk_div_count[4]         ; led_clk_div_count[4]         ; 2334     ; 50       ; 614      ; 203      ;
 +------------------------------+------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -558,15 +558,15 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------------------------+------------------------------+----------+----------+----------+----------+
 ; From Clock                   ; To Clock                     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------------------------+------------------------------+----------+----------+----------+----------+
-; CLOCK_50                     ; CLOCK_50                     ; 2850     ; 0        ; 0        ; 0        ;
-; freqgen:ir_freqgen_0|out_clk ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0        ;
+; CLOCK_50                     ; CLOCK_50                     ; 1055601  ; 0        ; 0        ; 0        ;
+; freqgen:ir_freqgen_0|out_clk ; CLOCK_50                     ; 989697   ; 1        ; 0        ; 0        ;
 ; freqgen:ir_freqgen_1|out_clk ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0        ;
 ; led_clk_div_count[4]         ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0        ;
-; freqgen:ir_freqgen_0|out_clk ; freqgen:ir_freqgen_0|out_clk ; 638      ; 0        ; 0        ; 0        ;
+; freqgen:ir_freqgen_0|out_clk ; freqgen:ir_freqgen_0|out_clk ; 3150     ; 0        ; 0        ; 0        ;
 ; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_0|out_clk ; 1074     ; 0        ; 0        ; 0        ;
-; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_1|out_clk ; 17833    ; 0        ; 0        ; 0        ;
-; freqgen:ir_freqgen_0|out_clk ; led_clk_div_count[4]         ; 0        ; 0        ; 145664   ; 0        ;
-; led_clk_div_count[4]         ; led_clk_div_count[4]         ; 2089     ; 44       ; 520      ; 194      ;
+; freqgen:ir_freqgen_1|out_clk ; freqgen:ir_freqgen_1|out_clk ; 17831    ; 0        ; 0        ; 0        ;
+; CLOCK_50                     ; led_clk_div_count[4]         ; 0        ; 0        ; 256      ; 0        ;
+; led_clk_div_count[4]         ; led_clk_div_count[4]         ; 2334     ; 50       ; 614      ; 203      ;
 +------------------------------+------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -591,7 +591,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 2     ; 2    ;
-; Unconstrained Input Port Paths  ; 553   ; 553  ;
+; Unconstrained Input Port Paths  ; 3016  ; 3016 ;
 ; Unconstrained Output Ports      ; 14    ; 14   ;
 ; Unconstrained Output Port Paths ; 85    ; 85   ;
 +---------------------------------+-------+------+
@@ -679,7 +679,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Apr 02 18:26:36 2024
+    Info: Processing started: Tue Apr 02 19:33:57 2024
 Info: Command: quartus_sta Snake -c Snake
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -699,120 +699,120 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -11.568
+Info (332146): Worst-case setup slack is -10.473
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -11.568            -209.457 led_clk_div_count[4] 
-    Info (332119):    -5.002            -213.654 CLOCK_50 
-    Info (332119):    -4.656            -584.540 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):    -3.624            -384.611 freqgen:ir_freqgen_0|out_clk 
-Info (332146): Worst-case hold slack is 0.128
+    Info (332119):   -10.473           -2715.807 CLOCK_50 
+    Info (332119):    -5.956            -276.300 led_clk_div_count[4] 
+    Info (332119):    -5.000           -5011.004 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):    -4.398            -553.300 freqgen:ir_freqgen_1|out_clk 
+Info (332146): Worst-case hold slack is 0.236
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.128               0.000 led_clk_div_count[4] 
-    Info (332119):     0.392               0.000 CLOCK_50 
-    Info (332119):     0.436               0.000 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):     0.575               0.000 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):     0.236               0.000 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):     0.305               0.000 freqgen:ir_freqgen_1|out_clk 
+    Info (332119):     0.366               0.000 CLOCK_50 
+    Info (332119):     0.484               0.000 led_clk_div_count[4] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.534
+Info (332146): Worst-case minimum pulse width slack is -0.565
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.534             -42.729 CLOCK_50 
-    Info (332119):    -0.529            -135.859 freqgen:ir_freqgen_0|out_clk 
-    Info (332119):    -0.394             -81.820 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):    -0.394             -35.897 led_clk_div_count[4] 
+    Info (332119):    -0.565           -1898.273 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):    -0.416             -52.246 led_clk_div_count[4] 
+    Info (332119):    -0.394            -179.252 CLOCK_50 
+    Info (332119):    -0.394             -93.866 freqgen:ir_freqgen_1|out_clk 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -11.295
+Info (332146): Worst-case setup slack is -10.326
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -11.295            -207.810 led_clk_div_count[4] 
-    Info (332119):    -5.069            -210.517 CLOCK_50 
-    Info (332119):    -4.585            -559.526 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):    -3.573            -370.967 freqgen:ir_freqgen_0|out_clk 
-Info (332146): Worst-case hold slack is 0.180
+    Info (332119):   -10.326           -2659.661 CLOCK_50 
+    Info (332119):    -6.117            -271.442 led_clk_div_count[4] 
+    Info (332119):    -4.738           -4834.701 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):    -4.284            -537.463 freqgen:ir_freqgen_1|out_clk 
+Info (332146): Worst-case hold slack is 0.132
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.180               0.000 led_clk_div_count[4] 
-    Info (332119):     0.389               0.000 CLOCK_50 
-    Info (332119):     0.450               0.000 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):     0.568               0.000 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):     0.132               0.000 CLOCK_50 
+    Info (332119):     0.268               0.000 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):     0.302               0.000 freqgen:ir_freqgen_1|out_clk 
+    Info (332119):     0.513               0.000 led_clk_div_count[4] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.514
+Info (332146): Worst-case minimum pulse width slack is -0.499
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.514             -45.949 CLOCK_50 
-    Info (332119):    -0.507            -132.641 freqgen:ir_freqgen_0|out_clk 
-    Info (332119):    -0.394             -81.986 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):    -0.394             -35.405 led_clk_div_count[4] 
+    Info (332119):    -0.499           -1826.146 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):    -0.394            -195.845 CLOCK_50 
+    Info (332119):    -0.394             -91.707 freqgen:ir_freqgen_1|out_clk 
+    Info (332119):    -0.394             -49.780 led_clk_div_count[4] 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -7.139
+Info (332146): Worst-case setup slack is -6.259
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.139            -102.003 led_clk_div_count[4] 
-    Info (332119):    -2.883             -99.344 CLOCK_50 
-    Info (332119):    -2.508            -299.517 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):    -2.257            -210.141 freqgen:ir_freqgen_0|out_clk 
-Info (332146): Worst-case hold slack is 0.021
+    Info (332119):    -6.259           -1576.740 CLOCK_50 
+    Info (332119):    -3.198            -144.093 led_clk_div_count[4] 
+    Info (332119):    -3.035           -2776.029 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):    -2.309            -281.050 freqgen:ir_freqgen_1|out_clk 
+Info (332146): Worst-case hold slack is -0.132
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.021               0.000 freqgen:ir_freqgen_0|out_clk 
-    Info (332119):     0.050               0.000 led_clk_div_count[4] 
-    Info (332119):     0.166               0.000 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):     0.188               0.000 CLOCK_50 
+    Info (332119):    -0.132              -0.700 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):     0.111               0.000 freqgen:ir_freqgen_1|out_clk 
+    Info (332119):     0.161               0.000 CLOCK_50 
+    Info (332119):     0.210               0.000 led_clk_div_count[4] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.551
+Info (332146): Worst-case minimum pulse width slack is -0.438
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.551             -10.418 CLOCK_50 
-    Info (332119):    -0.301             -22.982 freqgen:ir_freqgen_0|out_clk 
-    Info (332119):    -0.039              -1.061 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):     0.018               0.000 led_clk_div_count[4] 
+    Info (332119):    -0.438             -34.393 CLOCK_50 
+    Info (332119):    -0.301            -239.604 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):    -0.146              -6.210 led_clk_div_count[4] 
+    Info (332119):    -0.133              -7.376 freqgen:ir_freqgen_1|out_clk 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -6.406
+Info (332146): Worst-case setup slack is -5.577
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -6.406             -91.435 led_clk_div_count[4] 
-    Info (332119):    -2.566             -85.231 CLOCK_50 
-    Info (332119):    -2.189            -260.854 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):    -1.909            -177.145 freqgen:ir_freqgen_0|out_clk 
-Info (332146): Worst-case hold slack is -0.020
+    Info (332119):    -5.577           -1381.981 CLOCK_50 
+    Info (332119):    -3.031            -127.790 led_clk_div_count[4] 
+    Info (332119):    -2.573           -2316.009 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):    -2.026            -246.409 freqgen:ir_freqgen_1|out_clk 
+Info (332146): Worst-case hold slack is -0.094
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.020              -0.020 freqgen:ir_freqgen_0|out_clk 
-    Info (332119):     0.059               0.000 led_clk_div_count[4] 
-    Info (332119):     0.150               0.000 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):     0.182               0.000 CLOCK_50 
+    Info (332119):    -0.094              -0.601 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):    -0.075              -0.166 CLOCK_50 
+    Info (332119):     0.094               0.000 freqgen:ir_freqgen_1|out_clk 
+    Info (332119):     0.182               0.000 led_clk_div_count[4] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.497
+Info (332146): Worst-case minimum pulse width slack is -0.417
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.497             -10.147 CLOCK_50 
-    Info (332119):    -0.213             -13.476 freqgen:ir_freqgen_0|out_clk 
-    Info (332119):     0.005               0.000 freqgen:ir_freqgen_1|out_clk 
-    Info (332119):     0.036               0.000 led_clk_div_count[4] 
+    Info (332119):    -0.417             -33.812 CLOCK_50 
+    Info (332119):    -0.187            -112.408 freqgen:ir_freqgen_0|out_clk 
+    Info (332119):    -0.100              -2.557 led_clk_div_count[4] 
+    Info (332119):    -0.067              -2.706 freqgen:ir_freqgen_1|out_clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5246 megabytes
-    Info: Processing ended: Tue Apr 02 18:26:49 2024
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:29
+    Info: Peak virtual memory: 5277 megabytes
+    Info: Processing ended: Tue Apr 02 19:35:24 2024
+    Info: Elapsed time: 00:01:27
+    Info: Total CPU time (on all processors): 00:00:38
 
 
