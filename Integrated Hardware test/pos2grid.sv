@@ -25,7 +25,7 @@ module pos2grid
                 grid_col[15 - pos[i]%16] = 1'b1;
         end
 
-        if ((pos[i] >> 4) == grid_row)
+        if ((foodPos >> 4) == grid_row)
             grid_col[15 - foodPos%16] = 1'b1;
     end
 

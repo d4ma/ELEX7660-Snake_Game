@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Snake
-Tue Apr 02 19:29:15 2024
+Tue Apr 02 21:53:18 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -56,13 +56,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Apr 02 19:29:15 2024       ;
+; Analysis & Synthesis Status     ; Successful - Tue Apr 02 21:53:18 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; Snake                                       ;
 ; Top-level Entity Name           ; Snake                                       ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 2593                                        ;
+; Total registers                 ; 2589                                        ;
 ; Total pins                      ; 21                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -177,10 +177,10 @@ refer to the applicable agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
-;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
 ;     Processor 7            ;   0.0%      ;
 ;     Processor 8            ;   0.0%      ;
 ;     Processors 9-10        ;   0.0%      ;
@@ -217,15 +217,15 @@ refer to the applicable agreement for further details.
 ;     -- 4 input functions                    ; 372           ;
 ;     -- <=3 input functions                  ; 2913          ;
 ;                                             ;               ;
-; Dedicated logic registers                   ; 2593          ;
+; Dedicated logic registers                   ; 2589          ;
 ;                                             ;               ;
 ; I/O pins                                    ; 21            ;
 ;                                             ;               ;
 ; Total DSP Blocks                            ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; reset_n~input ;
-; Maximum fan-out                             ; 2192          ;
-; Total fan-out                               ; 33258         ;
+; Maximum fan-out                             ; 2188          ;
+; Total fan-out                               ; 33246         ;
 ; Average fan-out                             ; 3.74          ;
 +---------------------------------------------+---------------+
 
@@ -235,7 +235,7 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Entity Name   ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+---------------+--------------+
-; |Snake                             ; 6254 (52)           ; 2593 (276)                ; 0                 ; 0          ; 21   ; 0            ; |Snake                               ; Snake         ; work         ;
+; |Snake                             ; 6254 (52)           ; 2589 (276)                ; 0                 ; 0          ; 21   ; 0            ; |Snake                               ; Snake         ; work         ;
 ;    |MatrixDisplay:MatrixDisplay_0| ; 159 (159)           ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |Snake|MatrixDisplay:MatrixDisplay_0 ; MatrixDisplay ; work         ;
 ;    |decode2:decode2_0|             ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Snake|decode2:decode2_0             ; decode2       ; work         ;
 ;    |decode7:decode7_0|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Snake|decode7:decode7_0             ; decode7       ; work         ;
@@ -243,7 +243,7 @@ refer to the applicable agreement for further details.
 ;    |freqgen:ir_freqgen_1|          ; 42 (42)             ; 31 (31)                   ; 0                 ; 0          ; 0    ; 0            ; |Snake|freqgen:ir_freqgen_1          ; freqgen       ; work         ;
 ;    |irReceiver:irReceiver_0|       ; 119 (119)           ; 140 (140)                 ; 0                 ; 0          ; 0    ; 0            ; |Snake|irReceiver:irReceiver_0       ; irReceiver    ; work         ;
 ;    |pos2grid:pos2grid_0|           ; 5764 (5764)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Snake|pos2grid:pos2grid_0           ; pos2grid      ; work         ;
-;    |snakegame:snakegame_0|         ; 70 (70)             ; 2068 (2068)               ; 0                 ; 0          ; 0    ; 0            ; |Snake|snakegame:snakegame_0         ; snakegame     ; work         ;
+;    |snakegame:snakegame_0|         ; 70 (70)             ; 2064 (2064)               ; 0                 ; 0          ; 0    ; 0            ; |Snake|snakegame:snakegame_0         ; snakegame     ; work         ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -388,10 +388,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2593  ;
+; Total registers                              ; 2589  ;
 ; Number of registers using Synchronous Clear  ; 226   ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 2108  ;
+; Number of registers using Asynchronous Clear ; 2104  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 427   ;
 ; Number of registers using Preset             ; 0     ;
@@ -411,8 +411,8 @@ Encoding Type:  One-Hot
 ; snakegame:snakegame_0|positions[0][1]          ; 8       ;
 ; snakegame:snakegame_0|positions[0][3]          ; 6       ;
 ; snakegame:snakegame_0|positions[0][4]          ; 9       ;
-; snakegame:snakegame_0|foodPos[4]               ; 1       ;
-; snakegame:snakegame_0|foodPos[7]               ; 1       ;
+; snakegame:snakegame_0|foodPos[4]               ; 5       ;
+; snakegame:snakegame_0|foodPos[7]               ; 2       ;
 ; Total number of inverted registers = 10        ;         ;
 +------------------------------------------------+---------+
 
@@ -539,8 +539,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 2593                        ;
-;     CLR               ; 2048                        ;
+; arriav_ff             ; 2589                        ;
+;     CLR               ; 2044                        ;
 ;     CLR SCLR          ; 31                          ;
 ;     ENA               ; 264                         ;
 ;     ENA CLR           ; 29                          ;
@@ -573,7 +573,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:13     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -583,7 +583,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Apr 02 19:28:51 2024
+    Info: Processing started: Tue Apr 02 21:52:57 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Snake -c Snake
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
@@ -646,15 +646,15 @@ Info (17049): 65 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/bnada/OneDrive - BCIT/BCIT/Winter 2024/ELEX 7660 Digi/Lab/Project/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 8633 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 8629 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 18 output pins
-    Info (21061): Implemented 8612 logic cells
+    Info (21061): Implemented 8608 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 4931 megabytes
-    Info: Processing ended: Tue Apr 02 19:29:15 2024
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 4934 megabytes
+    Info: Processing ended: Tue Apr 02 21:53:18 2024
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:15
 
 
 +------------------------------------------+
