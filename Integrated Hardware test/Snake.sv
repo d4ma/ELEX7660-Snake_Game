@@ -11,7 +11,8 @@ module Snake (
     output logic [3:0] ct,
     output logic led_din, led_cs, led_clk,
     input logic ir_signal,
-	 output logic red, green, blue // RGB LED signals
+	 output logic red, green, blue, // RGB LED signals
+	 output logic spkr
 
 );  // digit cathodes
 
@@ -41,6 +42,8 @@ module Snake (
   
   logic [15:0] grid_row;
   logic [15:0] grid_col;
+
+  logic [15:0][15:0] disp_grid;
 
   logic slow_clk; // Slower clock given to the led matrix
   logic game_clk; // Slower clock given to the game
@@ -98,6 +101,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   snakegame snakegame_0 (.direction(word), .game_clk, .reset_n, .positions, .length, .foodPos, .food_eaten, .game_over);
   MatrixDisplay MatrixDisplay_0 (.clk(slow_clk), .reset_n, .grid, .DIN(led_din), .CS(led_cs), .LED_CLK(led_clk));
   pos2grid pos2grid_0 (.pos(positions), .length, .foodPos, .grid_row, .grid_col);
+  soundgen soundgen_0 (.spkr, .clk(CLOCK_50), .reset_n, .food_eaten, .game_over);
 
   // Clock dividing logic for the matrix display
   always_ff @(posedge CLOCK_50)
@@ -120,7 +124,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   always_ff @(posedge CLOCK_50) begin
     case (state)
       START_SCREEN : begin
-        if(word == 32'h20DF####) begin
+        if(word == 32'h20DF0000) begin
           state <= next_state;
         end
         else begin
@@ -136,7 +140,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
         end
       end
       END_SCREEN : begin
-        if(word == 32'h20DF####) begin
+        if(word == 32'h20DF0000) begin
           state <= next_state;
         end
         else begin

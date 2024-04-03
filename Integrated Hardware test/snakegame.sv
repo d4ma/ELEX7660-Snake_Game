@@ -47,7 +47,7 @@ module snakegame (
                   end else begin
                     positions[0] <= positions[0] + 16;
                   end
-                end positions[0] <= positions[0] + 16;
+                end
                 LEFT : begin
                   if (positions[0] % 16 == 0) begin
                     game_over <= 1;

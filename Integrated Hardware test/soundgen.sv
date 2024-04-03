@@ -3,9 +3,7 @@
 // Author: Kento Sasaki 
 // Date: 2024-04-02
 
-module soundgen #(
-    parameter FCLK
-)  // clock frequency, Hz
+module soundgen
 (
     output logic spkr,  // speaker output
     input logic reset_n,
@@ -14,16 +12,18 @@ module soundgen #(
     input logic clk
 );  // reset and clock
 
-  parameter [31:0][1:0] FOOD_NOTES = 32'd;
+  parameter [0:2][31:0] FOOD_NOTES = {32'd262, 32'd349, 32'd491};
+  parameter [0:2][31:0] GAMEOVER_NOTES = {32'd491, 32'd349, 32'd262};
 
   logic [31:0] count;
   logic [31:0] freq;
 
-  tonegen #(50_000_000) freqgen_0 (
+  logic [0:2][31:0] notes;
+
+  freqgen #(50_000_000) freqgen_0 (
         .freq(freq),
-        .onOff(s1),
-        .spkr(spkr),
-        .reset_n(s2),
+        .out_clk(spkr),
+        .reset_n,
         .clk(clk)
     );
 
@@ -40,20 +40,50 @@ module soundgen #(
 
     if (~reset_n) begin
       count <= 0;
+      freq <= 0;
     end else begin
       case(state)
         IDLE : begin
-          if(food_eaten)
-
+          freq <= 0;
+          count <= 0;
+          if(food_eaten) begin
+            notes <= FOOD_NOTES;
+            state <= next_state;
+          end
+          else if (game_over) begin
+            notes <= GAMEOVER_NOTES;
+            state <= next_state;
+          end
         end
         FIRST_NOTE : begin
-
+          if(count < 3_000_000) begin
+            freq <= notes[0];
+            count <= count + 1;
+          end
+          else begin
+            state <= next_state;
+            count <= 0;
+          end 
         end
         SECOND_NOTE : begin
-
+          if(count < 3_000_000) begin
+            freq <= notes[1];
+            count <= count + 1;
+          end
+          else begin
+            state <= next_state;
+            count <= 0;
+          end 
         end
         THIRD_NOTE : begin
-
+          if(count < 3_000_000) begin
+            freq <= notes[2];
+            count <= count + 1;
+          end
+          else begin
+            state <= next_state;
+            count <= 0;
+          end 
         end
       endcase
     end
