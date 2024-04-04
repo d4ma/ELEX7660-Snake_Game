@@ -13,7 +13,7 @@ module snakegame (
     output logic game_over
 );
 
-    parameter [31:0] UP = 32'h20DF6A95;
+  parameter [31:0] UP = 32'h20DF6A95;
 	parameter [31:0] DOWN = 32'h20DFEA15;
 	parameter [31:0] LEFT = 32'h20DF1AE5;
 	parameter [31:0] RIGHT = 32'h20DF9A65;

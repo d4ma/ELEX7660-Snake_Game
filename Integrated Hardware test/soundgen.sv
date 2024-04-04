@@ -15,6 +15,9 @@ module soundgen
   parameter [0:2][31:0] FOOD_NOTES = {32'd262, 32'd349, 32'd491};
   parameter [0:2][31:0] GAMEOVER_NOTES = {32'd491, 32'd349, 32'd262};
 
+  logic food_eaten_prev;
+  logic game_over_prev;
+
   logic [31:0] count;
   logic [31:0] freq;
 
@@ -37,26 +40,28 @@ module soundgen
   state_t state = IDLE, next_state;
 
   always @(posedge clk) begin
-
     if (~reset_n) begin
       count <= 0;
       freq <= 0;
+      state <= IDLE;
+      food_eaten_prev <= 0;
+      game_over_prev <= 0;
     end else begin
       case(state)
         IDLE : begin
           freq <= 0;
           count <= 0;
-          if(food_eaten) begin
+          if(food_eaten & ~food_eaten_prev) begin
             notes <= FOOD_NOTES;
             state <= next_state;
           end
-          else if (game_over) begin
+          else if (game_over & ~game_over_prev) begin
             notes <= GAMEOVER_NOTES;
             state <= next_state;
           end
         end
         FIRST_NOTE : begin
-          if(count < 3_000_000) begin
+          if(count < 5_000_000) begin
             freq <= notes[0];
             count <= count + 1;
           end
@@ -66,7 +71,7 @@ module soundgen
           end 
         end
         SECOND_NOTE : begin
-          if(count < 3_000_000) begin
+          if(count < 5_000_000) begin
             freq <= notes[1];
             count <= count + 1;
           end
@@ -76,7 +81,7 @@ module soundgen
           end 
         end
         THIRD_NOTE : begin
-          if(count < 3_000_000) begin
+          if(count < 5_000_000) begin
             freq <= notes[2];
             count <= count + 1;
           end
@@ -87,7 +92,8 @@ module soundgen
         end
       endcase
     end
-
+  food_eaten_prev <= food_eaten;
+  game_over_prev <= game_over;
   end
 
   always_comb begin
