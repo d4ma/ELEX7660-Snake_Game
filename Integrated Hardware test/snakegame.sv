@@ -94,7 +94,7 @@ module snakegame (
     always_comb begin
         body_collision = 1'b0;
 
-        for (i = 1; i < 8'd255; i++) begin
+        for (i = 1; i < 8'd8; i++) begin
           if((positions[0] == positions[i]) && (i < length))
             body_collision = 1'b1;
         end

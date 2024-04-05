@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Snake
-Wed Apr 03 13:09:14 2024
+Fri Apr 05 10:06:58 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,18 +10,19 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Parameter Settings for User Entity Instance: freqgen:ir_freqgen_0
-  6. Parameter Settings for User Entity Instance: freqgen:ir_freqgen_1
-  7. Parameter Settings for User Entity Instance: irReceiver:irReceiver_0
-  8. Parameter Settings for User Entity Instance: snakegame:snakegame_0
-  9. Parameter Settings for User Entity Instance: MatrixDisplay:MatrixDisplay_0
- 10. Parameter Settings for User Entity Instance: soundgen:soundgen_0
- 11. Parameter Settings for User Entity Instance: soundgen:soundgen_0|freqgen:freqgen_0
- 12. Port Connectivity Checks: "pos2grid:pos2grid_0"
- 13. Port Connectivity Checks: "freqgen:ir_freqgen_1"
- 14. Port Connectivity Checks: "freqgen:ir_freqgen_0"
- 15. Analysis & Synthesis Messages
- 16. Analysis & Synthesis Suppressed Messages
+  5. Parameter Settings for User Entity Instance: Top-level Entity: |Snake
+  6. Parameter Settings for User Entity Instance: freqgen:ir_freqgen_0
+  7. Parameter Settings for User Entity Instance: freqgen:ir_freqgen_1
+  8. Parameter Settings for User Entity Instance: irReceiver:irReceiver_0
+  9. Parameter Settings for User Entity Instance: snakegame:snakegame_0
+ 10. Parameter Settings for User Entity Instance: MatrixDisplay:MatrixDisplay_0
+ 11. Parameter Settings for User Entity Instance: soundgen:soundgen_0
+ 12. Parameter Settings for User Entity Instance: soundgen:soundgen_0|freqgen:freqgen_0
+ 13. Port Connectivity Checks: "pos2grid:pos2grid_0"
+ 14. Port Connectivity Checks: "freqgen:ir_freqgen_1"
+ 15. Port Connectivity Checks: "freqgen:ir_freqgen_0"
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -47,7 +48,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Wed Apr 03 13:09:14 2024           ;
+; Analysis & Synthesis Status ; Failed - Fri Apr 05 10:06:57 2024           ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name               ; Snake                                       ;
 ; Top-level Entity Name       ; Snake                                       ;
@@ -163,6 +164,19 @@ refer to the applicable agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 +----------------------------+-------------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Snake ;
++----------------+----------------------------------+-------------------+
+; Parameter Name ; Value                            ; Type              ;
++----------------+----------------------------------+-------------------+
+; UP             ; 00100000110111110110101010010101 ; Unsigned Binary   ;
+; DOWN           ; 00100000110111111110101000010101 ; Unsigned Binary   ;
+; LEFT           ; 00100000110111110001101011100101 ; Unsigned Binary   ;
+; RIGHT          ; 00100000110111111001101001100101 ; Unsigned Binary   ;
++----------------+----------------------------------+-------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------------------------------------------+
@@ -298,7 +312,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Apr 03 13:08:50 2024
+    Info: Processing started: Fri Apr 05 10:06:17 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Snake -c Snake
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -321,23 +335,22 @@ Info (12021): Found 1 design units, including 1 entities, in source file matrixd
 Info (12021): Found 1 design units, including 1 entities, in source file snake.sv
     Info (12023): Found entity 1: Snake File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 6
 Info (12127): Elaborating entity "Snake" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Snake.sv(46): object "disp_grid" assigned a value but never read File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 46
-Warning (10230): Verilog HDL assignment warning at Snake.sv(121): truncated value with size 32 to match size of target (16) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 121
-Warning (10230): Verilog HDL assignment warning at Snake.sv(167): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 167
-Info (12128): Elaborating entity "decode2" for hierarchy "decode2:decode2_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 91
-Info (12128): Elaborating entity "decode7" for hierarchy "decode7:decode7_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 95
-Info (12128): Elaborating entity "freqgen" for hierarchy "freqgen:ir_freqgen_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 98
-Info (12128): Elaborating entity "irReceiver" for hierarchy "irReceiver:irReceiver_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 100
+Warning (10230): Verilog HDL assignment warning at Snake.sv(126): truncated value with size 32 to match size of target (16) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 126
+Warning (10230): Verilog HDL assignment warning at Snake.sv(172): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 172
+Info (12128): Elaborating entity "decode2" for hierarchy "decode2:decode2_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 96
+Info (12128): Elaborating entity "decode7" for hierarchy "decode7:decode7_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 100
+Info (12128): Elaborating entity "freqgen" for hierarchy "freqgen:ir_freqgen_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
+Info (12128): Elaborating entity "irReceiver" for hierarchy "irReceiver:irReceiver_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 105
 Warning (10230): Verilog HDL assignment warning at irReceiver.sv(79): truncated value with size 32 to match size of target (6) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/irReceiver.sv Line: 79
-Info (12128): Elaborating entity "snakegame" for hierarchy "snakegame:snakegame_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 101
-Warning (10230): Verilog HDL assignment warning at snakegame.sv(41): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 41
-Warning (10230): Verilog HDL assignment warning at snakegame.sv(48): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 48
-Warning (10230): Verilog HDL assignment warning at snakegame.sv(55): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 55
-Warning (10230): Verilog HDL assignment warning at snakegame.sv(62): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 62
-Warning (10762): Verilog HDL Case Statement warning at snakegame.sv(36): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 36
-Warning (10230): Verilog HDL assignment warning at snakegame.sv(68): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 68
-Warning (10230): Verilog HDL assignment warning at snakegame.sv(72): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 72
-Info (12128): Elaborating entity "MatrixDisplay" for hierarchy "MatrixDisplay:MatrixDisplay_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 102
+Info (12128): Elaborating entity "snakegame" for hierarchy "snakegame:snakegame_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 106
+Warning (10230): Verilog HDL assignment warning at snakegame.sv(53): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 53
+Warning (10230): Verilog HDL assignment warning at snakegame.sv(60): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 60
+Warning (10230): Verilog HDL assignment warning at snakegame.sv(67): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 67
+Warning (10230): Verilog HDL assignment warning at snakegame.sv(74): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 74
+Warning (10762): Verilog HDL Case Statement warning at snakegame.sv(48): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 48
+Warning (10230): Verilog HDL assignment warning at snakegame.sv(80): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 80
+Warning (10230): Verilog HDL assignment warning at snakegame.sv(84): truncated value with size 32 to match size of target (8) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/snakegame.sv Line: 84
+Info (12128): Elaborating entity "MatrixDisplay" for hierarchy "MatrixDisplay:MatrixDisplay_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 107
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(47): truncated value with size 32 to match size of target (2) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 47
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(90): truncated value with size 32 to match size of target (2) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 90
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(94): truncated value with size 32 to match size of target (2) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 94
@@ -350,47 +363,47 @@ Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(156): trunca
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(157): truncated value with size 32 to match size of target (4) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 157
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(158): truncated value with size 32 to match size of target (4) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 158
 Warning (10230): Verilog HDL assignment warning at MatrixDisplay.sv(159): truncated value with size 32 to match size of target (4) File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/MatrixDisplay.sv Line: 159
-Info (12128): Elaborating entity "pos2grid" for hierarchy "pos2grid:pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Info (12128): Elaborating entity "soundgen" for hierarchy "soundgen:soundgen_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 104
-Error (12002): Port "grid_col[0]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[10]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[11]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[12]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[13]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[14]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[15]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[1]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[2]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[3]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[4]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[5]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[6]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[7]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[8]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_col[9]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[0]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[10]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[11]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[12]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[13]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[14]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[15]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[1]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[2]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[3]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[4]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[5]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[6]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[7]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[8]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
-Error (12002): Port "grid_row[9]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 103
+Info (12128): Elaborating entity "pos2grid" for hierarchy "pos2grid:pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Info (12128): Elaborating entity "soundgen" for hierarchy "soundgen:soundgen_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 109
+Error (12002): Port "grid_col[0]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[10]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[11]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[12]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[13]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[14]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[15]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[1]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[2]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[3]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[4]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[5]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[6]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[7]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[8]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_col[9]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[0]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[10]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[11]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[12]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[13]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[14]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[15]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[1]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[2]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[3]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[4]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[5]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[6]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[7]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[8]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
+Error (12002): Port "grid_row[9]" does not exist in macrofunction "pos2grid_0" File: C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/Snake.sv Line: 108
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (144001): Generated suppressed messages file C:/Users/user/OneDrive/School/6th term/ELEX-7660/LABS/LabProject/ELEX7660-Snake_Game/Integrated Hardware test/output_files/Snake.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 32 errors, 25 warnings
-    Error: Peak virtual memory: 4785 megabytes
-    Error: Processing ended: Wed Apr 03 13:09:14 2024
-    Error: Elapsed time: 00:00:24
-    Error: Total CPU time (on all processors): 00:00:49
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 32 errors, 24 warnings
+    Error: Peak virtual memory: 4798 megabytes
+    Error: Processing ended: Fri Apr 05 10:06:58 2024
+    Error: Elapsed time: 00:00:41
+    Error: Total CPU time (on all processors): 00:01:10
 
 
 +------------------------------------------+

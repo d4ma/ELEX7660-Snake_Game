@@ -20,7 +20,7 @@ module pos2grid
         grid_col = '{default:0};
 
         // Draw the snake onto the grid
-        for (i = 0; i < 8'd255; i++) begin
+        for (i = 0; i < 8'd8; i++) begin
             if (((pos[i] >> 4) == grid_row) && (i < length))
                 grid_col[15 - pos[i]%16] = 1'b1;
         end

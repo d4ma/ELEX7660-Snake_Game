@@ -53,6 +53,7 @@ module Snake (
 	parameter [31:0] DOWN = 32'h20DFEA15;
 	parameter [31:0] LEFT = 32'h20DF1AE5;
 	parameter [31:0] RIGHT = 32'h20DF9A65;
+  parameter [31:0] ENTER = 32'h20DF5AA5;
 
   logic [15:0][15:0] START_GRID =  {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
                                     16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
@@ -129,7 +130,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   always_ff @(posedge CLOCK_50) begin
     case (state)
       START_SCREEN : begin
-        if(word == DOWN) begin
+        if(word == ENTER) begin
           state <= next_state;
         end
         else begin
@@ -145,7 +146,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
         end
       end
       END_SCREEN : begin
-        if(word == UP) begin
+        if(word == ENTER) begin
           state <= next_state;
         end
         else begin
@@ -161,10 +162,10 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   
   always_comb begin
     bit [3:0] nibble[4];
-    nibble[0]  <= 4'b0;
-    nibble[1]  <= 4'b0;
-    nibble[2]  <= score[7:4];
-    nibble[3]  <= score[3:0];
+    nibble[0]  <= word[15:12];
+    nibble[1]  <= word[11:8];
+    nibble[2]  <= word[7:4];
+    nibble[3]  <= word[3:0];
 
     disp_digit <= nibble[digit];
   end
