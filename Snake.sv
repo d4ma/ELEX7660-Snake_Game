@@ -6,14 +6,12 @@
 module Snake (
     input logic CLOCK_50,  // 50 MHz clock
     input logic reset_n,
-
     output logic [7:0] leds,  // 7-seg LED enables
     output logic [3:0] ct,
     output logic led_din, led_cs, led_clk,
     input logic ir_signal,
-	 output logic red, green, blue, // RGB LED signals
-	 output logic spkr
-
+    output logic red, green, blue,  // RGB LED signals
+    output logic spkr
 );  // digit cathodes
 
   // Define states
@@ -27,7 +25,7 @@ module Snake (
   logic [1:0] digit;  // select digit to display
   logic [3:0] disp_digit;  // current digit of count to display
   logic [15:0] clk_div_count;  // count used to divide clock
-  logic [4:0] led_clk_div_count; // count used to divide clock for led matrix
+  logic [4:0] led_clk_div_count;  // count used to divide clock for led matrix
 
   logic [15:0][15:0] grid;
   logic [255:0][7:0] positions;
@@ -39,55 +37,62 @@ module Snake (
 
   logic game_over;
   logic food_eaten;
-  
+
+  logic game_enable;
+
   logic [15:0] grid_row;
   logic [15:0] grid_col;
 
   logic [15:0][15:0] disp_grid;
 
-  logic slow_clk; // Slower clock given to the led matrix
-  logic game_clk; // Slower clock given to the game
-  logic nec_clk; // Clock given to the ir_reciever
+  logic slow_clk;  // Slower clock given to the led matrix
+  logic game_clk;  // Slower clock given to the game
+  logic nec_clk;  // Clock given to the ir_reciever
 
   parameter [31:0] UP = 32'h20DF6A95;
-	parameter [31:0] DOWN = 32'h20DFEA15;
-	parameter [31:0] LEFT = 32'h20DF1AE5;
-	parameter [31:0] RIGHT = 32'h20DF9A65;
+  parameter [31:0] DOWN = 32'h20DFEA15;
+  parameter [31:0] LEFT = 32'h20DF1AE5;
+  parameter [31:0] RIGHT = 32'h20DF9A65;
   parameter [31:0] ENTER = 32'h20DF5AA5;
+  parameter [31:0] MENU = 32'h20DFC23D;
 
-  logic [15:0][15:0] START_GRID =  {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b1_1_0_1_0_0_1_0_0_1_0_0_1_0_1_0,
-                                    16'b1_0_0_1_1_0_1_0_1_0_1_0_1_1_0_0,
-                                    16'b0_1_0_1_0_1_1_0_1_1_1_0_1_0_1_0,
-                                    16'b1_1_0_1_0_0_1_0_1_0_1_0_1_0_1_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_1_1_1_1_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_1_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_1_1_1_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_1_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_1_1_1_1_0_0_0_0_0_0};
+  logic [0:15][0:15] START_GRID = {
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b1_1_0_1_0_0_1_0_0_1_0_0_1_0_1_0,
+    16'b1_0_0_1_1_0_1_0_1_0_1_0_1_1_0_0,
+    16'b0_1_0_1_0_1_1_0_1_1_1_0_1_0_1_0,
+    16'b1_1_0_1_0_0_1_0_1_0_1_0_1_0_1_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_1_1_1_1_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_1_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_1_1_1_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_1_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_1_1_1_1_0_0_0_0_0_0
+  };
 
-logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_1_1_1_0_1_0_0_1_0_1_1_1_0_0_0,
-                                    16'b0_1_0_0_0_1_1_0_1_0_1_0_0_1_0_0,
-                                    16'b0_1_1_1_0_1_0_1_1_0_1_0_0_1_0_0,
-                                    16'b0_1_0_0_0_1_0_0_1_0_1_0_0_1_0_0,
-                                    16'b0_1_1_1_0_1_0_0_1_0_1_1_1_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
-                                    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0};
+  logic [0:15][0:15] END_GRID = {
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_1_1_1_0_1_0_0_1_0_1_1_1_0_0_0,
+    16'b0_1_0_0_0_1_1_0_1_0_1_0_0_1_0_0,
+    16'b0_1_1_1_0_1_0_1_1_0_1_0_0_1_0_0,
+    16'b0_1_0_0_0_1_0_0_1_0_1_0_0_1_0_0,
+    16'b0_1_1_1_0_1_0_0_1_0_1_1_1_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
+    16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0
+  };
 
 
   // instantiate modules to implement design
@@ -99,19 +104,62 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
       .num(disp_digit),
       .leds
   );
-  
 
-  freqgen #(50_000_000) ir_freqgen_0 (.out_clk(game_clk), .reset_n, .clk(CLOCK_50), .freq(4)); // Generate game clock
-  freqgen #(50_000_000) ir_freqgen_1 (.out_clk(nec_clk), .reset_n, .clk(CLOCK_50), .freq(17_778));  // Generate irReceiver clock
-  irReceiver irReceiver_0 (.ir_signal, .nec_clk, .word, .reset_n);
-  snakegame snakegame_0 (.direction(word), .game_clk, .reset_n, .positions, .length, .foodPos, .food_eaten, .game_over);
-  MatrixDisplay MatrixDisplay_0 (.clk(slow_clk), .reset_n, .grid(disp_grid), .DIN(led_din), .CS(led_cs), .LED_CLK(led_clk));
-  pos2grid pos2grid_0 (.pos(positions), .length, .foodPos, .grid_row, .grid_col);
-  soundgen soundgen_0 (.spkr, .clk(CLOCK_50), .reset_n, .food_eaten, .game_over);
+
+  freqgen #(50_000_000) ir_freqgen_0 (
+      .out_clk(game_clk),
+      .reset_n,
+      .clk(CLOCK_50),
+      .freq(4)
+  );  // Generate game clock
+  freqgen #(50_000_000) ir_freqgen_1 (
+      .out_clk(nec_clk),
+      .reset_n,
+      .clk(CLOCK_50),
+      .freq(17_778)
+  );  // Generate irReceiver clock
+  irReceiver irReceiver_0 (
+      .ir_signal,
+      .nec_clk,
+      .word,
+      .reset_n
+  );
+  snakegame snakegame_0 (
+      .direction(word),
+      .game_clk,
+      .reset_n,
+      .positions,
+      .length,
+      .foodPos,
+      .food_eaten,
+      .game_over,
+      .game_enable
+  );
+  MatrixDisplay MatrixDisplay_0 (
+      .clk(slow_clk),
+      .reset_n,
+      .grid(disp_grid),
+      .DIN(led_din),
+      .CS(led_cs),
+      .LED_CLK(led_clk)
+  );
+  pos2grid pos2grid_0 (
+      .pos(positions),
+      .length,
+      .foodPos,
+      .grid_row,
+      .grid_col
+  );
+  soundgen soundgen_0 (
+      .spkr,
+      .clk(CLOCK_50),
+      .reset_n,
+      .food_eaten,
+      .game_over
+  );
 
   // Clock dividing logic for the matrix display
-  always_ff @(posedge CLOCK_50)
-    led_clk_div_count <= led_clk_div_count + 1'b1;
+  always_ff @(posedge CLOCK_50) led_clk_div_count <= led_clk_div_count + 1'b1;
 
   // assign the top bit of clk_div_count as the led clock
   assign slow_clk = led_clk_div_count[4];
@@ -123,33 +171,34 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   assign digit = clk_div_count[15:14];
 
   always_ff @(posedge CLOCK_50) begin
-      grid[grid_row] <= grid_col;
-      grid_row <= grid_row + 1;
+    grid[grid_row] <= grid_col;
+    grid_row <= grid_row + 1;
   end
 
   always_ff @(posedge CLOCK_50) begin
     case (state)
-      START_SCREEN : begin
-        if(word == ENTER) begin
+      START_SCREEN: begin
+        if (word == ENTER) begin
           state <= next_state;
-        end
-        else begin
-          disp_grid <= START_GRID;
+          game_enable <= 0;
+        end else begin
+          disp_grid   <= START_GRID;
+          game_enable <= 1;
         end
       end
-      GAME_SCREEN : begin
-        if(game_over) begin
+      GAME_SCREEN: begin
+        if (game_over) begin
           state <= next_state;
-        end
-        else begin
-          disp_grid <= grid;
+        end else begin
+          disp_grid   <= grid;
+          game_enable <= 0;
         end
       end
-      END_SCREEN : begin
-        if(word == ENTER) begin
+      END_SCREEN: begin
+        if (word == ENTER) begin
           state <= next_state;
-        end
-        else begin
+          game_enable <= 0;
+        end else begin
           disp_grid <= END_GRID;
         end
       end
@@ -159,7 +208,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
 
   // Select digit to display (disp_digit)
   // Left most digit 0 display channel number and right three digits (3,2,1) display the ADC conversion result
-  
+
   always_comb begin
     bit [3:0] nibble[4];
     nibble[0]  <= word[15:12];
@@ -169,7 +218,7 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
 
     disp_digit <= nibble[digit];
   end
-  
+
   assign score = length * 5;
 
   assign {red, green, blue} = '0;
@@ -177,11 +226,11 @@ logic [15:0][15:0] END_GRID =      {16'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0,
   always_comb begin
     case (state)
       START_SCREEN: next_state = GAME_SCREEN;
-      GAME_SCREEN: next_state = END_SCREEN;
-      END_SCREEN: next_state = START_SCREEN;
+      GAME_SCREEN:  next_state = END_SCREEN;
+      END_SCREEN:   next_state = START_SCREEN;
     endcase
   end
-  
+
 endmodule
 
 
