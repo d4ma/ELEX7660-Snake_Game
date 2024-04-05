@@ -36,6 +36,15 @@ module snakegame (
             for (int i = 255; i > 0; i--)
                 positions[i] <= positions[i-1];
 
+            if(game_over) begin
+              positions <= '{default:0};
+              positions[0] <= 8'd58;
+              foodPos <= 144;
+              length <= 1;
+              game_over <= 0;
+              food_eaten <= 0;
+            end
+
             case(direction)
                 UP : begin
                   if ((positions[0] >= 0 & positions[0] <= 15) || body_collision) begin
