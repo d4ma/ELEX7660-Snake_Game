@@ -35,7 +35,6 @@ module irReceiver (
       state_duration_counter <= 0;
       buffer <= 0;
       word <= 0;
-      new_code <= 0;
     end else begin
       case (state)
         IDLE: begin

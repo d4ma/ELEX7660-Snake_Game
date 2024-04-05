@@ -10,7 +10,7 @@ module freqgen #(
     output logic out_clk,  // speaker output
     input logic reset_n,
     input logic [31:0] freq,
-    clk
+    input logic clk
 );  // reset and clock
 
   logic [31:0] countup;
