@@ -13,4 +13,9 @@ Integrated Hardware test/Snake.qsf.bak
 Integrated Hardware test/Snake.sv.bak
 Integrated Hardware test/snakegame.sv.bak
 soundgen_test/
-Snake_v2/
+Snake_v2/db/
+Snake_v2/incremental_db/
+Snake_v2/output_files/
+Snake_v2/Snake.qpf
+Snake_v2/Snake.qsf
+Snake_v2/Snake.qsf.bak
