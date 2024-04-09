@@ -2,7 +2,7 @@
 // Output signals to the Matrix display
 // Author: Bryce Adam
 // Created: Mar 05, 2024
-// Last Modified: Mar 12, 2024
+// Last Modified: Apr 9, 2024
 
 module MatrixDisplay
 (
@@ -33,12 +33,15 @@ module MatrixDisplay
     logic [7:0] start_reg;    // Startup register to use
     logic [7:0] start_com;    // Startup command to use
 
+    // States to cycle through during normal use
     enum int unsigned {start, load, transmit}
         state;
 
+    // States that control the startup sequence
     enum int unsigned {scan, decode, bright, on}
         start_state;
 
+    // Change indexes on positive edge
     always_ff @(posedge clk, negedge reset_n) begin
         if (~reset_n) begin
             databit <= 0;
@@ -124,9 +127,10 @@ module MatrixDisplay
                         DIN <= grid[grid_row][grid_col]; // Send a bit of the turn on command
                 end else begin
                     if (matrix_num < 2'b11) begin
-                        matrix_num = matrix_num + 1;
+                        matrix_num = matrix_num + 1; // Change to the next daisy chained LED matrix
                         DIN <= 0;
                     end else begin
+                        // Load in the current set of commands
                         state <= load;
                         matrix_num = matrix_num + 1;
                         DIN <= 0;
@@ -140,8 +144,6 @@ module MatrixDisplay
         end
     end
 
-    // For now set LED_CLK equal to the input clock
-    // May need to be divided or given state dependance later
     assign LED_CLK = ((state != load) && reset_n && (!reset_counter)) ? clk : 1'b0;
    
     always_comb begin
@@ -160,7 +162,7 @@ module MatrixDisplay
         endcase
     end
 
-    // Deals with startup commands
+    // Sets commands to send during the startup sequence
     always_comb begin
         case(start_state)
             scan: {start_reg, start_com} = {scan_reg, scan_all};

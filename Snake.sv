@@ -1,7 +1,7 @@
 // File: Snake.sv
 // Description: Snakegame top level module that connects submodules together
 // Author: Bryce Adam & Kento Sasaki
-// Date: 2024-04-05
+// Date: 2024-04-09
 
 module Snake (
     input logic CLOCK_50,  // 50 MHz clock
@@ -27,14 +27,14 @@ module Snake (
   logic [15:0] clk_div_count;  // count used to divide clock
   logic [4:0] led_clk_div_count;  // count used to divide clock for led matrix
 
-  logic [15:0][15:0] grid;
-  logic [255:0][7:0] positions;
+  logic [15:0][15:0] grid;  // Tells MatrixDisplay which LEDs to illuminate
+  logic [255:0][7:0] positions; // Stores the snake's head and body positions
 
   logic [31:0] word;  // word from the ir reciever
-  logic [7:0] length;
+  logic [7:0] length; // length of the snake
   logic [11:0] score;
-  logic [7:0] foodPos;
-  logic [2:0] difficulty = 3'd4;
+  logic [7:0] foodPos; 
+  logic [2:0] difficulty = 3'd4; // Sets the game speed
 
   logic game_over;
   logic food_eaten;
@@ -53,6 +53,7 @@ module Snake (
   // Clocks of each difficulty
   logic game_clk1, game_clk2, game_clk3, game_clk4, game_clk5, game_clk6;
 
+  // Codes for each button press we will use
   parameter [31:0] UP = 32'h20DF6A95;
   parameter [31:0] DOWN = 32'h20DFEA15;
   parameter [31:0] LEFT = 32'h20DF1AE5;
@@ -193,7 +194,6 @@ module Snake (
 
   // Select digit to display (disp_digit)
   // Left most digit 0 display channel number and right three digits (3,2,1) display the ADC conversion result
-
   always_comb begin
     bit [3:0] nibble[4];
     nibble[0]  <= difficulty;
