@@ -6,14 +6,12 @@
 module Snake (
     input logic CLOCK_50,  // 50 MHz clock
     input logic reset_n,
-
     output logic [7:0] leds,  // 7-seg LED enables
     output logic [3:0] ct,
     output logic led_din, led_cs, led_clk,
     input logic ir_signal,
-	 output logic red, green, blue, // RGB LED signals
-	 output logic spkr
-
+    output logic red, green, blue,  // RGB LED signals
+    output logic spkr
 );  // digit cathodes
 
   // Define states
@@ -27,7 +25,7 @@ module Snake (
   logic [1:0] digit;  // select digit to display
   logic [3:0] disp_digit;  // current digit of count to display
   logic [15:0] clk_div_count;  // count used to divide clock
-  logic [4:0] led_clk_div_count; // count used to divide clock for led matrix
+  logic [4:0] led_clk_div_count;  // count used to divide clock for led matrix
 
   logic [15:0][15:0] grid;
   logic [255:0][7:0] positions;
@@ -42,7 +40,7 @@ module Snake (
   logic food_eaten;
 
   logic game_enable;
-  
+
   logic [15:0] grid_row;
   logic [15:0] grid_col;
 
@@ -56,9 +54,9 @@ module Snake (
   logic game_clk1, game_clk2, game_clk3, game_clk4, game_clk5, game_clk6;
 
   parameter [31:0] UP = 32'h20DF6A95;
-	parameter [31:0] DOWN = 32'h20DFEA15;
-	parameter [31:0] LEFT = 32'h20DF1AE5;
-	parameter [31:0] RIGHT = 32'h20DF9A65;
+  parameter [31:0] DOWN = 32'h20DFEA15;
+  parameter [31:0] LEFT = 32'h20DF1AE5;
+  parameter [31:0] RIGHT = 32'h20DF9A65;
   parameter [31:0] ENTER = 32'h20DF5AA5;
   parameter [31:0] MENU = 32'h20DFC23D;
   parameter [15:0] ONE = 16'h8877;
@@ -116,7 +114,7 @@ module Snake (
       .num(disp_digit),
       .leds
   );
-  
+
 
   freqgen #(50_000_000) ir_freqgen_1 (.out_clk(game_clk1), .reset_n, .clk(CLOCK_50), .freq(2)); // Generate game clock1
   freqgen #(50_000_000) ir_freqgen_2 (.out_clk(game_clk2), .reset_n, .clk(CLOCK_50), .freq(4)); // Generate game clock2
@@ -132,8 +130,7 @@ module Snake (
   soundgen soundgen_0 (.spkr, .clk(CLOCK_50), .reset_n, .food_eaten, .game_over);
 
   // Clock dividing logic for the matrix display
-  always_ff @(posedge CLOCK_50)
-    led_clk_div_count <= led_clk_div_count + 1'b1;
+  always_ff @(posedge CLOCK_50) led_clk_div_count <= led_clk_div_count + 1'b1;
 
   // assign the top bit of clk_div_count as the led clock
   assign slow_clk = led_clk_div_count[4];
@@ -145,14 +142,14 @@ module Snake (
   assign digit = clk_div_count[15:14];
 
   always_ff @(posedge CLOCK_50) begin
-      grid[grid_row] <= grid_col;
-      grid_row <= grid_row + 1;
+    grid[grid_row] <= grid_col;
+    grid_row <= grid_row + 1;
   end
 
   always_ff @(posedge CLOCK_50) begin
     case (state)
-      START_SCREEN : begin
-        if(word == ENTER) begin
+      START_SCREEN: begin
+        if (word == ENTER) begin
           state <= next_state;
 			    game_enable <= 1;
         end
@@ -173,8 +170,8 @@ module Snake (
           game_enable <= 0;
         end
       end
-      GAME_SCREEN : begin
-        if(game_over) begin
+      GAME_SCREEN: begin
+        if (game_over) begin
           state <= next_state;
           game_enable <= 0;
         end
@@ -185,8 +182,8 @@ module Snake (
       END_SCREEN : begin
         if(word == MENU) begin
           state <= next_state;
-        end
-        else begin
+          game_enable <= 0;
+        end else begin
           disp_grid <= END_GRID;
         end
       end
@@ -196,7 +193,7 @@ module Snake (
 
   // Select digit to display (disp_digit)
   // Left most digit 0 display channel number and right three digits (3,2,1) display the ADC conversion result
-  
+
   always_comb begin
     bit [3:0] nibble[4];
     nibble[0]  <= difficulty;
@@ -231,5 +228,5 @@ module Snake (
         default : game_clk = game_clk2;
       endcase
   end
-  
+
 endmodule
