@@ -6,6 +6,7 @@
 module snakegame (
     input logic [31:0] direction,
     input logic game_clk, reset_n,
+    input logic game_enable,
     output logic [255:0][7:0] positions,
     output logic [7:0] length,
     output logic [7:0] foodPos,
@@ -26,7 +27,7 @@ module snakegame (
         if(~reset_n) begin
             positions <= '{default:0};
             positions[0] <= 8'd58;
-            foodPos <= 144;
+            foodPos <= 147;
             length <= 1;
 				    game_over <= 0;
 				    food_eaten <= 0;
@@ -45,6 +46,7 @@ module snakegame (
               food_eaten <= 0;
             end
 
+            if (game_enable) begin 
             case(direction)
                 UP : begin
                   if ((positions[0] >= 0 & positions[0] <= 15) || body_collision) begin
@@ -74,7 +76,7 @@ module snakegame (
                     positions[0] <= positions[0] + 1;
                   end
                 end 
-                default : positions[0] <= positions[0];
+                default : positions[0] <= positions[0] + 16;
             endcase
 				
 			foodPos_next <= foodPos_next + 7;
@@ -89,12 +91,13 @@ module snakegame (
             end
         end
     end
+    end
 
     // Check for body collisions
     always_comb begin
         body_collision = 1'b0;
 
-        for (i = 1; i < 8'd8; i++) begin
+        for (i = 1; i < 8'd255; i++) begin
           if((positions[0] == positions[i]) && (i < length))
             body_collision = 1'b1;
         end
