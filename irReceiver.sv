@@ -1,9 +1,13 @@
-
+// irReceiver.sv
+// Description: Decodes NEC IR signals
+// Author: Kento Sasaki
+// Created: Mar 28, 2024
+// Last Modified: Mar 28, 2024
 module irReceiver (
-    input logic ir_signal,
-    input logic reset_n,
-    output logic [31:0] word,
-    input logic nec_clk
+    input logic ir_signal,      // Input signal from the IR receiver
+    input logic reset_n,        // Reset signal
+    output logic [31:0] word,   // Output word containing decoded data
+    input logic nec_clk         // Clock signal for NEC protocol
 );
 
   // Define states
@@ -14,23 +18,25 @@ module irReceiver (
     READ_BITS,
     END_STATE
   } state_t;
-  state_t state = IDLE, next_state;
+  state_t state = IDLE, next_state;     // State variables
 
-  logic prev_ir_signal;
-  logic [31:0] bit_duration_counter;
-  logic [31:0] state_duration_counter;
+  logic prev_ir_signal;                 // Last value of IR signal
+  logic [31:0] bit_duration_counter;    // Counter for bit duration
+  logic [31:0] state_duration_counter;  // Counter for state duration
 
-  logic [31:0] buffer;
-  logic [5:0] bit_count;
+  logic [31:0] buffer;                  // Buffer to store decoded bits
+  logic [5:0] bit_count;                // Counter for number of bits decoded
 
+  // Define IR remote control codes
   parameter [31:0] UP = 32'h20DF6A95;
   parameter [31:0] DOWN = 32'h20DFEA15;
   parameter [31:0] LEFT = 32'h20DF1AE5;
   parameter [31:0] RIGHT = 32'h20DF9A65;
 
-  // State register and next state logic
+  // State register and state machine logic
   always_ff @(posedge nec_clk) begin
     if (~reset_n) begin
+      // Initialize state and counters on reset
       state <= IDLE;
       state_duration_counter <= 0;
       buffer <= 0;
@@ -38,13 +44,16 @@ module irReceiver (
     end else begin
       case (state)
         IDLE: begin
+          // Transition to START_LOW state when IR signal goes low
           if (!ir_signal & prev_ir_signal) begin
             state <= next_state;
             state_duration_counter <= 0;
           end
         end
         START_LOW: begin
+          // Wait for a specific duration for START_LOW state
           if (state_duration_counter < 165) begin
+            // Check for START_HIGH condition
             if (state_duration_counter > 155 & ~prev_ir_signal & ir_signal) begin
               state <= next_state;
               state_duration_counter <= 0;
@@ -52,11 +61,14 @@ module irReceiver (
               state_duration_counter <= state_duration_counter + 1;
             end
           end else begin
+            // Return to IDLE state if duration exceeds threshold
             state <= IDLE;
           end
         end
         START_HIGH: begin
+          // Wait for a specific duration for START_HIGH state
           if (state_duration_counter < 85) begin
+            // Check for READ_BITS condition
             if (state_duration_counter > 75 & prev_ir_signal & ~ir_signal) begin
               state <= next_state;
               state_duration_counter <= 0;
@@ -66,25 +78,31 @@ module irReceiver (
               state_duration_counter <= state_duration_counter + 1;
             end
           end else begin
+            // Return to IDLE state if duration exceeds threshold
             state <= IDLE;
           end
         end
         READ_BITS: begin
+          // Wait for a specific duration and decode bits
           if (state_duration_counter < 1280 & bit_duration_counter < 35) begin
             state_duration_counter <= state_duration_counter + 1;
 
+            // Update bit duration counter
             if (ir_signal) bit_duration_counter <= bit_duration_counter + 1;
             else if (prev_ir_signal) begin
+              // Store decoded bit into buffer
               buffer <= {buffer[30:0], bit_duration_counter >= 20 ? 1'b1 : 1'b0};
               bit_count <= bit_count + 1;
               bit_duration_counter <= 0;
             end
-
+            // Check if all bits are decoded
             if (bit_count > 31) begin
+              // Output the decoded word
               word  <= buffer;
               state <= next_state;
             end
           end else begin
+            // Return to IDLE state if duration exceeds threshold
             state <= IDLE;
             state_duration_counter <= 0;
             bit_count <= 0;
@@ -92,6 +110,7 @@ module irReceiver (
           end
         end
         END_STATE: begin
+          // Transition back to IDLE state when last IR signal goes back to idle state
           if (ir_signal) state <= next_state;
         end
       endcase
@@ -99,7 +118,7 @@ module irReceiver (
     prev_ir_signal <= ir_signal;
 
   end
-
+  // Define next state based on current state
   always_comb begin
     case (state)
       IDLE: next_state = START_LOW;

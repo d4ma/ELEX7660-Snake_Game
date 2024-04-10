@@ -1,15 +1,15 @@
 // File: freqgen.sv
-// Description: toggles the nec_clk output at a desired frequency
+// Description: toggles the out_clk output at a desired frequency
 // Author: Kento Sasaki 
-// Date: 2024-02-03
+// Date: 2024-04-09
 
 module freqgen #(
     parameter FCLK
 )  // clock frequency, Hz
 (
-    output logic out_clk,  // speaker output
+    output logic out_clk,  // frequency output
     input logic reset_n,
-    input logic [31:0] freq,
+    input logic [31:0] freq, // desired frequency
     input logic clk
 );  // reset and clock
 
